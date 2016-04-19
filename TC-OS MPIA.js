@@ -1,18 +1,18 @@
-"use strict";
-var version = 0.1;
+        //Put code in accessible place, then replace this with <script src = "LINK TO CODE"><\script> To make this easy, and not take up so much space.
+        var version = 0.1;
 var storyLineBegan = false;
 var enemyDefense;
 var enemyAttack;
-var gold = 10;
-var attack = 10;
-var defense = 10;
+gold = 10;
+attack = 10;
+defense = 10;
 var wizardMagic;
 var backstory;
 var enemyHealth;
-var health = 10;
+health = 10;
 var playerAttack;
 var enemyAttack2;
-var maxHealth = 10;
+maxHealth = 10;
 var distance;
 var travelingSpeed = 10;
 var distanceToNok = 50;
@@ -24,6 +24,7 @@ var travelingSpeedOriginal;
 var magicDamage;
 var goldChance = 0.20;
 var nokBurned = false;
+var saved;
 clicks = 0;
 var travel = {
     place: 'Nok'
@@ -31,18 +32,24 @@ var travel = {
 var criticalChance = Math.floor(Math.random() * 5);
 var ambushArgoT = false;
 
+function credits() {
+    alert("Created by Tyler Knowlton.");
+    alert("Story by Noah Stiegler");
+    alert("Coded by Tyler.");
+}
+
 function options() {
     clicks = clicks + 1;
     if (clicks >= 10) {
-        window.alert("Wow. You really want an options menu. Well TOO BAD! This is a text adventure, not some panzie FPS. This, is for hardcore gamers, who don't need \"Configurations\" or \"Gaming PCS\". This is FOR REAL MEN... or women. Gender Equality. YOU WILL BE DRILLED TO YOUR CORE, HEADING INTO THE DARK UNKOWN, WITH ONLY YOUR WITS AND AN INVENTORY TO GUIDE YOU. YOU WILL SURVIVE. YOU WILL... Well, you've been eaten by a grue. Goodbye.");
+        alert("Wow. You really want an options menu. Well TOO BAD! This is a text adventure, not some panzie FPS. This, is for hardcore gamers, who don't need \"Configurations\" or \"Gaming PCS\". This is FOR REAL MEN... or women. Gender Equality. YOU WILL BE DRILLED TO YOUR CORE, HEADING INTO THE DARK UNKOWN, WITH ONLY YOUR WITS AND AN INVENTORY TO GUIDE YOU. YOU WILL SURVIVE. YOU WILL... Well, you've been eaten by a grue. Goodbye.");
     } else {
         var fov = prompt("Set your FOV. Pick a number between -1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 and 10000000000000000000000000000000000000000000000000000000000000000000000000000000");
-        window.alert("This is a text adventure game, so I will disable the FOV. I do admire your courage, for picking " + fov + ".");
+        alert("This is a text adventure game, so I will disable the FOV. I do admire your courage, for picking " + fov + ".");
     }
 }
 
 function difficultySet() {
-    var difficulty = window.prompt("Easy, Medium, Hard, or Insane?");
+    var difficulty = prompt("Easy, Medium, Hard, or Insane?");
     switch (difficulty) {
         case 'Easy':
             gold = 20;
@@ -50,13 +57,13 @@ function difficultySet() {
             defense = 14;
             health = 20;
             maxHealth = 20;
-            window.alert("Difficulty set to easy.");
-                break;
+            alert("Difficulty set to easy.");
+            break;
         case 'Medium':
-            window.alert("Difficulty set to medium.");
+            alert("Difficulty set to medium.");
             break;
         case 'Hard':
-            window.alert("Difficulty set to Hard.");
+            alert("Difficulty set to Hard.");
             gold = 7;
             attack = 7;
             defense = 7;
@@ -64,7 +71,7 @@ function difficultySet() {
             maxHealth = 7;
             break;
         case 'Insane':
-            window.alert("Difficulty set to Insane.");
+            alert("Difficulty set to Insane.");
             gold = 5;
             attack = 5;
             defense = 5;
@@ -72,21 +79,23 @@ function difficultySet() {
             maxHealth = 5;
             break;
         default:
-            window.alert("I'm sorry, I couldn't recognize that. Please type it exactly as spelled, and it's case sensitive, so type it with the exact capital letters.");
+            alert("I'm sorry, I couldn't recognize that. Please type it exactly as spelled, and it's case sensitive, so type it with the exact capital letters.");
             break;
     }
 }
 
 function begin() {
-  console.log("Working...");
-   
+    clear();
+    //The start. It presents you with a choice of person.
+    document.write("You are a...")
+    document.write("<p><button onClick = \"merchant()\">Merchant</button><button onClick = \"guard()\">Guard</button><button onClick = \"wizard()\">Wizard</button></p>");
 }
 
 function merchant() {
     backstory = "Merchant";
     //You get plus gold, then goes to Argo.
     clear();
-    document.innerHTML = "You are a merchant. +25 gold.";
+    document.write("You are a merchant. +25 gold.");
     gold = gold + 25;
     again();
 
@@ -96,114 +105,60 @@ function guard() {
     //Get plus 2 attack and defense, then go to argo.
     clear();
     backstory = "Guard";
-    document.innerHTML = "You are a guard. +2 to attack and defense.";
+    document.write("You are a guard. +2 to attack and defense.");
     attack = attack + 2;
     defense = defense + 2;
     again();
-}
+};
 
 function wizard() {
     //Gain magic, which will be used later.
     backstory = "Wizard";
     clear();
-    document.innerHTML = "You are a wizard. You now have a magic attack.";
+    document.write("You are a wizard. You now have a magic attack.");
     wizardMagic = true;
     again();
-}
+};
 
 function clear() {
     //clears the page when called.
     document.body.innerHTML = '';
-}
+};
 
 function again() {
     //Presents you choices to do stuff in argo.
-    document.innerHTML = document.innerHTML + "<p>You are in the town of Argo.</p>";
-    document.innerHTML = document.innerHTML + "<button onClick = \"exploreArgo()\">Explore</button><button onClick = \"shopArgo()\">Shop</button><button onClick = \"leaveArgo()\">Travel to Nok</button>";
-}
+    document.write("<p>You are in the town of Argo.</p>");
+    document.write("<button onClick = \"exploreArgo()\">Explore</button><button onClick = \"shopArgo()\">Shop</button><button onClick = \"leaveArgo()\">Travel to Nok</button>");
+};
 
 function exploreArgo() {
     //If you decide to explore, you are given the choice to go to an alley.
-    generateExplore();
-}
-
-function generateExplore(){
-    random = Math.floor(Math.random()* 10);
-    switch(random){
-        case 1:
-            if (ambushArgoT === true) {
+    if (ambushArgoT === true) {
         //If you've already been ambushed, it tells you there's nothing there.
-        document.innerHTML = "<p>Nothing...</p>";
+        document.write("<p>You\'ve already explored the alley.</p>");
     } else if (ambushArgoT === false) {
         clear();
         //If you haven't been ambushed or left the alley but decide to come back, then it loads the same choice as above.
-        document.innerHTML = "You find a small alley.";
-        document.innerHTML = document.innerHTML + "<p><button onClick = \"ambushArgo()\">Explore Alley</button><button onClick = \"again()\">Leave the alley</button></p>";
-    }
-            break;
-        case 2:
-            clear();
-            document.innerHTML = "You find a pair of gamblers. They invite you to play a game of cards with them.";
-            document.innerHTML = document.innerHTML + "<p><button onClick = \"gamble()\">Accept</button><button onClick = \"again()\">Reject</button></p>";
-            break;
-        case 3:
-            break;
-        case 4:
-            break;
-        case 5:
-            break;
-        case 6:
-            break;
-        case 7:
-            break;
-        case 8:
-            break;
-        case 9:
-            break;
-        case 10:
-            break;
-    }
-}
-
-function gamble(){
-    clear();
-    document.innerHTML = "You are gambling. Here's how the game works: You put in 5 gold. A ball rolls. If it lands closest to your side, you gain 10 gold. If it doesn't, then you lose 5 gold. <p><button onClick = \"gambleGo()\">Continue Gambling</button><button onClick = \"again()\">Stop gambling</button></p>";
-}
-
-function gambleGo(){
-    if(gold <= 0){
-        window.alert("You can't gamble anymore! You've run out of gold!");
-        again();
-    } else if(gold >= 100){
-        window.alert("Enraged at your wealth, the gamblers kick you out!");
-        again();
-    } else {
-        chances = Math.floor(Math.random() * 200);
-        if(chances > 120){
-            gold = gold + 10;
-            alert("You won 10 gold!");
-        } else if(chances <= 120){
-            gold = gold - 5;
-            alert("You lost 5 gold!");
-        }
+        document.write("You find a small alley.");
+        document.write("<p><button onClick = \"ambushArgo()\">Explore Alley</button><button onClick = \"again()\">Leave the alley</button></p>");
     }
 }
 
 function shopArgo() {
     //A shop with materials, that have buttons that allow you to upgrade your sword.
     clear();
-    document.innerHTML = "You have " + gold + " gold. What would you like to purchase?";
-    document.innerHTML = document.innerHTML + "<p><button onClick = \"armorArgo()\">Armor $20</button><button onClick = \"swordArgo()\">Sword $20</button><button onClick = \"healthArgo()\">Restore Health $10</button><button onClick = \"again()\">Leave</button></p>";
-}
+    document.write("You have " + gold + " gold. What would you like to purchase?")
+    document.write("<p><button onClick = \"armorArgo()\">Armor $20</button><button onClick = \"swordArgo()\">Sword $20</button><button onClick = \"healthArgo()\">Restore Health $10</button><button onClick = \"again()\">Leave</button></p>");
+};
 
 function swordArgo() {
     //Sword purchasing.
     if (swordPurchase === false) {
         if (gold < 20) {
-            document.innerHTML = document.innerHTML + "You don't have enough.";
+            document.write("You don't have enough.");
             again();
         } else {
-            window.alert("You purchased a sword! + 3 attack!");
+            alert("You purchased a sword! + 3 attack!");
             attack = attack + 3;
             gold = gold - 20;
             again();
@@ -211,26 +166,26 @@ function swordArgo() {
         }
     } else if (!swordPurchase) {
         if (gold < 20) {
-            document.innerHTML = document.innerHTML + "<p>You don't have enough.</p>";
+            document.write("<p>You don't have enough.</p>");
             again();
         } else {
-            window.alert("You purchased a sword! + 3 attack!");
+            alert("You purchased a sword! + 3 attack!");
             attack = attack + 3;
             gold = gold - 20;
             again();
             swordPurchase = true;
         }
     } else {
-        document.innerHTML = document.innerHTML + "You already purchased a sword.";
+        document.write("You already purchased a sword.");
         again();
     }
-}
+};
 
 function armorArgo() {
     //armor purchasing
     if (armorPurchase === false) {
         if (gold < 20) {
-            document.innerHTML = "You can't afford that!";
+            document.write("You can't afford that!");
             again();
         } else {
             gold = gold - 20;
@@ -241,7 +196,7 @@ function armorArgo() {
         }
     } else if (!armorPurchase) {
         if (gold < 20) {
-            document.innerHTML = document.innerHTML + "You can't afford that!";
+            document.write("You can't afford that!");
             again();
         } else {
             gold = gold - 20;
@@ -251,47 +206,47 @@ function armorArgo() {
             armorPurchase = true;
         }
     } else {
-        document.innerHTML = document.innerHTML + "<p>You've already purchased armor!</p>";
+        document.write("<p>You've already purchased armor!</p>");
         again();
     }
-}
+};
 
 function healthArgo() {
     //restores health
     if (maxHealth === health) {
-        document.innerHTML = document.innerHTML + "You're at full health!";
+        document.write("You're at full health!");
         again();
     } else {
         if (gold < 10) {
-            document.innerHTML = document.innerHTML + "You can't afford that!";
+            document.write("You can't afford that!");
             again();
         } else {
             gold = gold - 10;
             health = maxHealth;
-            document.innerHTML = document.innerHTML + "Health restored!";
+            document.write("Health restored!");
             again();
         }
     }
-}
+};
 
 function leaveArgo() {
     //Presents you with the leave choice.
-    window.alert("You leave Argo.");
+    document.write("You leave Argo.");
     if (nokBurned === true) {
-        document.innerHTML = "<p><button onClick = \"travelJudalSet()\">Judal</button><button onClick = \"travelNokSet()\">Nok</button><button onClick = \"again()\">Stay</button></p>";
+        document.write("<p><button onClick = \"travelJudalSet()\">Judal</button><button onClick = \"travelNokSet()\">Nok</button><button onClick = \"again()\">Stay</button></p>");
     } else {
         distance = distanceToNok;
         destination = 'Nok';
         clear();
-        document.innerHTML = "<p>The only nearby town is the town of Nok. Do you wish to travel there?</p>";
-        document.innerHTML = document.innerHTML + "<p><button onClick = \"travelNok()\">Yes</button><button onClick = \"again()\">No</button></p>";
+        document.write("<p>The only nearby town is the town of Nok. Do you wish to travel there?</p>");
+        document.write("<p><button onClick = \"travelNok()\">Yes</button><button onClick = \"again()\">No</button></p>");
     }
-}
+};
 
 function ambushArgo() {
     //Attacked.
     clear();
-    document.innerHTML = "You are attacked by thugs!";
+    document.write("You are attacked by thugs!");
     var attacked = true;
     enemyHealth = 5;
     enemyDefense = 5;
@@ -299,9 +254,9 @@ function ambushArgo() {
     while (attacked === true) {
         if (enemyHealth <= 0) {
             attacked = false;
-            window.alert('You win! + 10 gold!');
+            alert('You win! + 10 gold!');
             gold = gold + 10;
-            ambushArgoT = true;
+            ambushArgo = true;
             if (health > maxHealth) {
                 health = maxHealth;
             }
@@ -313,17 +268,17 @@ function ambushArgo() {
             defense = 10;
             wizardMagic = false;
             attacked = false;
-            window.alert("You are dead.");
+            alert("You are dead.");
             death();
         } else {
             criticalChance = Math.floor(Math.random() * 5);
             playerAttack = attack + criticalChance - enemyDefense;
             enemyHealth = enemyHealth - playerAttack;
-            window.alert("You did " + playerAttack + " damage!");
-            window.alert("The enemy health is now " + enemyHealth + "!");
+            alert("You did " + playerAttack + " damage!");
+            alert("The enemy health is now " + enemyHealth + "!");
             if (enemyHealth <= 0) {
                 attacked = false;
-                window.alert('You win! + 10 gold!');
+                alert('You win! + 10 gold!');
                 gold = gold + 10;
                 ambushArgoT = true;
                 if (health > maxHealth) {
@@ -334,38 +289,38 @@ function ambushArgo() {
                 criticalChance = Math.floor(Math.random() * 5);
                 enemyAttack2 = enemyAttack + criticalChance - defense;
                 if (enemyAttack2 < 0) {
-                    window.alert("The enemy attack did nothing...");
+                    alert("The enemy attack did nothing...");
                 } else {
                     health = health - enemyAttack2;
-                    window.alert("The enemy did " + enemyAttack2 + "!");
-                    window.alert("You are now at " + health + " hit points!");
+                    alert("The enemy did " + enemyAttack2 + "!");
+                    alert("You are now at " + health + " hit points!");
                 }
             }
         }
     }
-}
+};
 
 function travelNok() {
     //Traveling to Nok.
     clear();
-    document.innerHTML = "You are now traveling to " + destination + ". There are " + distance + " miles left. Your traveling speed is " + travelingSpeed + " miles per day.";
-    document.innerHTML = document.innerHTML + "<p><button onClick = \"travelEventNok()\">Time Passes</button></p>";
+    document.write("You are now traveling to " + destination + ". There are " + distance + " miles left. Your traveling speed is " + travelingSpeed + " miles per day.");
+    document.write("<p><button onClick = \"travelEventNok()\">Time Passes</button></p>");
     if (distance <= 0) {
         clear();
-        document.innerHTML = "You have arrived at " + destination + "!";
-        document.innerHTML = document.innerHTML + "<p><button onClick = \"arrivePlace()\">Enter</button></p>";
+        document.write("You have arrived at " + destination + "!");
+        document.write("<p><button onClick = \"arrivePlace()\">Enter</button></p>")
     }
-}
+};
 
 function travelEventNok() {
     //Creates random events for stuff to happen.
-    var travelEvent = Math.floor(Math.random() * 100);
+    var travelEvent = Math.floor(Math.random() * 100)
     if (travelEvent >= 50) {
         distance = distance - travelingSpeed;
         storylineStart();
         travelNok();
     } else {
-        var travelEventBad = Math.floor(Math.random() * 5);
+        var travelEventBad = Math.floor(Math.random() * 5)
         switch (travelEventBad) {
             case 0:
                 attackBandits();
@@ -395,38 +350,33 @@ function travelEventNok() {
                 break;
         }
     }
-}
-
-function wizardTower(){
-    clear();
-    document.innerHTML = "You are walking along the road, when suddenly, a miniscule tower blocks";
-}
+};
 
 function arriveNok() {
     if (storyLineBegan === true) {
         clear();
-        document.innerHTML = "There\'s lots of fire everywhere. A guard lets you into the gates.";
-        document.innerHTML = document.innerHTML = document.innerHTML + "<p>The city of Nok is in flames. A burning building rumbles and shakes, with screams coming from inside. A demon emerges, flattening the building, and it swings a mighty claw...</p>";
+        document.write("There\'s lots of fire everywhere. A guard lets you into the gates.");
+        document.write("<p>The city of Nok is in flames. A burning building rumbles and shakes, with screams coming from inside. A demon emerges, flattening the building, and it swings a mighty claw...</p>");
         storylineDemon();
     } else if (storyLineBegan === false) {
         clear();
-        document.innerHTML = "You are in the town of Nok. The gates are barred. You must have missed a plot device.";
-        document.innerHTML = document.innerHTML + "<p><button onClick = \"travelArgo()\">Go to Argo</button></p>";
+        document.write("You are in the town of Nok. The gates are barred. You must have missed a plot device.");
+        document.write("<p><button onClick = \"travelArgo()\">Go to Argo</button></p>");
     }
-}
+};
 
 function travelArgo() {
     distance = distanceToArgo;
     destination = 'Argo';
     travel.place = 'Argo';
     travelNok();
-}
+};
 
 function attackBandits() {
     clear();
     //Bandit attack
     distance = distance - 10;
-    window.alert("You are attacked by bandits!");
+    alert("You are attacked by bandits!");
     attacked = true;
     enemyHealth = 10;
     enemyDefense = 8;
@@ -434,7 +384,7 @@ function attackBandits() {
     while (attacked === true) {
         if (enemyHealth <= 0) {
             attacked = false;
-            window.alert('You win! + 10 gold!');
+            alert('You win! + 10 gold!');
             gold = gold + 10;
             if (health > maxHealth) {
                 health = maxHealth;
@@ -442,17 +392,17 @@ function attackBandits() {
             travelNok();
         } else if (health <= 0) {
             attacked = false;
-            window.alert("You are dead.");
+            alert("You are dead.");
             death();
         } else {
             criticalChance = Math.floor(Math.random() * 5);
             playerAttack = attack + criticalChance - enemyDefense;
             enemyHealth = enemyHealth - playerAttack;
-            window.alert("You did " + playerAttack + " damage!");
-            window.alert("The enemy health is now " + enemyHealth + "!");
+            alert("You did " + playerAttack + " damage!");
+            alert("The enemy health is now " + enemyHealth + "!");
             if (enemyHealth <= 0) {
                 attacked = false;
-                window.alert('You win! + 10 gold!');
+                alert('You win! + 10 gold!');
                 gold = gold + 10;
                 if (health > maxHealth) {
                     health = maxHealth;
@@ -462,32 +412,32 @@ function attackBandits() {
                 criticalChance = Math.floor(Math.random() * 5);
                 enemyAttack2 = (enemyAttack + criticalChance) - defense;
                 if (enemyAttack2 < 0) {
-                    window.alert("The enemy attack did nothing...");
+                    alert("The enemy attack did nothing...");
                 } else {
                     health = health - enemyAttack2;
-                    window.alert("The enemy did " + enemyAttack2 + "!");
-                    window.alert("You are now at " + health + " hit points!");
+                    alert("The enemy did " + enemyAttack2 + "!");
+                    alert("You are now at " + health + " hit points!");
                 }
                 if (health > maxHealth) {
                     health = maxHealth;
-                    window.alert("You went over " + maxHealth + "! Resetting health...");
+                    alert("You went over " + maxHealth + "! Resetting health...");
                 }
             }
         }
     }
-}
+};
 
 function cave() {
     //Presents you a choice to go inside a cave or not.
     clear();
     distance = distance - travelingSpeed;
-    document.innerHTML = "You have found a cave!";
-    document.innerHTML = document.innerHTML + "<p>Do you wish to go inside?</p>";
-    document.innerHTML = document.innerHTML + "<p><button onClick = \"goCave()\">Yes</button><button onClick = \"travelNok()\">No</button></p>";
-}
+    document.write("You have found a cave!");
+    document.write("<p>Do you wish to go inside?</p>");
+    document.write("<p><button onClick = \"goCave()\">Yes</button><button onClick = \"travelNok()\">No</button></p>");
+};
 
 function attackBanditsCave() {
-    window.alert("Bandit Lair! Watch out!");
+    alert("Bandit Lair! Watch out!");
     clear();
     //Bandit attack
     attacked = true;
@@ -497,7 +447,7 @@ function attackBanditsCave() {
     while (attacked === true) {
         if (enemyHealth <= 0) {
             attacked = false;
-            window.alert('You win! + 10 gold!');
+            alert('You win! + 10 gold!');
             gold = gold + 10;
             if (health > maxHealth) {
                 health = maxHealth;
@@ -510,17 +460,17 @@ function attackBanditsCave() {
             attack = 10;
             defense = 10;
             wizardMagic = false;
-            window.alert("You are dead.");
+            alert("You are dead.");
             death();
         } else {
             criticalChance = Math.floor(Math.random() * 5);
             playerAttack = attack + criticalChance - enemyDefense;
             enemyHealth = enemyHealth - playerAttack;
-            window.alert("You did " + playerAttack + " damage!");
-            window.alert("The enemy health is now " + enemyHealth + "!");
+            alert("You did " + playerAttack + " damage!");
+            alert("The enemy health is now " + enemyHealth + "!");
             if (enemyHealth <= 0) {
                 attacked = false;
-                window.alert('You win! + 10 gold!');
+                alert('You win! + 10 gold!');
                 gold = gold + 10;
 
                 if (health > maxHealth) {
@@ -531,72 +481,72 @@ function attackBanditsCave() {
                 criticalChance = Math.floor(Math.random() * 5);
                 enemyAttack2 = (enemyAttack + criticalChance) - defense;
                 if (enemyAttack2 < 0) {
-                    window.alert("The enemy attack did nothing...");
+                    alert("The enemy attack did nothing...");
                 } else {
                     health = health - enemyAttack2;
-                    window.alert("The enemy did " + enemyAttack2 + "!");
-                    window.alert("You are now at " + health + " hit points!");
+                    alert("The enemy did " + enemyAttack2 + "!");
+                    alert("You are now at " + health + " hit points!");
                 }
                 if (health > maxHealth) {
                     health = maxHealth;
-                    window.alert("You went over " + maxHealth + "! Resetting health...");
+                    alert("You went over " + maxHealth + "! Resetting health...");
                 }
             }
         }
     }
-}
+};
 
 function goCave() {
-    /*Creates a cave, which pulls up a table of random events.
-    You go inside the cave. */
+    //Creates a cave, which pulls up a table of random events.
+    //You go inside the cave. 
     clear();
-    document.innerHTML = "You enter the cave.";
+    document.write("You enter the cave.");
     caveRandom();
-}
+};
 
 function caveRandom() {
     //Is the table which pulls up the events.
-    var caveEvent = Math.floor(Math.random() * 5);
+    var caveEvent = Math.floor(Math.random() * 5)
     switch (caveEvent) {
         case 0:
-            document.innerHTML = document.innerHTML + "Nothing... <p><button onClick = \"travelNok()\">Leave</button></p>";
+            document.write("Nothing... <p><button onClick = \"travelNok()\">Leave</button></p>");
             break;
         case 1:
             gold = gold + 10;
-            document.innerHTML = document.innerHTML + "You find treasure! + 10 gold! <p><button onClick = \"travelNok()\">Leave</button></p>";
+            document.write("You find treasure! + 10 gold! <p><button onClick = \"travelNok()\">Leave</button></p>");
             break;
         case 2:
-            document.innerHTML = document.innerHTML + "Bandit lair! Watch out!";
+            document.write("Bandit lair! Watch out!");
             attackBanditsCave();
             break;
         case 3:
-            document.innerHTML = document.innerHTML + "Bandit lair! Watch out!";
+            document.write("Bandit lair! Watch out!");
             attackBanditsCave();
             break;
         case 4:
-            document.innerHTML = document.innerHTML + "You find shoes of running! +5 to traveling speed! <p><button onClick = \"travelNok()\">Leave</button></p>";
+            document.write("You find shoes of running! +5 to traveling speed! <p><button onClick = \"travelNok()\">Leave</button></p>");
             travelingSpeed = travelingSpeed + 5;
             break;
         default:
-            window.alert("Nothing...");
+            alert("Nothing...");
             travelNok();
             break;
 
     }
-}
+};
 
 function storylineStart() {
     if (storyLineBegan === true) {
         travelNok();
     } else {
         clear();
-        document.innerHTML = "You find an old man running towards Nok with a letter in his hand. He collapses. You feel compelled to open the note. <p><button onClick = \"pickNote()\">Pick Up Note</button><button onClick = \"butt()\")\">Don't Pick Up Note</button></p>";
+        document.write("You find an old man running towards Nok with a letter in his hand. He collapses. You feel compelled to open the note. <p><button onClick = \"pickNote()\">Pick Up Note</button><button onClick = \"butt()\")\">Don't Pick Up Note</button></p>");
     }
-}
+};
 
 function butt() {
-    document.innerHTML = document.innerHTML + "<p>A butthurt developer wants you to go pick up the note.</p>";
-}
+    document.write("<p>A butthurt developer wants you to go pick up the note.</p>");
+};
 
 function arrivePlace() {
     switch (destination) {
@@ -616,25 +566,25 @@ function arrivePlace() {
             arriveNokBurned();
             break;
         default:
-            window.alert("You... um... well... there was a problem during transport. Let's teleport you to Judal, shall we? Sorry for the bug. Have some gold. +25 gold.");
+            alert("You... um... well... there was a problem during transport. Let's teleport you to Judal, shall we? Sorry for the bug. Have some gold. +25 gold.");
             arriveJudal();
             gold = gold + 25;
     }
-}
+};
 
 function pickNote() {
     clear();
     distance = distance - travelingSpeed;
     storyLineBegan = true;
-    document.innerHTML = "You pick up the note. It says \'Impending Attack Coming from evil bad guys to Nok.\' The old man is dead. <p><button onClick = \"travelNok()\">Continue</button></p>";
-}
+    document.write("You pick up the note. It says \'Impending Attack Coming from evil bad guys to Nok.\' The old man is dead. <p><button onClick = \"travelNok()\">Continue</button></p>");
+};
 
 function storylineDemon() {
     nokBurned = true;
-    window.alert("You are attacked by a demon!");
+    alert("You are attacked by a demon!");
     if (wizardMagic === true) {
         originalAttack = attack;
-        window.alert("You are magic! + 30% attack against demons!");
+        alert("You are magic! + 30% attack against demons!");
         attack = attack + (attack * 0.3);
     }
     enemyHealth = 16;
@@ -644,7 +594,7 @@ function storylineDemon() {
     while (attacked === true) {
         if (enemyHealth <= 0) {
             attacked = false;
-            window.alert('You win! + 10 gold!');
+            alert('You win! + 10 gold!');
             gold = gold + 10;
             if (health > maxHealth) {
                 health = maxHealth;
@@ -657,17 +607,17 @@ function storylineDemon() {
             defense = 10;
             wizardMagic = false;
             attacked = false;
-            window.alert("You are dead.");
+            alert("You are dead.");
             death();
         } else {
             criticalChance = Math.floor(Math.random() * 5);
             playerAttack = attack + criticalChance - enemyDefense;
             enemyHealth = enemyHealth - playerAttack;
-            window.alert("You did " + playerAttack + " damage!");
-            window.alert("The enemy health is now " + enemyHealth + "!");
+            alert("You did " + playerAttack + " damage!");
+            alert("The enemy health is now " + enemyHealth + "!");
             if (enemyHealth <= 0) {
                 attacked = false;
-                window.alert('You win!');
+                alert('You win!');
                 if (health > maxHealth) {
                     health = maxHealth;
                 }
@@ -679,53 +629,59 @@ function storylineDemon() {
                 criticalChance = Math.floor(Math.random() * 5);
                 enemyAttack2 = (enemyAttack + criticalChance) - defense;
                 if (enemyAttack2 < 0) {
-                    window.alert("The enemy attack did nothing...");
+                    alert("The enemy attack did nothing...");
                 } else {
                     health = health - enemyAttack2;
-                    window.alert("The enemy did " + enemyAttack2 + "!");
-                    window.alert("You are now at " + health + " hit points!");
+                    alert("The enemy did " + enemyAttack2 + "!");
+                    alert("You are now at " + health + " hit points!");
                 }
                 if (health > maxHealth) {
                     health = maxHealth;
-                    window.alert("You went over " + maxHealth + "! Resetting health...");
+                    alert("You went over " + maxHealth + "! Resetting health...");
                 }
             }
         }
     }
-}
+};
 
 function continueStory() {
     clear();
-    document.innerHTML = "You defeat the demon. For being so large, it was surprisingly easy. <p>Over the horizon, however, a larger demon flies towards you. It\'s nearly four times the size of the large demon. However, something pops up and flies it into the ground.</p>";
-    document.innerHTML = document.innerHTML + "<p>The thing that brought down the demon comes up, and you see it is a magnificent dragon.</p> <p>The dragon approaches you, and lands directly near you.</p> <p>\"Greetings adventurer. You look worn down. Quickly, you must help me fight off the demon-spawn.\"</p>";
-    document.innerHTML = document.innerHTML + "<button onClick = \"helpDragon()\">\"Let\'s go kick some generic bad guy batootie.\"</button><button onClick = \"noDragon()\">\"No! You\'re a dragon!\"</button>";
-}
+    document.write("You defeat the demon. For being so large, it was surprisingly easy.");
+    document.write("<p>Over the horizon, however, a larger demon flies towards you. It\'s nearly four times the size of the large demon. However, something pops up and flies it into the ground.</p>");
+    document.write("<p>The thing that brought down the demon comes up, and you see it is a magnificent dragon.</p>");
+    document.write("<p>The dragon approaches you, and lands directly near you.</p>");
+    document.write("<p>\"Greetings adventurer. You look worn down. Quickly, you must help me fight off the demon-spawn.\"</p>");
+    document.write("<button onClick = \"helpDragon()\">\"Let\'s go kick some generic bad guy batootie.\"</button><button onClick = \"noDragon()\">\"No! You\'re a dragon!\"</button>");
+};
 
 function helpDragon() {
     clear();
-    document.innerHTML = "The Dragon inhales...";
-    document.innerHTML = document.innerHTML + "<p><button onClick =\"helpDragonContinue()\">Ohcrapohcrapocrapocrap</button><button onClick = \"helpDragonContinue()\">Whatever...</button></p>";
-}
+    document.write("The Dragon inhales...");
+    document.write("<p><button onClick =\"helpDragonContinue()\">Ohcrapohcrapocrapocrap</button><button onClick = \"helpDragonContinue()\">Whatever...</button></p>");
+};
 
 function helpDragonContinue() {
     distance = 100;
-    document.innerHTML = document.innerHTML + "<p>And exhales a mighty healing breath. Your health is restored.</p>";
+    document.write("<p>And exhales a mighty healing breath. Your health is restored.</p>");
     health = maxHealth;
-    document.innerHTML = document.innerHTML + "<p>\"Quickly, random traveler I just met whom I trust for some reason, go down the street and go save people.\"</p> <p><button onClick = \"streetWander()\">Begin wandering</button></p>";
-}
+    document.write("<p>\"Quickly, random traveler I just met whom I trust for some reason, go down the street and go save people.\"</p>");
+    document.write("<p><button onClick = \"streetWander()\">Begin wandering</button></p>");
+};
 
 function streetWander() {
     saved = false;
     clear();
-    document.innerHTML = "You are wandering down the street, looking for demons and people to save.";
-    document.innerHTML = document.innerHTML + "Mandatory encounter in... " + distance / travelingSpeed + "  clicks. <p><button onClick = \"streetWanderEvent()\">Wander</button></p>";
+    document.write("You are wandering down the street, looking for demons and people to save.");
+    document.write("Mandatory encounter in... " + distance / travelingSpeed + "  clicks.");
+    document.write("<p><button onClick = \"streetWanderEvent()\">Wander</button></p>");
     if (distance <= 0) {
-        document.innerHTML = "<p>You discover a burning building, and a woman screaming.</p><p><button onClick = \"continueOnward()\">She\'s dead anyway.</button><button onClick = \"saveWoman()\">Incognito adventurer to the rescue!</button></p>";
+        document.write("<p>You discover a burning building, and a woman screaming.</p>");
+        document.write("<p><button onClick = \"continueOnward()\">She\'s dead anyway.</button><button onClick = \"saveWoman()\">Incognito adventurer to the rescue!</button></p>");
     }
-}
+};
 
 function streetWanderEvent() {
-    streetEvent = Math.floor(Math.random() * 100);
+    streetEvent = Math.floor(Math.random() * 100)
     if (streetEvent > 50) {
         distance = distance - travelingSpeed;
         streetWander();
@@ -733,13 +689,13 @@ function streetWanderEvent() {
         distance = distance - travelingSpeed;
         demonAttack();
     }
-}
+};
 
 function demonAttack() {
-    window.alert("You are attacked by a demon!");
+    alert("You are attacked by a demon!");
     if (wizardMagic === true) {
         originalAttack = attack;
-        window.alert("You are magic! + 30% attack against demons!");
+        alert("You are magic! + 30% attack against demons!");
         attack = attack + (attack * 0.3);
     }
     enemyHealth = 16;
@@ -749,7 +705,7 @@ function demonAttack() {
     while (attacked === true) {
         if (enemyHealth <= 0) {
             attacked = false;
-            window.alert('You win! + 10 gold!');
+            alert('You win! + 10 gold!');
             gold = gold + 10;
             if (health > maxHealth) {
                 health = maxHealth;
@@ -762,17 +718,17 @@ function demonAttack() {
             defense = 10;
             wizardMagic = false;
             attacked = false;
-            window.alert("You are dead.");
+            alert("You are dead.");
             death();
         } else {
             criticalChance = Math.floor(Math.random() * 5);
             playerAttack = attack + criticalChance - enemyDefense;
             enemyHealth = enemyHealth - playerAttack;
-            window.alert("You did " + playerAttack + " damage!");
-            window.alert("The enemy health is now " + enemyHealth + "!");
+            alert("You did " + playerAttack + " damage!");
+            alert("The enemy health is now " + enemyHealth + "!");
             if (enemyHealth <= 0) {
                 attacked = false;
-                window.alert('You win!');
+                alert('You win!');
                 if (health > maxHealth) {
                     health = maxHealth;
                 }
@@ -784,63 +740,67 @@ function demonAttack() {
                 criticalChance = Math.floor(Math.random() * 5);
                 enemyAttack2 = (enemyAttack + criticalChance) - defense;
                 if (enemyAttack2 < 0) {
-                    window.alert("The enemy attack did nothing...");
+                    alert("The enemy attack did nothing...");
                 } else {
                     health = health - enemyAttack2;
-                    window.alert("The enemy did " + enemyAttack2 + "!");
-                    window.alert("You are now at " + health + " hit points!");
+                    alert("The enemy did " + enemyAttack2 + "!");
+                    alert("You are now at " + health + " hit points!");
                 }
                 if (health > maxHealth) {
                     health = maxHealth;
-                    window.alert("You went over " + maxHealth + "! Resetting health...");
+                    alert("You went over " + maxHealth + "! Resetting health...");
                 }
             }
         }
     }
-}
+};
 
 function saveWoman() {
     clear();
     saved = true;
-    document.innerHTML = "You save the woman. She runs away, like a coward. <p><button onClick = \"continueOnward()\">Let\'s go save more people!</button></p>";
+    document.write("You save the woman. She runs away, like a coward.");
+    document.write("<p><button onClick = \"continueOnward()\">Let\'s go save more people!</button></p>");
 }
 
 function continueOnward() {
     clear();
-    document.innerHTML = "You continue, and the dragon meets up with you. He hurriedly speaks. \"There are too many demons blah blah blah blah not just a regular blah blah blah blah hop on my back.\" <p><button onClick = \"dragonRide()\">Be awesome and ride a CENSORED dragon!</button><button onClick = \"noDragonRide()\">\"I get uh... dragon... sick...\"</button></p>";
+    document.write("You continue, and the dragon meets up with you. He hurriedly speaks. \"There are too many demons blah blah blah blah not just a regular blah blah blah blah hop on my back.\"");
+    document.write("<p><button onClick = \"dragonRide()\">Be awesome and ride a CENSORED dragon!</button><button onClick = \"noDragonRide()\">\"I get uh... dragon... sick...\"</button></p>");
 }
 
 function noDragonRide() {
     clear();
-    destination = 'JudalStory';
-    document.innerHTML = "\"Whatever, adventurer. I was planning to eat you anyway.\" You begin walking to Judal. <p><button onClick =\"judalNoDragon()\">Walk</button></p>";
+    destination = 'JudalStory'
+    document.write("\"Whatever, adventurer. I was planning to eat you anyway.\" You begin walking to Judal.");
+    document.write("<p><button onClick =\"judalNoDragon()\">Walk</button></p>");
     if (saved === true) {
         travelingSpeedOriginal = travelingSpeed;
         travelingSpeed = travelingSpeed - 5;
-        document.innerHTML = "<p>You have saved the woman, so you get a deduction to your traveling speed. - 5 traveling speed. Your total traveling speed is now " + travelingSpeed + " miles per day.</p>";
+        document.write("<p>You have saved the woman, so you get a deduction to your traveling speed. - 5 traveling speed. Your total traveling speed is now " + travelingSpeed + " miles per day.</p>");
     }
     judalNoDragon();
 
-}
+};
 
 function dragonRide() {
     distance = 20;
     clear();
-    document.innerHTML = "You hop onto the dragon.";
+    document.write("You hop onto the dragon.");
     if (saved === true) {
-        document.innerHTML = document.innerHTML + "<p>The woman you saved hops onto the dragon as well.</p>";
-        document.innerHTML = document.innerHTML + "<p><button onClick = \"dragonFly()\">Fly</button></p>";
+        document.write("<p>The woman you saved hops onto the dragon as well.</p>");
+        document.write("<p><button onClick = \"dragonFly()\">Fly</button></p>");
     }
-}
+};
 
 function dragonFly() {
     clear();
     dragonFlyS = true;
-    document.innerHTML = document.innerHTML + "Distance to Judal, " + distance + " miles. Dragon speed is 5 miles per minute. <p><button onClick = \"flyEvent()\">Continue Flying</button></p>";
+    document.write("Distance to Judal, " + distance + " miles. Dragon speed is 5 miles per minute.");
+    document.write("<p><button onClick = \"flyEvent()\">Continue Flying</button></p>");
     if (distance <= 0) {
         arriveJudalStory();
     }
-}
+};
 
 function flyEvent() {
     flyChance = Math.floor(Math.random() * 1000);
@@ -856,68 +816,69 @@ function flyEvent() {
         dragonHealth = 50;
         dragonDefense = 20;
     }
-}
+};
 
 function demonAttackFly() {
     clear();
-    document.innerHTML = "<p>A flying demon attacks you!</p> <p><button onClick = \"dragonLand()\">Combat</button>";
+    document.write("<p>A flying demon attacks you!</p>");
+    document.write("<p><button onClick = \"dragonLand()\">Combat</button>");
 }
 
 function dragonLand() {
     clear();
     if (dragonHealth <= 0) {
-        window.alert("You are dead.");
+        alert("You are dead.");
         attacked = false;
         death();
     } else {
-        document.innerHTML = "<p><button onClick = \"fireBreath()\">Fire Breath</button><button onClick = \"chomp()\">Chomp</button></p>";
+        document.write("<p><button onClick = \"fireBreath()\">Fire Breath</button><button onClick = \"chomp()\">Chomp</button></p>");
     }
-}
+};
 
 function fireBreath() {
     criticalChance = Math.floor(Math.random() * 10);
     dragonAttack = attack + 10;
     dragonAttack2 = (dragonAttack + criticalChance) - enemyDefense;
     enemyHealth = enemyHealth - dragonAttack2;
-    window.alert("You used a fire breath! You did " + dragonAttack2 + " points of damage!");
-    window.alert("The enemy health is now " + enemyHealth + "!");
+    alert("You used a fire breath! You did " + dragonAttack2 + " points of damage!");
+    alert("The enemy health is now " + enemyHealth + "!");
     if (enemyHealth <= 0) {
-        window.alert("You win!");
+        alert("You win!");
         dragonFly();
     } else {
         dragonDemonAttack();
     }
-}
+};
 
 function chomp() {
     criticalChance = Math.floor(Math.random() * 20);
     dragonAttack = attack + 3;
     dragonAttack2 = (dragonAttack + criticalChance) - enemyDefense;
     enemyHealth = enemyHealth - dragonAttack2;
-    window.alert("You chomped the enemy! You did " + dragonAttack2 + " points of damage!");
-    window.alert("The enemy health is now " + enemyHealth + " hit points!");
+    alert("You chomped the enemy! You did " + dragonAttack2 + " points of damage!");
+    alert("The enemy health is now " + enemyHealth + " hit points!");
     if (enemyHealth <= 0) {
-        window.alert("You win!");
+        alert("You win!");
         attacked = false;
         dragonFly();
     } else {
         dragonDemonAttack();
     }
-}
+};
 
 function dragonDemonAttack() {
-    window.alert("The enemy attacks!");
+    alert("The enemy attacks!");
     enemyAttack2 = (enemyAttack + criticalChance) - dragonDefense;
     if (enemyAttack2 < 0) {
-        window.alert("The attack did nothing...");
+        alert("The attack did nothing...");
         dragonLand();
     } else {
         dragonHealth = dragonHealth - enemyAttack2;
-        window.alert("The enemy did " + enemyAttack2 + " damage!");
-        window.alert("The dragon is now at " + dragonHealth + " hit points!");
-        window.alert("Luckily, the dragon regenerates outside of combat...");
+        alert("The enemy did " + enemyAttack2 + " damage!");
+        alert("The dragon is now at " + dragonHealth + " hit points!");
+        alert("Luckily, the dragon regenerates outside of combat...");
         if (dragonHealth <= 0) {
-            window.alert("You are dead.");
+            alert("You are dead.");
             death();
         } else {
             dragonLand();
@@ -929,75 +890,63 @@ function noDragon() {
     destination = 'JudalStory';
     distance = 20;
     clear();
-    document.innerHTML = "The dragon flies off. You walk towards the city of Judal.";
-    travelNok();
+    document.write("The dragon flies off. You walk towards the city of Judal.");
     if (saved === true) {
         travelingSpeedOriginal = travelingSpeed;
         travelingSpeed = travelingSpeed - 5;
-        document.innerHTML = document.innerHTML + "<p>You have saved the woman, so you get a deduction to your traveling speed. - 5 traveling speed. Your total traveling speed is now " + travelingSpeed + " miles per day.</p>";
+        document.write("<p>You have saved the woman, so you get a deduction to your traveling speed. - 5 traveling speed. Your total traveling speed is now " + travelingSpeed + " miles per day.</p>");
     }
-    judalNoDragon();
-}
+    travelNok();
+};
 
-function judalNoDragon() {
-    clear();
-    document.innerHTML = document.innerHTML + "The distance to Judal is " + distance + " miles. Your traveling speed is " + travelingSpeed + " miles per day.";
-    travelEventNok();
-    if (distance <= 0) {
-        if (saved === true) {
-            travelingSpeed = travelingSpeedOriginal;
-        }
-        document.innerHTML = "<p>You have arrived at Judal!</p> <p><button onClick = \"arrivePlace()\">Enter</button></p>";
-    }
-}
 
 function arriveJudalStory() {
     clear();
-    if (dragonFlyS === true) {
-        document.innerHTML = "You arrive at Judal on the back of a dragon. <p>The dragon bids you farewell, and flies off.</p>";
-    } else {
-        document.innerHTML = "You arrive at Judal.";
-    }
-    document.innerHTML = document.innerHTML + "<p>The mayor of Judal greets you and offers you gold for killing demons. + 50 gold.</p>";
+        document.write("You arrive at Judal.");
+    document.write("<p>The mayor of Judal greets you and offers you gold for killing demons. + 50 gold.</p>");
     gold = gold + 50;
-    if (saved === true) {
-        document.innerHTML = document.innerHTML + "<p>The mayor also gives you gold for saving the woman. +15 gold.</p>";
+    if (saved = true) {
+        document.write("<p>The mayor also gives you gold for saving the woman. +15 gold.</p>");
         gold = gold + 15;
     }
-    document.innerHTML = document.innerHTML + "<p>The mayor then invites you to eat at a banquet.</p>";
+    document.write("<p>The mayor then invites you to eat at a banquet.</p>");
     health = maxHealth;
-    document.innerHTML = document.innerHTML + "<p><button onClick = \"judalStoryBanquet()\">Eat</button></p>";
-}
+    document.write("<p><button onClick = \"judalStoryBanquet()\">Eat</button></p>");
+};
 
 function judalStoryBanquet() {
     clear();
-    document.innerHTML = "You eat, and your health is restored. You are now at " + health + " hit points. <p>The mayor then presents you with a gift, to help discover the cause of these demon incursions.</p>";
+    document.write("You eat, and your health is restored. You are now at " + health + " hit points.");
+    document.write("<p>The mayor then presents you with a gift, to help discover the cause of these demon incursions.</p>");
     if (backstory === 'Wizard') {
-        document.innerHTML = document.innerHTML + "<p>The mayor presents you with a magic staff. You now have increased magic damage +40% damage to magical creatures.</p>";
+        document.write("<p>The mayor presents you with a magic staff. You now have increased magic damage +40% damage to magical creatures.</p>");
         magicDamage = attack + 0.40;
     } else if (backstory === 'Guard') {
-        document.innerHTML = document.innerHTML + "<p>The mayor presents you with a sword. +3 attack.</p>";
+        document.write("<p>The mayor presents you with a sword. +3 attack.</p>");
         attack = attack + 3;
     } else if (backstory === 'Merchant') {
-        document.innerHTML = document.innerHTML + "<p>The mayor presents you with a magic coin. +10% chance to get more gold.</p>";
-        goldChance = goldChance + 0.10;
+        document.write("<p>The mayor presents you with a magic coin. +10% chance to get more gold.</p>");
+        goldChance = goldChance + 0.10
     }
-    document.innerHTML = document.innerHTML + "<p>The mayor then tells you to head to the town of Ruillind to find the source of all this, when you're ready.</p> <p><button onClick = \"arriveJudal()\">Town Square</button></p>";
-}
+    document.write("<p>The mayor then tells you to head to the town of Ruillind to find the source of all this, when you're ready.</p>");
+    document.write("<p><button onClick = \"arriveJudal()\">Town Square</button></p>");
+};
 
 function arriveJudal() {
     clear();
-    document.innerHTML = "You are now in the city of Judal. <p><button onClick = \"leaveJudal()\">Leave</button></p>";
-}
+    document.write("You are now in the city of Judal.");
+    document.write("<p><button onClick = \"leaveJudal()\">Leave</button></p>");
+};
 
 function leaveJudal() {
     clear();
-    document.innerHTML = "Head to: <p><button onClick = \"travelNokSet()\">Nok</button><button onClick = \"travelArgoSet()\">Argo</button><button onClick = \"arriveJudal()\">Stay</button><button onClick = \"travelRuillindSet()\">Ruillind</button></p>";
-}
+    document.write("Head to:");
+    document.write("<p><button onClick = \"travelNokSet()\">Nok</button><button onClick = \"travelArgoSet()\">Argo</button><button onClick = \"arriveJudal()\">Stay</button><button onClick = \"travelRuillindSet()\">Ruillind</button></p>");
+};
 
 function travelRuillindSet() {
-    window.alert("In development... Try again later...");
-}
+    alert("In development... Try again later...");
+};
 
 function travelNokSet() {
     if (destination === 'Judal' || destination === 'JudalStory') {
@@ -1009,9 +958,9 @@ function travelNokSet() {
         distance = 50;
         travelNok();
     } else {
-        window.alert("Um... a... hm... I think there was a bug. Please contact the developer at tyly04@gmail.com");
+        alert("Um... a... hm... I think there was a bug. Please contact the developer at tyly04@gmail.com");
     }
-}
+};
 
 function travelArgoSet() {
     if (destination === 'NokBurned') {
@@ -1023,17 +972,18 @@ function travelArgoSet() {
         distance = 70;
         travelNok();
     }
-}
+};
 
 function arriveNokBurned() {
     clear();
-    document.innerHTML = "You arrive at the burned city of Nok. <p><button onClick =\"nokLeave()\">Leave</button></p>";
-}
+    document.write("You arrive at the burned city of Nok.");
+    document.write("<p><button onClick =\"nokLeave()\">Leave</button></p>");
+};
 
 function nokLeave() {
     clear();
-    document.innerHTML = "<button onClick = \"travelJudalSet()\">Judal</button><button onClick = \"travelArgoSet()\">Argo</button><button onClick = \"arriveNokBurned()\">Stay</button>";
-}
+    document.write("<button onClick = \"travelJudalSet()\">Judal</button><button onClick = \"travelArgoSet()\">Argo</button><button onClick = \"arriveNokBurned()\">Stay</button>");
+};
 
 function travelJudalSet() {
     if (destination === 'NokBurned') {
@@ -1045,13 +995,13 @@ function travelJudalSet() {
         distance = 70;
         travelNok();
     }
-}
+};
 
 function evil() {
-    window.alert("Yes, I am evil.");
-}
+    alert("Yes, I am evil.");
+};
 
 function death() {
-    window.alert("If this reload doesn't work, reload the page manually.");
+    alert("If this reload doesn't work, reload the page manually.");
     window.location.reload();
-}
+};
