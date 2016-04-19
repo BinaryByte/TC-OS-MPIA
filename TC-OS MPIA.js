@@ -277,7 +277,7 @@ function healthArgo() {
 
 function leaveArgo() {
     //Presents you with the leave choice.
-    document.write("You leave Argo.");
+    window.alert("You leave Argo.");
     if (nokBurned === true) {
         document.innerHTML = "<p><button onClick = \"travelJudalSet()\">Judal</button><button onClick = \"travelNokSet()\">Nok</button><button onClick = \"again()\">Stay</button></p>";
     } else {
