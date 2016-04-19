@@ -292,7 +292,7 @@ function leaveArgo() {
 function ambushArgo() {
     //Attacked.
     clear();
-    document.write("You are attacked by thugs!");
+    document.innerHTML = "You are attacked by thugs!";
     var attacked = true;
     enemyHealth = 5;
     enemyDefense = 5;
@@ -300,7 +300,7 @@ function ambushArgo() {
     while (attacked === true) {
         if (enemyHealth <= 0) {
             attacked = false;
-            alert('You win! + 10 gold!');
+            window.alert('You win! + 10 gold!');
             gold = gold + 10;
             ambushArgoT = true;
             if (health > maxHealth) {
@@ -314,17 +314,17 @@ function ambushArgo() {
             defense = 10;
             wizardMagic = false;
             attacked = false;
-            alert("You are dead.");
+            window.alert("You are dead.");
             death();
         } else {
             criticalChance = Math.floor(Math.random() * 5);
             playerAttack = attack + criticalChance - enemyDefense;
             enemyHealth = enemyHealth - playerAttack;
-            alert("You did " + playerAttack + " damage!");
-            alert("The enemy health is now " + enemyHealth + "!");
+            window.alert("You did " + playerAttack + " damage!");
+            window.alert("The enemy health is now " + enemyHealth + "!");
             if (enemyHealth <= 0) {
                 attacked = false;
-                alert('You win! + 10 gold!');
+                window.alert('You win! + 10 gold!');
                 gold = gold + 10;
                 ambushArgoT = true;
                 if (health > maxHealth) {
@@ -335,11 +335,11 @@ function ambushArgo() {
                 criticalChance = Math.floor(Math.random() * 5);
                 enemyAttack2 = enemyAttack + criticalChance - defense;
                 if (enemyAttack2 < 0) {
-                    alert("The enemy attack did nothing...");
+                    window.alert("The enemy attack did nothing...");
                 } else {
                     health = health - enemyAttack2;
-                    alert("The enemy did " + enemyAttack2 + "!");
-                    alert("You are now at " + health + " hit points!");
+                    window.alert("The enemy did " + enemyAttack2 + "!");
+                    window.alert("You are now at " + health + " hit points!");
                 }
             }
         }
@@ -349,12 +349,12 @@ function ambushArgo() {
 function travelNok() {
     //Traveling to Nok.
     clear();
-    document.write("You are now traveling to " + destination + ". There are " + distance + " miles left. Your traveling speed is " + travelingSpeed + " miles per day.");
-    document.write("<p><button onClick = \"travelEventNok()\">Time Passes</button></p>");
+    document.innerHTML = "You are now traveling to " + destination + ". There are " + distance + " miles left. Your traveling speed is " + travelingSpeed + " miles per day.";
+    document.innerHTML = document.innerHTML + "<p><button onClick = \"travelEventNok()\">Time Passes</button></p>";
     if (distance <= 0) {
         clear();
-        document.write("You have arrived at " + destination + "!");
-        document.write("<p><button onClick = \"arrivePlace()\">Enter</button></p>")
+        document.innerHTML = "You have arrived at " + destination + "!";
+        document.innerHTML = document.innerHTML + "<p><button onClick = \"arrivePlace()\">Enter</button></p>";
     }
 };
 
@@ -400,19 +400,19 @@ function travelEventNok() {
 
 function wizardTower(){
     clear();
-    document.write("You are walking along the road, when suddenly, a miniscule tower blocks");
+    document.innerHTML = "You are walking along the road, when suddenly, a miniscule tower blocks";
 };
 
 function arriveNok() {
     if (storyLineBegan === true) {
         clear();
-        document.write("There\'s lots of fire everywhere. A guard lets you into the gates.");
-        document.write("<p>The city of Nok is in flames. A burning building rumbles and shakes, with screams coming from inside. A demon emerges, flattening the building, and it swings a mighty claw...</p>");
+        document.innerHTML = "There\'s lots of fire everywhere. A guard lets you into the gates.";
+        document.innerHTML = document.innerHTML = document.innerHTML + "<p>The city of Nok is in flames. A burning building rumbles and shakes, with screams coming from inside. A demon emerges, flattening the building, and it swings a mighty claw...</p>";
         storylineDemon();
     } else if (storyLineBegan === false) {
         clear();
-        document.write("You are in the town of Nok. The gates are barred. You must have missed a plot device.");
-        document.write("<p><button onClick = \"travelArgo()\">Go to Argo</button></p>");
+        document.innerHTML = "You are in the town of Nok. The gates are barred. You must have missed a plot device.";
+        document.innerHTML = document.innerHTML + "<p><button onClick = \"travelArgo()\">Go to Argo</button></p>";
     }
 };
 
@@ -427,7 +427,7 @@ function attackBandits() {
     clear();
     //Bandit attack
     distance = distance - 10;
-    alert("You are attacked by bandits!");
+    window.alert("You are attacked by bandits!");
     attacked = true;
     enemyHealth = 10;
     enemyDefense = 8;
@@ -435,7 +435,7 @@ function attackBandits() {
     while (attacked === true) {
         if (enemyHealth <= 0) {
             attacked = false;
-            alert('You win! + 10 gold!');
+            window.alert('You win! + 10 gold!');
             gold = gold + 10;
             if (health > maxHealth) {
                 health = maxHealth;
@@ -443,17 +443,17 @@ function attackBandits() {
             travelNok();
         } else if (health <= 0) {
             attacked = false;
-            alert("You are dead.");
+            window.alert("You are dead.");
             death();
         } else {
             criticalChance = Math.floor(Math.random() * 5);
             playerAttack = attack + criticalChance - enemyDefense;
             enemyHealth = enemyHealth - playerAttack;
-            alert("You did " + playerAttack + " damage!");
-            alert("The enemy health is now " + enemyHealth + "!");
+            window.alert("You did " + playerAttack + " damage!");
+            window.alert("The enemy health is now " + enemyHealth + "!");
             if (enemyHealth <= 0) {
                 attacked = false;
-                alert('You win! + 10 gold!');
+                window.alert('You win! + 10 gold!');
                 gold = gold + 10;
                 if (health > maxHealth) {
                     health = maxHealth;
@@ -463,15 +463,15 @@ function attackBandits() {
                 criticalChance = Math.floor(Math.random() * 5);
                 enemyAttack2 = (enemyAttack + criticalChance) - defense;
                 if (enemyAttack2 < 0) {
-                    alert("The enemy attack did nothing...");
+                    window.alert("The enemy attack did nothing...");
                 } else {
                     health = health - enemyAttack2;
-                    alert("The enemy did " + enemyAttack2 + "!");
-                    alert("You are now at " + health + " hit points!");
+                    window.alert("The enemy did " + enemyAttack2 + "!");
+                    window.alert("You are now at " + health + " hit points!");
                 }
                 if (health > maxHealth) {
                     health = maxHealth;
-                    alert("You went over " + maxHealth + "! Resetting health...");
+                    window.alert("You went over " + maxHealth + "! Resetting health...");
                 }
             }
         }
