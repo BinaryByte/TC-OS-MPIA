@@ -30,12 +30,6 @@ var travel = {
 var criticalChance = Math.floor(Math.random() * 5);
 var ambushArgoT = false;
 
-var document(){
-    write: function(text){
-        document.innerHTML = document.innerHTML + text;
-    };
-}
-
 function options() {
     clicks = clicks + 1;
     if (clicks >= 10) {
@@ -85,15 +79,15 @@ function difficultySet() {
 function begin() {
     clear();
     //The start. It presents you with a choice of person.
-    document.write("You are a...");
-    document.write("<p><button onClick = \"merchant()\">Merchant</button><button onClick = \"guard()\">Guard</button><button onClick = \"wizard()\">Wizard</button></p>");
+    document.innerHTML = "You are a...";
+    document.innerHTML = document.innerHTML + "<p><button onClick = \"merchant()\">Merchant</button><button onClick = \"guard()\">Guard</button><button onClick = \"wizard()\">Wizard</button></p>";
 }
 
 function merchant() {
     backstory = "Merchant";
     //You get plus gold, then goes to Argo.
     clear();
-    document.write("You are a merchant. +25 gold.");
+    document.innerHTML = "You are a merchant. +25 gold.";
     gold = gold + 25;
     again();
 
@@ -103,7 +97,7 @@ function guard() {
     //Get plus 2 attack and defense, then go to argo.
     clear();
     backstory = "Guard";
-    document.write("You are a guard. +2 to attack and defense.");
+    document.innerHTML = "You are a guard. +2 to attack and defense.";
     attack = attack + 2;
     defense = defense + 2;
     again();
@@ -113,7 +107,7 @@ function wizard() {
     //Gain magic, which will be used later.
     backstory = "Wizard";
     clear();
-    document.write("You are a wizard. You now have a magic attack.");
+    document.innerHTML = "You are a wizard. You now have a magic attack.";
     wizardMagic = true;
     again();
 };
@@ -125,8 +119,8 @@ function clear() {
 
 function again() {
     //Presents you choices to do stuff in argo.
-    document.write("<p>You are in the town of Argo.</p>");
-    document.write("<button onClick = \"exploreArgo()\">Explore</button><button onClick = \"shopArgo()\">Shop</button><button onClick = \"leaveArgo()\">Travel to Nok</button>");
+    document.innerHTML = document.innerHTML + "<p>You are in the town of Argo.</p>";
+    document.innerHTML = document.innerHTML + "<button onClick = \"exploreArgo()\">Explore</button><button onClick = \"shopArgo()\">Shop</button><button onClick = \"leaveArgo()\">Travel to Nok</button>";
 };
 
 function exploreArgo() {
@@ -140,22 +134,20 @@ function generateExplore(){
         case 1:
             if (ambushArgoT === true) {
         //If you've already been ambushed, it tells you there's nothing there.
-        document.write("<p>Nothing...</p>");
+        document.innerHTML = "<p>Nothing...</p>";
     } else if (ambushArgoT === false) {
         clear();
         //If you haven't been ambushed or left the alley but decide to come back, then it loads the same choice as above.
-        document.write("You find a small alley.");
-        document.write("<p><button onClick = \"ambushArgo()\">Explore Alley</button><button onClick = \"again()\">Leave the alley</button></p>");
+        document.innerHTML = "You find a small alley.";
+        document.innerHTML = document.innerHTML + "<p><button onClick = \"ambushArgo()\">Explore Alley</button><button onClick = \"again()\">Leave the alley</button></p>";
     }
             break;
         case 2:
             clear();
-            document.write("You find a pair of gamblers. They invite you to play a game of cards with them.");
-            document.write("<p><button onClick = \"gamble()\">Accept</button><button onClick = \"again()\">Reject</button></p>");
+            document.innerHTML = "You find a pair of gamblers. They invite you to play a game of cards with them.";
+            document.innerHTML = document.innerHTML + "<p><button onClick = \"gamble()\">Accept</button><button onClick = \"again()\">Reject</button></p>";
             break;
         case 3:
-            document.write("A bunch of gamblers ask you to play cards with them. Do you play? The game is Texas hold 'em.");
-            document.write("<p><button onClick = \"playCards()\">Yes</button><button onClick = \"cardGame()\">No</button></p>");
             break;
         case 4:
             break;
@@ -176,15 +168,15 @@ function generateExplore(){
 
 function gamble(){
     clear();
-    document.write("You are gambling. Here's how the game works: You put in 5 gold. A ball rolls. If it lands closest to your side, you gain 10 gold. If it doesn't, then you lose 5 gold. <p><button onClick = \"gambleGo()\">Continue Gambling</button><button onClick = \"again()\">Stop gambling</button></p>");
+    document.innerHTML = "You are gambling. Here's how the game works: You put in 5 gold. A ball rolls. If it lands closest to your side, you gain 10 gold. If it doesn't, then you lose 5 gold. <p><button onClick = \"gambleGo()\">Continue Gambling</button><button onClick = \"again()\">Stop gambling</button></p>";
 };
 
 function gambleGo(){
     if(gold <= 0){
-        alert("You can't gamble anymore! You've run out of gold!");
+        window.alert("You can't gamble anymore! You've run out of gold!");
         again();
     } else if(gold >= 100){
-        alert("Enraged at your wealth, the gamblers kick you out!");
+        window.alert("Enraged at your wealth, the gamblers kick you out!");
         again();
     } else {
         chances = Math.floor(Math.random() * 200);
@@ -201,15 +193,15 @@ function gambleGo(){
 function shopArgo() {
     //A shop with materials, that have buttons that allow you to upgrade your sword.
     clear();
-    document.write("You have " + gold + " gold. What would you like to purchase?")
-    document.write("<p><button onClick = \"armorArgo()\">Armor $20</button><button onClick = \"swordArgo()\">Sword $20</button><button onClick = \"healthArgo()\">Restore Health $10</button><button onClick = \"again()\">Leave</button></p>");
+    document.innerHTML = "You have " + gold + " gold. What would you like to purchase?";
+    document.innerHTML = "<p><button onClick = \"armorArgo()\">Armor $20</button><button onClick = \"swordArgo()\">Sword $20</button><button onClick = \"healthArgo()\">Restore Health $10</button><button onClick = \"again()\">Leave</button></p>";
 };
 
 function swordArgo() {
     //Sword purchasing.
     if (swordPurchase === false) {
         if (gold < 20) {
-            document.write("You don't have enough.");
+            document.innerHTML = "You don't have enough.";
             again();
         } else {
             alert("You purchased a sword! + 3 attack!");
