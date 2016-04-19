@@ -310,7 +310,7 @@ function ambushArgo() {
             attacked = false;
             alert('You win! + 10 gold!');
             gold = gold + 10;
-            ambushArgo = true;
+            ambushArgoT = true;
             if (health > maxHealth) {
                 health = maxHealth;
             }
