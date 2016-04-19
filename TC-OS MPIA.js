@@ -26,6 +26,13 @@ var goldChance = 0.20;
 var nokBurned = false;
 var saved;
 clicks = 0;
+
+var document = {
+        write: function(text){
+                document.innerHTML = document.innerHTML + text;
+        }
+}
+
 var travel = {
     place: 'Nok'
 };
