@@ -121,7 +121,7 @@ function healthArgo() {
 
 
 function ambushArgo() {
-    //Attacked.
+    //Attacked. For a full rundown of combat code, see Line 25 of Story.js
     clear();
     document.innerHTML = "You are attacked by thugs!";
     var attacked = true;
