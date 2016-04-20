@@ -1,5 +1,5 @@
-        //Put code in accessible place, then replace this with <script src = "LINK TO CODE"><\script> To make this easy, and not take up so much space.
-        var version = 0.1;
+//Declares all of the variables to be used for later.
+var version = 0.1;
 var storyLineBegan = false;
 var enemyDefense;
 var enemyAttack;
@@ -26,14 +26,16 @@ var goldChance = 0.20;
 var nokBurned = false;
 var saved;
 clicks = 0;
-
+//The clicks variable is used for detecting how many times you clicked the options menu
 var document = {
+//This is a failsafe in case anyone uses document.write by accident. It is an object named document, and as soon as you say .write, it writes what you put in there as a document.innerHTML statement.
         write: function(text){
                 document.innerHTML = document.innerHTML + text;
         }
 }
-
+//Declaring the variable for a critical chance for combat
 var criticalChance = Math.floor(Math.random() * 5);
+//This variable is used in Argo.js to detect if you were ambushed.
 var ambushArgoT = false;
 function begin() {
     clear();
@@ -78,6 +80,7 @@ function clear() {
 
 
 function death() {
+        //Reloads the page when you die.
     window.alert("If this reload doesn't work, reload the page manually.");
     window.location.reload();
 };
