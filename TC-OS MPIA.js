@@ -33,9 +33,6 @@ var document = {
         }
 }
 
-var travel = {
-    place: 'Nok'
-};
 var criticalChance = Math.floor(Math.random() * 5);
 var ambushArgoT = false;
 function begin() {
@@ -183,19 +180,6 @@ function healthArgo() {
     }
 };
 
-function leaveArgo() {
-    //Presents you with the leave choice.
-    document.write("You leave Argo.");
-    if (nokBurned === true) {
-        document.write("<p><button onClick = \"travelJudalSet()\">Judal</button><button onClick = \"travelNokSet()\">Nok</button><button onClick = \"again()\">Stay</button></p>");
-    } else {
-        distance = distanceToNok;
-        destination = 'Nok';
-        clear();
-        document.write("<p>The only nearby town is the town of Nok. Do you wish to travel there?</p>");
-        document.write("<p><button onClick = \"travelNok()\">Yes</button><button onClick = \"again()\">No</button></p>");
-    }
-};
 
 function ambushArgo() {
     //Attacked.
@@ -254,57 +238,6 @@ function ambushArgo() {
     }
 };
 
-function travelNok() {
-    //Traveling to Nok.
-    clear();
-    document.write("You are now traveling to " + destination + ". There are " + distance + " miles left. Your traveling speed is " + travelingSpeed + " miles per day.");
-    document.write("<p><button onClick = \"travelEventNok()\">Time Passes</button></p>");
-    if (distance <= 0) {
-        clear();
-        document.write("You have arrived at " + destination + "!");
-        document.write("<p><button onClick = \"arrivePlace()\">Enter</button></p>")
-    }
-};
-
-function travelEventNok() {
-    //Creates random events for stuff to happen.
-    var travelEvent = Math.floor(Math.random() * 100)
-    if (travelEvent >= 50) {
-        distance = distance - travelingSpeed;
-        storylineStart();
-        travelNok();
-    } else {
-        var travelEventBad = Math.floor(Math.random() * 5)
-        switch (travelEventBad) {
-            case 0:
-                attackBandits();
-                break;
-            case 1:
-                cave();
-                break;
-            case 2:
-                cave();
-                break;
-            case 3:
-                if (storyLineBegan === true) {
-                    cave();
-                } else {
-                    storylineStart();
-                }
-                break;
-            case 4:
-                if (storyLineBegan === true) {
-                    attackBandits();
-                } else {
-                    storylineStart();
-                }
-                break;
-            default:
-                travelNok();
-                break;
-        }
-    }
-};
 
 function arriveNok() {
     if (storyLineBegan === true) {
@@ -319,175 +252,8 @@ function arriveNok() {
     }
 };
 
-function travelArgo() {
-    distance = distanceToArgo;
-    destination = 'Argo';
-    travel.place = 'Argo';
-    travelNok();
-};
 
-function attackBandits() {
-    clear();
-    //Bandit attack
-    distance = distance - 10;
-    alert("You are attacked by bandits!");
-    attacked = true;
-    enemyHealth = 10;
-    enemyDefense = 8;
-    enemyAttack = 12;
-    while (attacked === true) {
-        if (enemyHealth <= 0) {
-            attacked = false;
-            alert('You win! + 10 gold!');
-            gold = gold + 10;
-            if (health > maxHealth) {
-                health = maxHealth;
-            }
-            travelNok();
-        } else if (health <= 0) {
-            attacked = false;
-            alert("You are dead.");
-            death();
-        } else {
-            criticalChance = Math.floor(Math.random() * 5);
-            playerAttack = attack + criticalChance - enemyDefense;
-            enemyHealth = enemyHealth - playerAttack;
-            alert("You did " + playerAttack + " damage!");
-            alert("The enemy health is now " + enemyHealth + "!");
-            if (enemyHealth <= 0) {
-                attacked = false;
-                alert('You win! + 10 gold!');
-                gold = gold + 10;
-                if (health > maxHealth) {
-                    health = maxHealth;
-                }
-                travelNok();
-            } else {
-                criticalChance = Math.floor(Math.random() * 5);
-                enemyAttack2 = (enemyAttack + criticalChance) - defense;
-                if (enemyAttack2 < 0) {
-                    alert("The enemy attack did nothing...");
-                } else {
-                    health = health - enemyAttack2;
-                    alert("The enemy did " + enemyAttack2 + "!");
-                    alert("You are now at " + health + " hit points!");
-                }
-                if (health > maxHealth) {
-                    health = maxHealth;
-                    alert("You went over " + maxHealth + "! Resetting health...");
-                }
-            }
-        }
-    }
-};
 
-function cave() {
-    //Presents you a choice to go inside a cave or not.
-    clear();
-    distance = distance - travelingSpeed;
-    document.write("You have found a cave!");
-    document.write("<p>Do you wish to go inside?</p>");
-    document.write("<p><button onClick = \"goCave()\">Yes</button><button onClick = \"travelNok()\">No</button></p>");
-};
-
-function attackBanditsCave() {
-    alert("Bandit Lair! Watch out!");
-    clear();
-    //Bandit attack
-    attacked = true;
-    enemyHealth = 10;
-    enemyDefense = 8;
-    enemyAttack = 12;
-    while (attacked === true) {
-        if (enemyHealth <= 0) {
-            attacked = false;
-            alert('You win! + 10 gold!');
-            gold = gold + 10;
-            if (health > maxHealth) {
-                health = maxHealth;
-            }
-            travelNok();
-        } else if (health <= 0) {
-            attacked = false;
-            health = 10;
-            gold = 10;
-            attack = 10;
-            defense = 10;
-            wizardMagic = false;
-            alert("You are dead.");
-            death();
-        } else {
-            criticalChance = Math.floor(Math.random() * 5);
-            playerAttack = attack + criticalChance - enemyDefense;
-            enemyHealth = enemyHealth - playerAttack;
-            alert("You did " + playerAttack + " damage!");
-            alert("The enemy health is now " + enemyHealth + "!");
-            if (enemyHealth <= 0) {
-                attacked = false;
-                alert('You win! + 10 gold!');
-                gold = gold + 10;
-
-                if (health > maxHealth) {
-                    health = maxHealth;
-                }
-                travelNok();
-            } else {
-                criticalChance = Math.floor(Math.random() * 5);
-                enemyAttack2 = (enemyAttack + criticalChance) - defense;
-                if (enemyAttack2 < 0) {
-                    alert("The enemy attack did nothing...");
-                } else {
-                    health = health - enemyAttack2;
-                    alert("The enemy did " + enemyAttack2 + "!");
-                    alert("You are now at " + health + " hit points!");
-                }
-                if (health > maxHealth) {
-                    health = maxHealth;
-                    alert("You went over " + maxHealth + "! Resetting health...");
-                }
-            }
-        }
-    }
-};
-
-function goCave() {
-    //Creates a cave, which pulls up a table of random events.
-    //You go inside the cave. 
-    clear();
-    document.write("You enter the cave.");
-    caveRandom();
-};
-
-function caveRandom() {
-    //Is the table which pulls up the events.
-    var caveEvent = Math.floor(Math.random() * 5)
-    switch (caveEvent) {
-        case 0:
-            document.write("Nothing... <p><button onClick = \"travelNok()\">Leave</button></p>");
-            break;
-        case 1:
-            gold = gold + 10;
-            document.write("You find treasure! + 10 gold! <p><button onClick = \"travelNok()\">Leave</button></p>");
-            break;
-        case 2:
-            document.write("Bandit lair! Watch out!");
-            attackBanditsCave();
-            break;
-        case 3:
-            document.write("Bandit lair! Watch out!");
-            attackBanditsCave();
-            break;
-        case 4:
-            document.write("You find shoes of running! +5 to traveling speed! <p><button onClick = \"travelNok()\">Leave</button></p>");
-            travelingSpeed = travelingSpeed + 5;
-            break;
-        default:
-            alert("Nothing...");
-            travelNok();
-            break;
-
-    }
-};
 
 function storylineStart() {
     if (storyLineBegan === true) {
@@ -500,30 +266,6 @@ function storylineStart() {
 
 function butt() {
     document.write("<p>A butthurt developer wants you to go pick up the note.</p>");
-};
-
-function arrivePlace() {
-    switch (destination) {
-        case 'Nok':
-            arriveNok();
-            break;
-        case 'Argo':
-            again();
-            break;
-        case 'JudalStory':
-            arriveJudalStory();
-            break;
-        case 'Judal':
-            arriveJudal();
-            break;
-        case 'NokBurned':
-            arriveNokBurned();
-            break;
-        default:
-            alert("You... um... well... there was a problem during transport. Let's teleport you to Judal, shall we? Sorry for the bug. Have some gold. +25 gold.");
-            arriveJudal();
-            gold = gold + 25;
-    }
 };
 
 function pickNote() {
@@ -885,72 +627,6 @@ function judalStoryBanquet() {
     document.write("<p>The mayor then tells you to head to the town of Ruillind to find the source of all this, when you're ready.</p>");
     document.write("<p><button onClick = \"arriveJudal()\">Town Square</button></p>");
 };
-
-function arriveJudal() {
-    clear();
-    document.write("You are now in the city of Judal.");
-    document.write("<p><button onClick = \"leaveJudal()\">Leave</button></p>");
-};
-
-function leaveJudal() {
-    clear();
-    document.write("Head to:");
-    document.write("<p><button onClick = \"travelNokSet()\">Nok</button><button onClick = \"travelArgoSet()\">Argo</button><button onClick = \"arriveJudal()\">Stay</button><button onClick = \"travelRuillindSet()\">Ruillind</button></p>");
-};
-
-function travelRuillindSet() {
-    alert("In development... Try again later...");
-};
-
-function travelNokSet() {
-    if (destination === 'Judal' || destination === 'JudalStory') {
-        destination = 'NokBurned';
-        distance = 20;
-        travelNok();
-    } else if (destination === 'Argo') {
-        destination = 'NokBurned';
-        distance = 50;
-        travelNok();
-    } else {
-        alert("Um... a... hm... I think there was a bug. Please contact the developer at tyly04@gmail.com");
-    }
-};
-
-function travelArgoSet() {
-    if (destination === 'NokBurned') {
-        destination = 'Argo';
-        distance = 50;
-        travelNok();
-    } else {
-        destination = 'Argo';
-        distance = 70;
-        travelNok();
-    }
-};
-
-function arriveNokBurned() {
-    clear();
-    document.write("You arrive at the burned city of Nok.");
-    document.write("<p><button onClick =\"nokLeave()\">Leave</button></p>");
-};
-
-function nokLeave() {
-    clear();
-    document.write("<button onClick = \"travelJudalSet()\">Judal</button><button onClick = \"travelArgoSet()\">Argo</button><button onClick = \"arriveNokBurned()\">Stay</button>");
-};
-
-function travelJudalSet() {
-    if (destination === 'NokBurned') {
-        destination = 'Judal';
-        distance = 20;
-        travelNok();
-    } else if (destination === 'Argo') {
-        destination = 'Judal';
-        distance = 70;
-        travelNok();
-    }
-};
-
 
 function death() {
     alert("If this reload doesn't work, reload the page manually.");
