@@ -4,21 +4,6 @@ var travel = {
 };
 
 
-function leaveArgo() {
-    //Presents you with the leave choice.
-    document.write("You leave Argo.");
-    if (nokBurned === true) {
-        document.write("<p><button onClick = \"travelJudalSet()\">Judal</button><button onClick = \"travelNokSet()\">Nok</button><button onClick = \"again()\">Stay</button></p>");
-    } else {
-        distance = distanceToNok;
-        destination = 'Nok';
-        clear();
-        document.write("<p>The only nearby town is the town of Nok. Do you wish to travel there?</p>");
-        document.write("<p><button onClick = \"travelNok()\">Yes</button><button onClick = \"again()\">No</button></p>");
-    }
-};
-
-
 function travelNok() {
     //Traveling to Nok.
     clear();
@@ -265,24 +250,6 @@ function arrivePlace() {
             arriveJudal();
             gold = gold + 25;
     }
-};
-
-
-function arriveJudal() {
-    clear();
-    document.write("You are now in the city of Judal.");
-    document.write("<p><button onClick = \"leaveJudal()\">Leave</button></p>");
-};
-
-function arriveNokBurned() {
-    clear();
-    document.write("You arrive at the burned city of Nok.");
-    document.write("<p><button onClick =\"nokLeave()\">Leave</button></p>");
-};
-
-function nokLeave() {
-    clear();
-    document.write("<button onClick = \"travelJudalSet()\">Judal</button><button onClick = \"travelArgoSet()\">Argo</button><button onClick = \"arriveNokBurned()\">Stay</button>");
 };
 
 function travelJudalSet() {
