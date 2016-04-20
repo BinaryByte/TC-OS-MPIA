@@ -7,9 +7,11 @@ var travel = {
 function travelNok() {
     //Traveling to Nok.
     clear();
+    //Says the destination, and says the distance, and executes travelEventNok every time you press the button.
     document.innerHTML = "You are now traveling to " + destination + ". There are " + distance + " miles left. Your traveling speed is " + travelingSpeed + " miles per day.";
     document.innerHTML = document.innerHTML + "<p><button onClick = \"travelEventNok()\">Time Passes</button></p>";
     if (distance <= 0) {
+        //If your distance is equal to 0, it runs a function arrivePlace()
         clear();
         document.innerHTML = "You have arrived at " + destination + "!";
         document.innerHTML = document.innerHTML + "<p><button onClick = \"arrivePlace()\">Enter</button></p>";
@@ -57,6 +59,7 @@ function travelEventNok() {
 };
 
 function travelArgo() {
+    //This is run when traveling from Nok.
     distance = distanceToArgo;
     destination = 'Argo';
     travel.place = 'Argo';
@@ -65,6 +68,7 @@ function travelArgo() {
 
 
 function attackBandits() {
+    //For a rundown of combat code, see line 25 of Story.js
     clear();
     //Bandit attack
     distance = distance - 10;
@@ -120,7 +124,7 @@ function attackBandits() {
 };
 
 function cave() {
-    //Presents you a choice to go inside a cave or not.
+    //Presents you a choice to go inside a cave or not. If so, it executes a function, goCave()
     clear();
     distance = distance - travelingSpeed;
     document.innerHTML = "You have found a cave!";
@@ -129,6 +133,7 @@ function cave() {
 };
 
 function attackBanditsCave() {
+    //For a full rundown of combat code, see line 25 of Story.js
     window.alert("Bandit Lair! Watch out!");
     clear();
     //Bandit attack
@@ -229,6 +234,7 @@ function caveRandom() {
 
 
 function arrivePlace() {
+    //Checks the destination, and executes code based on your destination.
     switch (destination) {
         case 'Nok':
             arriveNok();
@@ -253,6 +259,7 @@ function arrivePlace() {
 };
 
 function travelJudalSet() {
+    //Sets your destination based on where you are from Argo, or Nok.
     if (destination === 'NokBurned') {
         destination = 'Judal';
         distance = 20;
