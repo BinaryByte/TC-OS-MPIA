@@ -85,37 +85,33 @@ function storylineDemon() {
 
 function continueStory() {
     clear();
-    document.write("You defeat the demon. For being so large, it was surprisingly easy.");
-    document.write("<p>Over the horizon, however, a larger demon flies towards you. It\'s nearly four times the size of the large demon. However, something pops up and flies it into the ground.</p>");
-    document.write("<p>The thing that brought down the demon comes up, and you see it is a magnificent dragon.</p>");
-    document.write("<p>The dragon approaches you, and lands directly near you.</p>");
-    document.write("<p>\"Greetings adventurer. You look worn down. Quickly, you must help me fight off the demon-spawn.\"</p>");
-    document.write("<button onClick = \"helpDragon()\">\"Let\'s go kick some generic bad guy batootie.\"</button><button onClick = \"noDragon()\">\"No! You\'re a dragon!\"</button>");
+    document.innerHTML = "You defeat the demon. For being so large, it was surprisingly easy. <p>Over the horizon, however, a larger demon flies towards you. It\'s nearly four times the size of the large demon. However, something pops up and flies it into the ground.</p>";
+    document.innerHTML = document.innerHTML + "<p>The thing that brought down the demon comes up, and you see it is a magnificent dragon.</p> <p>The dragon approaches you, and lands directly near you.</p> <p>\"Greetings adventurer. You look worn down. Quickly, you must help me fight off the demon-spawn.\"</p>";
+    document.innerHTML = document.innerHTML + "<button onClick = \"helpDragon()\">\"Let\'s go kick some generic bad guy batootie.\"</button><button onClick = \"noDragon()\">\"No! You\'re a dragon!\"</button>";
 };
 
 function helpDragon() {
     clear();
-    document.write("The Dragon inhales...");
-    document.write("<p><button onClick =\"helpDragonContinue()\">Ohcrapohcrapocrapocrap</button><button onClick = \"helpDragonContinue()\">Whatever...</button></p>");
+    document.innerHTML = "The Dragon inhales... <p><button onClick =\"helpDragonContinue()\">Ohcrapohcrapocrapocrap</button><button onClick = \"helpDragonContinue()\">Whatever...</button></p>";
 };
 
 function helpDragonContinue() {
     distance = 100;
-    document.write("<p>And exhales a mighty healing breath. Your health is restored.</p>");
+    document.innerHTML = document.innerHTML + "<p>And exhales a mighty healing breath. Your health is restored.</p>";
     health = maxHealth;
-    document.write("<p>\"Quickly, random traveler I just met whom I trust for some reason, go down the street and go save people.\"</p>");
-    document.write("<p><button onClick = \"streetWander()\">Begin wandering</button></p>");
+    document.innerHTML = document.innerHTML + "<p>\"Quickly, random traveler I just met whom I trust for some reason, go down the street and go save people.\"</p>";
+    document.innerHTML = document.innerHTML + "<p><button onClick = \"streetWander()\">Begin wandering</button></p>";
 };
 
 function streetWander() {
     saved = false;
     clear();
-    document.write("You are wandering down the street, looking for demons and people to save.");
-    document.write("Mandatory encounter in... " + distance / travelingSpeed + "  clicks.");
-    document.write("<p><button onClick = \"streetWanderEvent()\">Wander</button></p>");
+    document.innerHTML = "You are wandering down the street, looking for demons and people to save.";
+    document.innerHTML = document.innerHTML + "Mandatory encounter in... " + distance / travelingSpeed + "  clicks.";
+    document.innerHTML = document.innerHTML + "<p><button onClick = \"streetWanderEvent()\">Wander</button></p>";
     if (distance <= 0) {
-        document.write("<p>You discover a burning building, and a woman screaming.</p>");
-        document.write("<p><button onClick = \"continueOnward()\">She\'s dead anyway.</button><button onClick = \"saveWoman()\">Incognito adventurer to the rescue!</button></p>");
+        document.innerHTML = document.innerHTML + "<p>You discover a burning building, and a woman screaming.</p>";
+        document.innerHTML = document.innerHTML + "<p><button onClick = \"continueOnward()\">She\'s dead anyway.</button><button onClick = \"saveWoman()\">Incognito adventurer to the rescue!</button></p>";
     }
 };
 
@@ -131,10 +127,10 @@ function streetWanderEvent() {
 };
 
 function demonAttack() {
-    alert("You are attacked by a demon!");
+    window.alert("You are attacked by a demon!");
     if (wizardMagic === true) {
         originalAttack = attack;
-        alert("You are magic! + 30% attack against demons!");
+        window.alert("You are magic! + 30% attack against demons!");
         attack = attack + (attack * 0.3);
     }
     enemyHealth = 16;
@@ -144,7 +140,7 @@ function demonAttack() {
     while (attacked === true) {
         if (enemyHealth <= 0) {
             attacked = false;
-            alert('You win! + 10 gold!');
+            window.alert('You win! + 10 gold!');
             gold = gold + 10;
             if (health > maxHealth) {
                 health = maxHealth;
@@ -157,17 +153,17 @@ function demonAttack() {
             defense = 10;
             wizardMagic = false;
             attacked = false;
-            alert("You are dead.");
+            window.alert("You are dead.");
             death();
         } else {
             criticalChance = Math.floor(Math.random() * 5);
             playerAttack = attack + criticalChance - enemyDefense;
             enemyHealth = enemyHealth - playerAttack;
-            alert("You did " + playerAttack + " damage!");
-            alert("The enemy health is now " + enemyHealth + "!");
+            window.alert("You did " + playerAttack + " damage!");
+            window.alert("The enemy health is now " + enemyHealth + "!");
             if (enemyHealth <= 0) {
                 attacked = false;
-                alert('You win!');
+                window.alert('You win!');
                 if (health > maxHealth) {
                     health = maxHealth;
                 }
@@ -179,15 +175,15 @@ function demonAttack() {
                 criticalChance = Math.floor(Math.random() * 5);
                 enemyAttack2 = (enemyAttack + criticalChance) - defense;
                 if (enemyAttack2 < 0) {
-                    alert("The enemy attack did nothing...");
+                    window.alert("The enemy attack did nothing...");
                 } else {
                     health = health - enemyAttack2;
-                    alert("The enemy did " + enemyAttack2 + "!");
-                    alert("You are now at " + health + " hit points!");
+                    window.alert("The enemy did " + enemyAttack2 + "!");
+                    window.alert("You are now at " + health + " hit points!");
                 }
                 if (health > maxHealth) {
                     health = maxHealth;
-                    alert("You went over " + maxHealth + "! Resetting health...");
+                    window.alert("You went over " + maxHealth + "! Resetting health...");
                 }
             }
         }
@@ -197,20 +193,19 @@ function demonAttack() {
 function saveWoman() {
     clear();
     saved = true;
-    document.write("You save the woman. She runs away, like a coward.");
-    document.write("<p><button onClick = \"continueOnward()\">Let\'s go save more people!</button></p>");
+    document.innerHTML = "You save the woman. She runs away, like a coward. <p><button onClick = \"continueOnward()\">Let\'s go save more people!</button></p>";
 }
 
 function continueOnward() {
     clear();
-    document.write("You continue, and the dragon meets up with you. He hurriedly speaks. \"There are too many demons blah blah blah blah not just a regular blah blah blah blah hop on my back.\"");
-    document.write("<p><button onClick = \"dragonRide()\">Be awesome and ride a CENSORED dragon!</button><button onClick = \"noDragonRide()\">\"I get uh... dragon... sick...\"</button></p>");
+    document.innerHTML = "You continue, and the dragon meets up with you. He hurriedly speaks. \"There are too many demons blah blah blah blah not just a regular blah blah blah blah hop on my back.\"";
+    document.innerHTML = document.innerHTML + "<p><button onClick = \"dragonRide()\">Be awesome and ride a CENSORED dragon!</button><button onClick = \"noDragonRide()\">\"I get uh... dragon... sick...\"</button></p>";
 }
 
 function noDragonRide() {
     clear();
     destination = 'JudalStory'
-    document.write("\"Whatever, adventurer. I was planning to eat you anyway.\" You begin walking to Judal.");
+    document.innerHTML = "\"Whatever, adventurer. I was planning to eat you anyway.\" You begin walking to Judal.";
     document.write("<p><button onClick =\"judalNoDragon()\">Walk</button></p>");
     if (saved === true) {
         travelingSpeedOriginal = travelingSpeed;
