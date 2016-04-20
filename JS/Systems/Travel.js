@@ -35,7 +35,7 @@ function travelEventNok() {
                 cave();
                 break;
             case 2:
-                cave();
+                magicCave();
                 break;
             case 3:
                 if (storyLineBegan === true) {
@@ -203,7 +203,7 @@ function goCave() {
 
 function caveRandom() {
     //Is the table which pulls up the events.
-    var caveEvent = Math.floor(Math.random() * 5)
+    var caveEvent = Math.floor(Math.random() * 4)
     switch (caveEvent) {
         case 0:
             document.innerHTML = document.innerHTML + "Nothing... <p><button onClick = \"travelNok()\">Leave</button></p>";
@@ -217,12 +217,8 @@ function caveRandom() {
             attackBanditsCave();
             break;
         case 3:
-            document.innerHTML = document.innerHTML + "Bandit lair! Watch out!";
-            attackBanditsCave();
-            break;
-        case 4:
-            document.innerHTML = document.innerHTML + "You find shoes of running! +5 to traveling speed! <p><button onClick = \"travelNok()\">Leave</button></p>";
-            travelingSpeed = travelingSpeed + 5;
+            window.alert("Nothing...");
+            travelNok();
             break;
         default:
             window.alert("Nothing...");
@@ -271,3 +267,45 @@ function travelJudalSet() {
     }
 };
 
+function magicCave(){
+    //Function called magic cave which has magical items.
+    document.innerHTML = "You have found a cave! <p>Do you wish to go inside?</p><p><button onClick = \"magicCaveEvent()\">Yes</button><button onClick = \"travelNok()\">No</button></p>";
+}
+function magicCaveEvent(){
+    window.alert("You head inside the cave. A magical presence can be felt.");
+    var chances = Math.floor(Math.random() * 10);
+    switch(chances){
+        case 0:
+            document.innerHTML = "You find shoes of running! +5 to traveling speed! <p><button onClick = \"travelNok()\">Leave</button></p>";
+            travelingSpeed = travelingSpeed + 5;
+            break;
+        case 1:
+            document.innerHTML = "You find a lucky coin! + 1% chance to get gold! <p><button onClick = \"travelNok()\">Leave</button></p>";
+            goldChance = goldChance + 0.01;
+            break;
+        case 2:
+            document.innerHTML = "You find some treasure! <p><button onClick = \"treasureChance()\">Open</button></p>";
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        case 6:
+            break;
+        case 7:
+            break;
+        case 8:
+            break;
+        case 9:
+            break;
+    }
+}
+
+function treasureChance(){
+    var chance = Math.floor(Math.random() * 100) * goldChance;
+    window.alert("You\'ve found " + chance + " gold!");
+    gold = gold + chance;
+    travelNok();
+}
