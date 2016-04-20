@@ -3,6 +3,8 @@ var version = 0.1;
 var storyLineBegan = false;
 var enemyDefense;
 var enemyAttack;
+var enemy;
+var combatEnd;
 gold = 10;
 attack = 10;
 defense = 10;
