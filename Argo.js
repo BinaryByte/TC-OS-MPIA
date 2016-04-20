@@ -5,6 +5,22 @@ function again() {
     document.write("<button onClick = \"exploreArgo()\">Explore</button><button onClick = \"shopArgo()\">Shop</button><button onClick = \"leaveArgo()\">Travel to Nok</button>");
 };
 
+
+function leaveArgo() {
+    //Presents you with the leave choice.
+    document.write("You leave Argo.");
+    if (nokBurned === true) {
+        document.write("<p><button onClick = \"travelJudalSet()\">Judal</button><button onClick = \"travelNokSet()\">Nok</button><button onClick = \"again()\">Stay</button></p>");
+    } else {
+        distance = distanceToNok;
+        destination = 'Nok';
+        clear();
+        document.write("<p>The only nearby town is the town of Nok. Do you wish to travel there?</p>");
+        document.write("<p><button onClick = \"travelNok()\">Yes</button><button onClick = \"again()\">No</button></p>");
+    }
+};
+
+
 function exploreArgo() {
     //If you decide to explore, you are given the choice to go to an alley.
     if (ambushArgoT === true) {
