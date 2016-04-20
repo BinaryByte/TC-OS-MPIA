@@ -3,27 +3,27 @@ function storylineStart() {
         travelNok();
     } else {
         clear();
-        document.write("You find an old man running towards Nok with a letter in his hand. He collapses. You feel compelled to open the note. <p><button onClick = \"pickNote()\">Pick Up Note</button><button onClick = \"butt()\")\">Don't Pick Up Note</button></p>");
+        document.innerHTML = "You find an old man running towards Nok with a letter in his hand. He collapses. You feel compelled to open the note. <p><button onClick = \"pickNote()\">Pick Up Note</button><button onClick = \"butt()\")\">Don't Pick Up Note</button></p>";
     }
 };
 
 function butt() {
-    document.write("<p>A butthurt developer wants you to go pick up the note.</p>");
+    document.innerHTML = document.innerHTML + "<p>A butthurt developer wants you to go pick up the note.</p>";
 };
 
 function pickNote() {
     clear();
     distance = distance - travelingSpeed;
     storyLineBegan = true;
-    document.write("You pick up the note. It says \'Impending Attack Coming from evil bad guys to Nok.\' The old man is dead. <p><button onClick = \"travelNok()\">Continue</button></p>");
+    document.innerHTML = "You pick up the note. It says \'Impending Attack Coming from evil bad guys to Nok.\' The old man is dead. <p><button onClick = \"travelNok()\">Continue</button></p>";
 };
 
 function storylineDemon() {
     nokBurned = true;
-    alert("You are attacked by a demon!");
+    window.alert("You are attacked by a demon!");
     if (wizardMagic === true) {
         originalAttack = attack;
-        alert("You are magic! + 30% attack against demons!");
+        window.alert("You are magic! + 30% attack against demons!");
         attack = attack + (attack * 0.3);
     }
     enemyHealth = 16;
@@ -33,7 +33,7 @@ function storylineDemon() {
     while (attacked === true) {
         if (enemyHealth <= 0) {
             attacked = false;
-            alert('You win! + 10 gold!');
+            window.alert('You win! + 10 gold!');
             gold = gold + 10;
             if (health > maxHealth) {
                 health = maxHealth;
@@ -46,17 +46,17 @@ function storylineDemon() {
             defense = 10;
             wizardMagic = false;
             attacked = false;
-            alert("You are dead.");
+            window.alert("You are dead.");
             death();
         } else {
             criticalChance = Math.floor(Math.random() * 5);
             playerAttack = attack + criticalChance - enemyDefense;
             enemyHealth = enemyHealth - playerAttack;
-            alert("You did " + playerAttack + " damage!");
-            alert("The enemy health is now " + enemyHealth + "!");
+            window.alert("You did " + playerAttack + " damage!");
+            window.alert("The enemy health is now " + enemyHealth + "!");
             if (enemyHealth <= 0) {
                 attacked = false;
-                alert('You win!');
+                window.alert('You win!');
                 if (health > maxHealth) {
                     health = maxHealth;
                 }
@@ -68,11 +68,11 @@ function storylineDemon() {
                 criticalChance = Math.floor(Math.random() * 5);
                 enemyAttack2 = (enemyAttack + criticalChance) - defense;
                 if (enemyAttack2 < 0) {
-                    alert("The enemy attack did nothing...");
+                    window.alert("The enemy attack did nothing...");
                 } else {
                     health = health - enemyAttack2;
-                    alert("The enemy did " + enemyAttack2 + "!");
-                    alert("You are now at " + health + " hit points!");
+                    window.alert("The enemy did " + enemyAttack2 + "!");
+                    window.alert("You are now at " + health + " hit points!");
                 }
                 if (health > maxHealth) {
                     health = maxHealth;
