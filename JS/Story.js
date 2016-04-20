@@ -206,11 +206,11 @@ function noDragonRide() {
     clear();
     destination = 'JudalStory'
     document.innerHTML = "\"Whatever, adventurer. I was planning to eat you anyway.\" You begin walking to Judal.";
-    document.write("<p><button onClick =\"judalNoDragon()\">Walk</button></p>");
+    document.innerHTML = document.innerHTML + "<p><button onClick =\"judalNoDragon()\">Walk</button></p>";
     if (saved === true) {
         travelingSpeedOriginal = travelingSpeed;
         travelingSpeed = travelingSpeed - 5;
-        document.write("<p>You have saved the woman, so you get a deduction to your traveling speed. - 5 traveling speed. Your total traveling speed is now " + travelingSpeed + " miles per day.</p>");
+        document.innerHTML = document.innerHTML + "<p>You have saved the woman, so you get a deduction to your traveling speed. - 5 traveling speed. Your total traveling speed is now " + travelingSpeed + " miles per day.</p>";
     }
     judalNoDragon();
 
@@ -219,18 +219,18 @@ function noDragonRide() {
 function dragonRide() {
     distance = 20;
     clear();
-    document.write("You hop onto the dragon.");
+    document.innerHTML = "You hop onto the dragon.";
     if (saved === true) {
-        document.write("<p>The woman you saved hops onto the dragon as well.</p>");
-        document.write("<p><button onClick = \"dragonFly()\">Fly</button></p>");
+        document.innerHTML = document.innerHTML + "<p>The woman you saved hops onto the dragon as well.</p>";
+        document.innerHTML = document.innerHTML + "<p><button onClick = \"dragonFly()\">Fly</button></p>";
     }
 };
 
 function dragonFly() {
     clear();
     dragonFlyS = true;
-    document.write("Distance to Judal, " + distance + " miles. Dragon speed is 5 miles per minute.");
-    document.write("<p><button onClick = \"flyEvent()\">Continue Flying</button></p>");
+    document.innerHTML = "Distance to Judal, " + distance + " miles. Dragon speed is 5 miles per minute.";
+    document.innerHTML = document.innerHTML + "<p><button onClick = \"flyEvent()\">Continue Flying</button></p>";
     if (distance <= 0) {
         arriveJudalStory();
     }
@@ -254,18 +254,17 @@ function flyEvent() {
 
 function demonAttackFly() {
     clear();
-    document.write("<p>A flying demon attacks you!</p>");
-    document.write("<p><button onClick = \"dragonLand()\">Combat</button>");
+    document.innerHTML = "<p>A flying demon attacks you!</p> <p><button onClick = \"dragonLand()\">Combat</button>";
 }
 
 function dragonLand() {
     clear();
     if (dragonHealth <= 0) {
-        alert("You are dead.");
+        window.alert("You are dead.");
         attacked = false;
         death();
     } else {
-        document.write("<p><button onClick = \"fireBreath()\">Fire Breath</button><button onClick = \"chomp()\">Chomp</button></p>");
+        document.innerHTML = "<p><button onClick = \"fireBreath()\">Fire Breath</button><button onClick = \"chomp()\">Chomp</button></p>";
     }
 };
 
@@ -274,10 +273,10 @@ function fireBreath() {
     dragonAttack = attack + 10;
     dragonAttack2 = (dragonAttack + criticalChance) - enemyDefense;
     enemyHealth = enemyHealth - dragonAttack2;
-    alert("You used a fire breath! You did " + dragonAttack2 + " points of damage!");
-    alert("The enemy health is now " + enemyHealth + "!");
+    window.alert("You used a fire breath! You did " + dragonAttack2 + " points of damage!");
+    window.alert("The enemy health is now " + enemyHealth + "!");
     if (enemyHealth <= 0) {
-        alert("You win!");
+        window.alert("You win!");
         dragonFly();
     } else {
         dragonDemonAttack();
@@ -289,10 +288,10 @@ function chomp() {
     dragonAttack = attack + 3;
     dragonAttack2 = (dragonAttack + criticalChance) - enemyDefense;
     enemyHealth = enemyHealth - dragonAttack2;
-    alert("You chomped the enemy! You did " + dragonAttack2 + " points of damage!");
-    alert("The enemy health is now " + enemyHealth + " hit points!");
+    window.alert("You chomped the enemy! You did " + dragonAttack2 + " points of damage!");
+    window.alert("The enemy health is now " + enemyHealth + " hit points!");
     if (enemyHealth <= 0) {
-        alert("You win!");
+        window.alert("You win!");
         attacked = false;
         dragonFly();
     } else {
@@ -301,18 +300,18 @@ function chomp() {
 };
 
 function dragonDemonAttack() {
-    alert("The enemy attacks!");
+    window.alert("The enemy attacks!");
     enemyAttack2 = (enemyAttack + criticalChance) - dragonDefense;
     if (enemyAttack2 < 0) {
-        alert("The attack did nothing...");
+        window.alert("The attack did nothing...");
         dragonLand();
     } else {
         dragonHealth = dragonHealth - enemyAttack2;
-        alert("The enemy did " + enemyAttack2 + " damage!");
-        alert("The dragon is now at " + dragonHealth + " hit points!");
-        alert("Luckily, the dragon regenerates outside of combat...");
+        window.alert("The enemy did " + enemyAttack2 + " damage!");
+        window.alert("The dragon is now at " + dragonHealth + " hit points!");
+        window.alert("Luckily, the dragon regenerates outside of combat...");
         if (dragonHealth <= 0) {
-            alert("You are dead.");
+            window.alert("You are dead.");
             death();
         } else {
             dragonLand();
@@ -324,11 +323,11 @@ function noDragon() {
     destination = 'JudalStory';
     distance = 20;
     clear();
-    document.write("The dragon flies off. You walk towards the city of Judal.");
+    document.innerHTML = "The dragon flies off. You walk towards the city of Judal.";
     if (saved === true) {
         travelingSpeedOriginal = travelingSpeed;
         travelingSpeed = travelingSpeed - 5;
-        document.write("<p>You have saved the woman, so you get a deduction to your traveling speed. - 5 traveling speed. Your total traveling speed is now " + travelingSpeed + " miles per day.</p>");
+        document.innerHTML = document.innerHTML + "<p>You have saved the woman, so you get a deduction to your traveling speed. - 5 traveling speed. Your total traveling speed is now " + travelingSpeed + " miles per day.</p>";
     }
     travelNok();
 };
@@ -336,32 +335,30 @@ function noDragon() {
 
 function arriveJudalStory() {
     clear();
-        document.write("You arrive at Judal.");
-    document.write("<p>The mayor of Judal greets you and offers you gold for killing demons. + 50 gold.</p>");
+        document.innerHTML = "You arrive at Judal.";
+    document.innerHTML = "<p>The mayor of Judal greets you and offers you gold for killing demons. + 50 gold.</p>";
     gold = gold + 50;
     if (saved = true) {
-        document.write("<p>The mayor also gives you gold for saving the woman. +15 gold.</p>");
+        document.innerHTML = document.innerHTML + "<p>The mayor also gives you gold for saving the woman. +15 gold.</p>";
         gold = gold + 15;
     }
-    document.write("<p>The mayor then invites you to eat at a banquet.</p>");
+    document.innerHTML = document.innerHTML + "<p>The mayor then invites you to eat at a banquet.</p>";
     health = maxHealth;
-    document.write("<p><button onClick = \"judalStoryBanquet()\">Eat</button></p>");
+    document.innerHTML = document.innerHTML + "<p><button onClick = \"judalStoryBanquet()\">Eat</button></p>";
 };
 
 function judalStoryBanquet() {
     clear();
-    document.write("You eat, and your health is restored. You are now at " + health + " hit points.");
-    document.write("<p>The mayor then presents you with a gift, to help discover the cause of these demon incursions.</p>");
+    document.innerHTML = "You eat, and your health is restored. You are now at " + health + " hit points. <p>The mayor then presents you with a gift, to help discover the cause of these demon incursions.</p>";
     if (backstory === 'Wizard') {
-        document.write("<p>The mayor presents you with a magic staff. You now have increased magic damage +40% damage to magical creatures.</p>");
+        document.innerHTML = document.innerHTML + "<p>The mayor presents you with a magic staff. You now have increased magic damage +40% damage to magical creatures.</p>";
         magicDamage = attack + 0.40;
     } else if (backstory === 'Guard') {
-        document.write("<p>The mayor presents you with a sword. +3 attack.</p>");
+        document.innerHTML = document.innerHTML + "<p>The mayor presents you with a sword. +3 attack.</p>";
         attack = attack + 3;
     } else if (backstory === 'Merchant') {
-        document.write("<p>The mayor presents you with a magic coin. +10% chance to get more gold.</p>");
+        document.innerHTML = document.innerHTML + "<p>The mayor presents you with a magic coin. +10% chance to get more gold.</p>";
         goldChance = goldChance + 0.10
     }
-    document.write("<p>The mayor then tells you to head to the town of Ruillind to find the source of all this, when you're ready.</p>");
-    document.write("<p><button onClick = \"arriveJudal()\">Town Square</button></p>");
+    document.innerHTML = document.innerHTML + "<p>The mayor then tells you to head to the town of Ruillind to find the source of all this, when you're ready.</p> <p><button onClick = \"arriveJudal()\">Town Square</button></p>";
 };
