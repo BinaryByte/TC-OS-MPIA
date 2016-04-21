@@ -414,3 +414,19 @@ function attackRock(){
         enemyHealth = 40;
         combatSystem();
 }
+
+function banditWrestling(){
+    document.body.innerHTML = "You come upon a group of bandits who are wrestling. They ask you if you want to join them. Do you accept? <p><button onClick = \"wrestle()\">Yes</button><button onClick = \"travelNok()\">No</button></p>";
+}
+
+function wrestle(){
+    window.alert("You start to wrestle the bandits...");
+    var chances = Math.floor(Math.random()* attack) + attack;
+    if(chances > attack/2){
+        window.alert("You win! Congratulations! You gain some gold.");
+        treasureChance();
+    } else {
+        window.alert("You lose! - 10 gold!");
+        gold = gold - 10;
+    }
+}
