@@ -77,6 +77,7 @@ function findEndCombat(){
     case 'RockCombat':
         window.alert("You have defeated the mob of " + faction + "!");
         factionEnemy = factionEnemy + 1;
+        travelNok();
         break;
     default:
     window.alert("ERROR! Couldn't find end of combat location. Please report. Teleporting you to your last known location...");
