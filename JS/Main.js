@@ -11,6 +11,7 @@ defense = 10;
 var wizardMagic;
 var backstory;
 var enemyHealth;
+var enemyMaxHealth;
 health = 10;
 var playerAttack;
 var enemyAttack2;
