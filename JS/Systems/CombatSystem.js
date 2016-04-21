@@ -69,6 +69,11 @@ function findEndCombat(){
     case 'TravelNok':
         travelNok();
       break;
+    case 'WizardDuel':
+        window.alert("You beat the wizard, and he grants you some of his magic. Plus 2 to attack!");
+        attack = attack + 2;
+        travelNok();
+    break;
     default:
     window.alert("ERROR! Couldn't find end of combat location. Please report. Teleporting you to your last known location...");
     travelNok();
