@@ -10,13 +10,13 @@ function travelNok() {
     //Traveling to Nok.
     clear();
     //Says the destination, and says the distance, and executes travelEventNok every time you press the button.
-    document.innerHTML = "You are now traveling to " + destination + ". There are " + distance + " miles left. Your traveling speed is " + travelingSpeed + " miles per day.";
-    document.innerHTML = document.innerHTML + "<p><button onClick = \"travelEventNok()\">Time Passes</button></p>";
+    document.body.innerHTML = "You are now traveling to " + destination + ". There are " + distance + " miles left. Your traveling speed is " + travelingSpeed + " miles per day.";
+    document.body.innerHTML = document.body.innerHTML + "<p><button onClick = \"travelEventNok()\">Time Passes</button></p>";
     if (distance <= 0) {
         //If your distance is equal to 0, it runs a function arrivePlace()
         clear();
-        document.innerHTML = "You have arrived at " + destination + "!";
-        document.innerHTML = document.innerHTML + "<p><button onClick = \"arrivePlace()\">Enter</button></p>";
+        document.body.innerHTML = "You have arrived at " + destination + "!";
+        document.body.innerHTML = document.body.innerHTML + "<p><button onClick = \"arrivePlace()\">Enter</button></p>";
     }
 };
 
@@ -129,9 +129,9 @@ function cave() {
     //Presents you a choice to go inside a cave or not. If so, it executes a function, goCave()
     clear();
     distance = distance - travelingSpeed;
-    document.innerHTML = "You have found a cave!";
-    document.innerHTML = document.innerHTML + "<p>Do you wish to go inside?</p>";
-    document.innerHTML = document.innerHTML + "<p><button onClick = \"goCave()\">Yes</button><button onClick = \"travelNok()\">No</button></p>";
+    document.body.innerHTML = "You have found a cave!";
+    document.body.innerHTML = document.body.innerHTML + "<p>Do you wish to go inside?</p>";
+    document.body.innerHTML = document.body.innerHTML + "<p><button onClick = \"goCave()\">Yes</button><button onClick = \"travelNok()\">No</button></p>";
 };
 
 function attackBanditsCave() {
@@ -199,7 +199,7 @@ function goCave() {
     //Creates a cave, which pulls up a table of random events.
     //You go inside the cave. 
     clear();
-    document.innerHTML = "You enter the cave.";
+    document.body.innerHTML = "You enter the cave.";
     caveRandom();
 };
 
@@ -208,14 +208,14 @@ function caveRandom() {
     var caveEvent = Math.floor(Math.random() * 4)
     switch (caveEvent) {
         case 0:
-            document.innerHTML = document.innerHTML + "Nothing... <p><button onClick = \"travelNok()\">Leave</button></p>";
+            document.body.innerHTML = document.body.innerHTML + "Nothing... <p><button onClick = \"travelNok()\">Leave</button></p>";
             break;
         case 1:
             gold = gold + 10;
-            document.innerHTML = document.innerHTML + "You find treasure! + 10 gold! <p><button onClick = \"travelNok()\">Leave</button></p>";
+            document.body.innerHTML = document.body.innerHTML + "You find treasure! + 10 gold! <p><button onClick = \"travelNok()\">Leave</button></p>";
             break;
         case 2:
-            document.innerHTML = document.innerHTML + "Bandit lair! Watch out!";
+            document.body.innerHTML = document.body.innerHTML + "Bandit lair! Watch out!";
             attackBanditsCave();
             break;
         case 3:
@@ -270,30 +270,30 @@ function travelJudalSet() {
 
 function magicCave(){
     //Function called magic cave which has magical items.
-    document.innerHTML = "You have found a cave! <p>Do you wish to go inside?</p><p><button onClick = \"magicCaveEvent()\">Yes</button><button onClick = \"travelNok()\">No</button></p>";
+    document.body.innerHTML = "You have found a cave! <p>Do you wish to go inside?</p><p><button onClick = \"magicCaveEvent()\">Yes</button><button onClick = \"travelNok()\">No</button></p>";
 }
 function magicCaveEvent(){
     window.alert("You head inside the cave. A magical presence can be felt.");
     var chances = Math.floor(Math.random() * 10);
     switch(chances){
         case 0:
-            document.innerHTML = "You find shoes of running! +5 to traveling speed! <p><button onClick = \"travelNok()\">Leave</button></p>";
+            document.body.innerHTML = "You find shoes of running! +5 to traveling speed! <p><button onClick = \"travelNok()\">Leave</button></p>";
             travelingSpeed = travelingSpeed + 5;
             break;
         case 1:
-            document.innerHTML = "You find a lucky coin! + 1% chance to get gold! <p><button onClick = \"travelNok()\">Leave</button></p>";
+            document.body.innerHTML = "You find a lucky coin! + 1% chance to get gold! <p><button onClick = \"travelNok()\">Leave</button></p>";
             goldChance = goldChance + 0.01;
             break;
         case 2:
-            document.innerHTML = "You find some treasure! <p><button onClick = \"treasureChance()\">Open</button></p>";
+            document.body.innerHTML = "You find some treasure! <p><button onClick = \"treasureChance()\">Open</button></p>";
             break;
         case 3:
             attack = attack + 1;
-            document.innerHTML = "You find a potion of the attacker! + 1 to attack! <button onClick = \"travelNok()\">Leave</button>";
+            document.body.innerHTML = "You find a potion of the attacker! + 1 to attack! <button onClick = \"travelNok()\">Leave</button>";
             break;
         case 4:
             defense = defense + 1;
-            document.innerHTML = "You find a potion of the defender! +1 to defense! <button onClick = \"travelNok()\">Leave</button>";
+            document.body.innerHTML = "You find a potion of the defender! +1 to defense! <button onClick = \"travelNok()\">Leave</button>";
             break;
         case 5:
             window.alert("You find a slime inhabiting the cave. It attacks you.");
@@ -310,10 +310,10 @@ function magicCaveEvent(){
             travelNok();
             break;
         case 7:
-            document.innerHTML = "You find a magical toadstool. Do you eat it? <p><button onClick = \"toadstoolChance()\">Yes</button><button onClick - \"travelNok()\">No</button></p>";
+            document.body.innerHTML = "You find a magical toadstool. Do you eat it? <p><button onClick = \"toadstoolChance()\">Yes</button><button onClick - \"travelNok()\">No</button></p>";
             break;
         case 8:
-            document.innerHTML = "A mighty wizard comes and challenges you to a duel! Do you fight him? <button onClick = \"wizardDuel()\">Yes</button><button onClick = \"travelNok()\">No</button>";
+            document.body.innerHTML = "A mighty wizard comes and challenges you to a duel! Do you fight him? <button onClick = \"wizardDuel()\">Yes</button><button onClick = \"travelNok()\">No</button>";
             break;
         case 9:
             window.alert("You find nothing in this magical cave.");
@@ -381,16 +381,16 @@ function rockConcert(){
             faction = "Scarecrows";
             break;
     }
-    document.innerHTML = "You discover a group of " + faction + " partying at a rock concert. One of them notices you, ";
+    document.body.innerHTML = "You discover a group of " + faction + " partying at a rock concert. One of them notices you, ";
     if(rockFactionP === null){
-        document.innerHTML = document.innerHTML + " and asks you if you want to join them in partying across the land. <p><button onClick = \"rockFactionJoin()\">Yes</button><button onClick = \"attackRock()\">No</button></p>";
+        document.body.innerHTML = document.body.innerHTML + " and asks you if you want to join them in partying across the land. <p><button onClick = \"rockFactionJoin()\">Yes</button><button onClick = \"attackRock()\">No</button></p>";
     } else if (rockFactionP === faction){
         if(factionEnemy > goal){
-            document.innerHTML = document.innerHTML + " and congratulates you on destroying " + goal + " rock concerts. They give you some gold. <button onClick = \"treasureChance()\">Leave</button>";
+            document.body.innerHTML = document.body.innerHTML + " and congratulates you on destroying " + goal + " rock concerts. They give you some gold. <button onClick = \"treasureChance()\">Leave</button>";
             goal = goal + 5;
             factionEnemy = 0;
         } else {
-            document.innerHTML = document.innerHTML + " and you party with them for a little while, then leave. <button onClick = \"travelNok()\">Leave</button>";
+            document.body.innerHTML = document.body.innerHTML + " and you party with them for a little while, then leave. <button onClick = \"travelNok()\">Leave</button>";
         }
     } else {
         attackRock();
