@@ -40,14 +40,14 @@ var ambushArgoT = false;
 function begin() {
     clear();
     //The start. It presents you with a choice of person.
-    document.innerHTML = "You are a... <p><button onClick = \"merchant()\">Merchant</button><button onClick = \"guard()\">Guard</button><button onClick = \"wizard()\">Wizard</button></p>";
+    document.body.innerHTML = "You are a... <p><button onClick = \"merchant()\">Merchant</button><button onClick = \"guard()\">Guard</button><button onClick = \"wizard()\">Wizard</button></p>";
 }
 
 function merchant() {
     backstory = "Merchant";
     //You get plus gold, then goes to Argo.
     clear();
-    document.innerHTML = "You are a merchant. +25 gold.";
+    document.body.innerHTML = "You are a merchant. +25 gold.";
     gold = gold + 25;
     again();
 
@@ -57,7 +57,7 @@ function guard() {
     //Get plus 2 attack and defense, then go to argo.
     clear();
     backstory = "Guard";
-    document.innerHTML = "You are a guard. +2 to attack and defense.";
+    document.body.innerHTML = "You are a guard. +2 to attack and defense.";
     attack = attack + 2;
     defense = defense + 2;
     again();
@@ -67,7 +67,7 @@ function wizard() {
     //Gain magic, which will be used later.
     backstory = "Wizard";
     clear();
-    document.innerHTML = "You are a wizard. You now have a magic attack.";
+    document.body.innerHTML = "You are a wizard. You now have a magic attack.";
     wizardMagic = true;
     again();
 };
