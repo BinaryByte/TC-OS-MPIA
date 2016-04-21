@@ -216,5 +216,5 @@ function sewer(){
 function enterSewer(){
     //I need tyler to help me here make an array that is 3x3. you start in the bottom right and can go up/down/left/right until you reach the boss in the top right, every time you move one square you have a chance to fight a rat or get 5 gold.
     clear();
-    edit("");
+    edit("North, south, east, or west? <button onClick = \"north()\">North</button><button onClick = \"south()\">South</button><button onClick = \"east()\">East</button><button onClick = \"west()\">West</button>");
 }
