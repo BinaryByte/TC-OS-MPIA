@@ -1,4 +1,4 @@
-
+rockFactionP = null;
 var travel = {
     place: 'Nok'
 };
@@ -39,7 +39,7 @@ function travelEventNok() {
                 break;
             case 3:
                 if (storyLineBegan === true) {
-                    cave();
+                    rockConcert();
                 } else {
                     storylineStart();
                 }
@@ -355,5 +355,30 @@ function wizardDuel(){
     } else {
         window.alert("The wizard rejects, seeing you as someone without magic. \"Come back when you are magical. Then we\'ll talk.\"");
         travelNok();
+    }
+}
+
+function rockConcert(){
+    var faction = Math.floor(Math.random() * 5);
+    switch(faction){
+        case 0:
+            faction = "Zombies";
+            break;
+        case 1:
+            faction = "Ghouls";
+            break;
+        case 2:
+            faction = "Dwarves";
+            break;
+        case 3:
+            faction = "Humans";
+            break;
+        case 4:
+            faction = "Scarecrows";
+            break;
+    }
+    document.innerHTML = "You discover a group of " + faction + " partying at a rock concert. One of them notices you, ";
+    if(rockFactionP === null){
+        document.innerHTML = document.innerHTML + " and asks you if you want to join them in partying across the land. <p><button>Yes</button><button>No</button></p>";
     }
 }
