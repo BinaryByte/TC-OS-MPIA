@@ -414,7 +414,6 @@ function rockFactionJoin(){
 }
 
 function attackRock(){
-    window.alert("You are attacked by an angry mob of " + faction + "!");
     combatEnd = 'RockCombat';
         enemy = 'A mob of ' + faction;
         enemyAttack = 2;
