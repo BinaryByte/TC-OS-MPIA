@@ -40,6 +40,8 @@ function combatSystem() {
                     health = maxHealth;
                 }
                 findEndCombat();
+            } else if(enemyHealth > enemyMaxHealth){
+                enemyHealth = enemyMaxHealth
             } else {
                 //Else, it does the same thing that the player did, except for the enemy.
                 criticalChance = Math.floor(Math.random() * 5);
