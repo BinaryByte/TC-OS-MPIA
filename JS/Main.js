@@ -74,7 +74,7 @@ function wizard() {
 
 function clear() {
     //clears the page when called.
-    document.body.innerHTML = '';
+    console.log("Working...");
 };
 
 
