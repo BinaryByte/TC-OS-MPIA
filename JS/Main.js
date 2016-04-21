@@ -35,6 +35,9 @@ var document = {
                 document.innerHTML = document.innerHTML + text;
         }
 }
+var write = function(text){
+        document.innerHTML = document.innerHTML + text;
+}
 //Declaring the variable for a critical chance for combat
 var criticalChance = Math.floor(Math.random() * 5);
 //This variable is used in Argo.js to detect if you were ambushed.
