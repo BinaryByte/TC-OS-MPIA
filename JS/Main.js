@@ -30,12 +30,6 @@ var nokBurned = false;
 var saved;
 clicks = 0;
 //The clicks variable is used for detecting how many times you clicked the options menu
-var document = {
-//This is a failsafe in case anyone uses document.write by accident. It is an object named document, and as soon as you say .write, it writes what you put in there as a document.innerHTML statement.
-        write: function(text){
-                document.innerHTML = document.innerHTML + text;
-        }
-}
 var edit = function(text){
         document.innerHTML = document.innerHTML + text;
 }
