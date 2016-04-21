@@ -216,5 +216,75 @@ function sewer(){
 function enterSewer(){
     //I need tyler to help me here make an array that is 3x3. you start in the bottom right and can go up/down/left/right until you reach the boss in the top right, every time you move one square you have a chance to fight a rat or get 5 gold.
     clear();
-    edit("North, south, east, or west? <button onClick = \"north()\">North</button><button onClick = \"south()\">South</button><button onClick = \"east()\">East</button><button onClick = \"west()\">West</button>");
+    edit("North, south, east, or west? <button onClick = \"goNorth()\">North</button><button onClick = \"goSouth()\">South</button><button onClick = \"goEast()\">East</button><button onClick = \"goWest()\">West</button>");
+}
+var playerLocation = 0;
+function goNorth(){
+    if(playerLocation === 2){
+        edit("You can't go north.");
+    } else if (playerLocation === 5){ 
+        edit("You can't go north.");
+    } else if (playerLocation === 8){
+        edit("You can\'t go north.");
+    } else {
+        playerLocation = playerLocation + 1;
+    }
+    findLocation();
+}
+function goSouth(){
+    if(playerLocation === 0){
+        edit("You can't go south.");
+    } else if (playerLocation === 3){
+        edit("You can't go south.");
+    } else if (playerLocation === 6){
+        edit("You can't go south.");
+    } else {
+        playerLocation = playerLocation - 1;
+    }
+    findLocation();
+}
+function goEast(){
+    if(playerLocation === 6){
+        edit("You can't go east.");
+    } else if (playerLocation === 7){
+        edit("You can't go east.");
+    } else if (playerLocation === 8){
+        edit("You can\'t go east.");
+    } else {
+        playerLocation = playerLocation + 3;
+    }
+    findLocation();
+}
+function goWest(){
+     if(playerLocation === 0){
+        edit("You can't go west.");
+    } else if (playerLocation === 1){
+        edit("You can't go west.");
+    } else if (playerLocation === 2){
+        edit("You can't go west.");
+    } else {
+        playerLocation = playerLocation - 3;
+    }
+    findLocation();
+}
+
+function findLocation(){
+    if(playerLocation === 8){
+        edit("You\'ve found the boss! <button onClick =\"bossBattle()\">BossBattle</button>");
+    }
+    console.log(playerLocation);
+    randomSewerEncounter();
+}
+
+function randomSewerEncounter(){
+    var chances = Math.floor(Math.random() * 2)
+    if(chances > 0){
+        edit("You\'ve found treasure! +5 gold!");
+        gold = gold + 5;
+    } else {
+        //Combat code here.
+    }
+}
+function bossBattle(){
+    
 }
