@@ -8,6 +8,11 @@ function arriveJudal() {
 
 //everything below this needs to be added to an explore function
 
+function leaveJudal(){
+    destination = 'Nok';
+    travelNok();
+}
+
 function judalStore() {
     clear();
     edit("Welcome to [Judal Olympic Goods Store], here you can buy things that people in the olympics use! <input value=\"Training\" type=\"button\" onClick=\"judalStoreTraining()\"></input>, <input value=\"Equipment\" type=\"button\" onClick=\"judalStoreEquipment()\"></input> <input value=\"Shifty Alley\" type=\"button\" onClick=\"judalStoreSecret\"></input> <input value=\"leave\" type=\"button\" onClick=\"arriveJudal()\"></input>");
