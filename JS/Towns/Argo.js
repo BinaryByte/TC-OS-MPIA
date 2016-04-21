@@ -205,6 +205,39 @@ function helpLady(){
   }
     
 }
+function religion(){
+    clear();
+    edit("You find a man standing at a statue to the all-powerful god ANT, he pulls out a massive runeblade 40 feet long, and says to either <input onClick=\"pray()\" type=\"button\" value=\"Pray\"></input> to the statue, or <input onClick=\"wrath()\" type=\"button\" value=\"break it\"></input>. Otherwise, he'll kill you.");
+}
+function pray(){
+    clear();
+    maxHealth=maxHealth+1;
+    defense=defense+1;
+    health=maxHealth;
+    edit("You feel blessed, do you <input type=\"button\" onClick=\"prayGold()\" value=\"give gold\"></input>, or <input type=\"button\" onClick=\"again()\" value=\"leave\"></input>.")
+}
+function prayGold(){
+    gold=gold-10;
+    maxHealth=maxHealth+3;
+    moveSpeed=moveSpeed+2;
+    defense=defense+1;
+    attack=attack+2;
+    health=maxHealth;
+    edit("You feel divine providence shining upon you. <input type=\"button\" onClick=\"again()\" value=\"leave\"></input>");
+}
+function wrath(){
+    clear();
+    gold=gold+50;
+    maxHealth=maxHealth-3;
+    defense=defense-3;
+    health=maxHealth;
+    edit("You have recieved 50 gold, you are now at " + gold + "gold and you have lost health, it is now at." + health + "<input type=\"button\" onClick=\"again()\" value=\"go back\"></input>");
+}
+
+
+
+
+
 function ratQuest(){
     clear();
     edit("You wander around, and after awhile end up in the tavern. There, you strike up a conversation with an old man who tells you a tale of the 'Grand Rat' a legendary rat living in the sewers of Argo. He says he'll reward you if you can kill it and bring him it's head.<p><po style=\"color:green\"><input type=\"button\" value=\"Accept the quest\" onClick=\"sewer()\"></input></po><po style=\"color:red\"><input type=\"button\" value=\"Deny the quest\" onClick=\"again()\"></input></po></p>");
