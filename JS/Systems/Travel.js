@@ -1,4 +1,6 @@
 rockFactionP = null;
+factionEnemy = 0;
+goal = 5;
 var travel = {
     place: 'Nok'
 };
@@ -300,6 +302,7 @@ function magicCaveEvent(){
             enemyAttack = 5;
             enemyDefense = 20;
             enemyMaxHealth = 10;
+            enemyHealth = 10;
             combatSystem();
             break;
         case 6:
@@ -351,6 +354,7 @@ function wizardDuel(){
         enemyAttack = 13;
         enemyDefense = 7;
         enemyMaxHealth = 10;
+        enemyHealth = 10;
         combatSystem();
     } else {
         window.alert("The wizard rejects, seeing you as someone without magic. \"Come back when you are magical. Then we\'ll talk.\"");
@@ -379,6 +383,34 @@ function rockConcert(){
     }
     document.innerHTML = "You discover a group of " + faction + " partying at a rock concert. One of them notices you, ";
     if(rockFactionP === null){
-        document.innerHTML = document.innerHTML + " and asks you if you want to join them in partying across the land. <p><button>Yes</button><button>No</button></p>";
+        document.innerHTML = document.innerHTML + " and asks you if you want to join them in partying across the land. <p><button onClick = \"rockFactionJoin()\">Yes</button><button onClick = \"attackRock()\">No</button></p>";
+    } else if (rockFactionP === faction){
+        if(factionEnemy > goal){
+            document.innerHTML = document.innerHTML + " and congratulates you on destroying " + goal + " rock concerts. They give you some gold. <button onClick = \"treasureChance()\">Leave</button>";
+            goal = goal + 5;
+            factionEnemy = 0;
+        } else {
+            document.innerHTML = document.innerHTML + " and you party with them for a little while, then leave. <button onClick = \"travelNok()\">Leave</button>";
+        }
+    } else {
+        attackRock();
     }
+    
+}
+
+function rockFactionJoin(){
+    rockFactionP = faction;
+    window.alert("You join the " + faction + "! You can now attend their concerts in the future.");
+    travelNok();
+}
+
+function attackRock(){
+    window.alert("You are attacked by an angry mob of " + faction + "!");
+    combatEnd = 'RockCombat';
+        enemy = 'A mob of ' + faction;
+        enemyAttack = 2;
+        enemyDefense = 10;
+        enemyMaxHealth = 40;
+        enemyHealth = 40;
+        combatSystem();
 }
