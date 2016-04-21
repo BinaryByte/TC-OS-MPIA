@@ -1,6 +1,7 @@
 
 function combatSystem() {
     //You are attacked.
+    attacked = true;
     window.alert("You are attacked by a " + enemy + "!");
     //Sets a while loop that while attacked is true, it will execute the code inside.
     while (attacked === true) {
