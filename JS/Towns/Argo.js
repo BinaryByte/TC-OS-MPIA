@@ -319,5 +319,8 @@ function randomSewerEncounter(){
     }
 }
 function bossBattle(){
-    
+    //battle code here
+    gold=gold+35
+    defense=defenst+2
+    edit("You find a rusted helm in the rat's nest, +2 defense! You leave the dungeon through a secret door you found behind the rat's nest, and head back up to the tavern with the rat's severed head. Inside, you find the old man, who pays you handsomely for the deed. +35 gold! <input value=\"leave\" onClick=\"again()\" type=\"button\"></input>");
 }
