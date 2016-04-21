@@ -15,7 +15,7 @@ function arriveNok() {
 function arriveNokBurned() {
     //Arrive at burned down nok
     clear();
-    document.body.innerHTML = "You arrive at the burned city of Nok.";
+    document.body.innerHTML = "You arrive at the burned city of Nok, there is a guard at the gate, he says that a magical construction team from the future arrived a few days ago, and is busy turning it into a 'target' whatever that is. They say they'll be done in about 4 years.";
     document.body.innerHTML = document.body.innerHTML + "<p><button onClick =\"nokLeave()\">Leave</button></p>";
 };
 
