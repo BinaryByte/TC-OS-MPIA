@@ -1,8 +1,8 @@
 rockFactionP = null;
 factionEnemy = 0;
 var faction = null;
-var moneyWon = 0;
-var moneyLost = 0;
+var moneyWon = null;
+var moneyLost = null;
 goal = 5;
 var travel = {
     place: 'Nok'
