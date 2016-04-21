@@ -1,5 +1,6 @@
 rockFactionP = null;
 factionEnemy = 0;
+var faction;
 goal = 5;
 var travel = {
     place: 'Nok'
@@ -435,4 +436,77 @@ function wrestle(){
         window.alert("You lose! - 10 gold!");
         gold = gold - 10;
     }
+}
+
+function cheeseThrowing(){
+    moneyWon = 0;
+    moneyLost = 0;
+    document.body.innerHTML = "You happen upon a group of gnomes, who are throwing cheese at a target. One of the gnomes asks you if you want to bet. <button onClick = \"bettingCheese()\"></button><button onClick = \"travelNok()\">No</button>";
+}
+function bettingCheese(){
+    var gnome;
+    var moneyWon;
+    var moneyLost
+    document.body.innerHTML = "Money Won: " + moneyWon + " Money Lost: " + moneyLost + " <p>Who will you bet on: </p><p><button onClick = \"Gouda()\">Gouda the Strong</button><button onClick = \"Brie()\">Brie the fast</button><button onClick = \"Provolone()\">Provolone the swift</button><button onClick = \"Cheddar()\">Cheddar the Lucky</button><button onClick = \"getMoney()\">Leave</button></p>";
+}
+function Gouda(){
+    gnome = 'gouda';
+    goBetCheese();
+}
+
+function Brie(){
+    gnome = 'brie';
+    goBetCheese();
+}
+
+function Provolone(){
+    gnome = 'provolone';
+    goBetCheese();
+}
+
+function Cheddar(){
+    gnome = 'cheddar'
+    goBetCheese();
+    
+}
+function goBetCheese(){
+    var chances = Math.floor(Math.random()*400)
+    if(chances <= 100){
+        window.alert("Cheddar wins!");
+        if(gnome === 'cheddar'){
+            moneyWon = moneyWon + 20;
+        } else {
+            moneyLost = moneyLost + 10;
+        }
+        bettingCheese();
+    } else if (chances <= 200){
+        window.alert("Provolone wins!");
+        if(gnome === 'provolone'){
+            moneyWon = moneyWon + 20;
+        } else {
+            moneyLost = moneyLost + 10;
+        }
+        bettingCheese();
+    } else if (chances <= 300){
+        window.alert("Brie wins!");
+        if(gnome === 'brie'){
+            moneyWon = moneyWon + 20;
+        } else {
+            moneyLost = moneyLost + 10;
+        }
+        bettingCheese();
+    } else {
+        window.alert("Gouda wins!");
+        if(gnome === 'gouda'){
+            moneyWon = moneyWon + 20;
+        } else {
+            moneyLost = moneyLost + 10;
+        }
+        bettingCheese();
+    }
+}
+function getMoney(){
+    gold = gold + (moneyWon - moneyLost);
+    window.alert("You now have " + gold + " gold.");
+    travelNok();
 }
