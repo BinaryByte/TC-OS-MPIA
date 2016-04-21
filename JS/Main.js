@@ -31,7 +31,7 @@ var saved;
 clicks = 0;
 //The clicks variable is used for detecting how many times you clicked the options menu
 var edit = function(text){
-        console.log("Working...");
+        document.body.innerHTML = document.body.innerHTML + text;
 }
 //Declaring the variable for a critical chance for combat
 var criticalChance = Math.floor(Math.random() * 5);
@@ -74,7 +74,7 @@ function wizard() {
 
 function clear() {
     //clears the page when called.
-        console.log("Working...");
+        document.body.innerHTML = "";
 };
 
 var document = {
