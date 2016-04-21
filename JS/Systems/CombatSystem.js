@@ -7,7 +7,7 @@ function combatSystem() {
         if (enemyHealth <= 0) {
             //Detects if enemy health is less than or equal to zero, and if true, it will end the while loop.
             attacked = false;
-            window.alert('You win!);
+            window.alert('You win!');
             if (health > maxHealth) {
                 health = maxHealth;
             }
