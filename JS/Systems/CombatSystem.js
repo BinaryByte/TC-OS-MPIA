@@ -1,5 +1,5 @@
 
-function storylineDemon() {
+function combatSystem() {
     //You are attacked by a demon.
     nokBurned = true;
     window.alert("You are attacked by a " + enemy + "!");
