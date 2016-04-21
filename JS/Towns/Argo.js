@@ -194,3 +194,16 @@ function helpLady(){
   }
     
 }
+function ratQuest(){
+    clear();
+    edit("You wander around, and after awhile end up in the tavern. There, you strike up a conversation with an old man who tells you a tale of the 'Grand Rat' a legendary rat living in the sewers of Argo. He says he'll reward you if you can kill it and bring him it's head.<p><po style=\"color:green\"><input type=\"button\" value=\"Accept the quest\" onClick=\"sewer()\"></input></po><po style=\"color:red\"><input type=\"button\" value=\"Deny the quest\" onClick=\"again()\"></input></po></p>");
+}
+function sewer(){
+    clear();
+    edit("The old man lets you into the sewer through a rusted grate he opens with an equally rusted key. He locks the door behind you, it's too late to turn back now. <p><input value=\"Keep Going\" type=\"button\" onClick=\"enterSewer()\"></input></p>");
+}
+function enterSewer(){
+    //I need tyler to help me here make an array that is 3x3. you start in the bottom right and can go up/down/left/right until you reach the boss in the top right, every time you move one square you have a chance to fight a rat or get 5 gold.
+    clear();
+    edit("");
+}
