@@ -287,10 +287,22 @@ function magicCaveEvent(){
             document.innerHTML = "You find some treasure! <p><button onClick = \"treasureChance()\">Open</button></p>";
             break;
         case 3:
+            attack = attack + 1;
+            document.innerHTML = "You find a potion of the attacker! + 1 to attack! <button onClick = \"travelNok()\">Leave</button>";
             break;
         case 4:
+            defense = defense + 1;
+            document.innerHTML = "You find a potion of the defender! +1 to defense! <button onClick = \"travelNok()\">Leave</button>";
             break;
         case 5:
+            window.alert("You find a slime inhabiting the cave. It attacks you.");
+            combatEnd = 'TravelNok';
+            enemy = 'Slime';
+            enemyAttack = 5;
+            enemyDefense = 20;
+            combatSystem();
+            enemyMaxHealth = 10;
+            enemyMaxHealth = 10;
             break;
         case 6:
             break;
