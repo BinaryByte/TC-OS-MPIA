@@ -7,8 +7,7 @@ function combatSystem() {
         if (enemyHealth <= 0) {
             //Detects if enemy health is less than or equal to zero, and if true, it will end the while loop.
             attacked = false;
-            window.alert('You win! + 10 gold!');
-            gold = gold + 10;
+            window.alert('You win!);
             if (health > maxHealth) {
                 health = maxHealth;
             }
@@ -67,13 +66,17 @@ function combatSystem() {
 function findEndCombat(){
   switch (combatEnd){
     case 'TravelNok':
-        travelNok();
+        treasureChance();
       break;
     case 'WizardDuel':
         window.alert("You beat the wizard, and he grants you some of his magic. Plus 2 to attack!");
         attack = attack + 2;
         travelNok();
     break;
+    case 'RockCombat':
+        window.alert("You have defeated the mob of " + faction + "!");
+        factionEnemy = factionEnemy + 1;
+        break;
     default:
     window.alert("ERROR! Couldn't find end of combat location. Please report. Teleporting you to your last known location...");
     travelNok();
