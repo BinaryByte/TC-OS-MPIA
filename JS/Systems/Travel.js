@@ -370,8 +370,8 @@ function wizardDuel(){
 }
 
 function rockConcert(){
-    var faction = Math.floor(Math.random() * 5);
-    switch(faction){
+    var factionChoose = Math.floor(Math.random() * 5);
+    switch(factionChoose){
         case 0:
             faction = "Zombies";
             break;
