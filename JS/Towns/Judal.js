@@ -75,7 +75,7 @@ function buyJavelin(){
 }
 function buyPadding(){
     clear();
-    if gold(>=50){
+    if (gold>=50){
     gold=gold-50;
     defense=defense+4;
     edit("You buy padding, defense+4 <input value=\"Store\" type=\"button\" onClick=\"judalStore()\"></input>");
