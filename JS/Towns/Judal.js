@@ -31,39 +31,69 @@ function judalStoreSecret(){
 }
 function trainDefense(){
     clear();
-    gold=gold-30;
-    defense=defense+2;
-    edit("You train long and hard, defense+2. <input value=\"Store\" type=\"button\" onClick=\"judalStore()\"></input>")
+    if (gold>=30){
+         gold=gold-30;
+         defense=defense+2;
+         edit("You train long and hard, defense+2. <input value=\"Store\" type=\"button\" onClick=\"judalStore()\"></input>")
+    }
+    else {
+        edit("You can't afford that. <input value=\"Store\" type=\"button\" onClick=\"judalStore()\"></input> ");
+    }
 }
 function trainAttack(){
     clear();
+    if (gold>=30){
     gold=gold-30;
     attack=attack+2;
     edit("You train long and hard, attack+2. <input value=\"Store\" type=\"button\" onClick=\"judalStore()\"></input>")
+    }
+    else{
+         edit("You can't afford that. <input value=\"Store\" type=\"button\" onClick=\"judalStore()\"></input> ");
+    }
 }
 function trainStamina(){
     clear();
+    if (gold>=20){
     gold=gold-20;
     health=health+2;
     edit("You train long and hard, health+2. <input value=\"Store\" type=\"button\" onClick=\"judalStore()\"></input>")
+    }
+    else{
+         edit("You can't afford that. <input value=\"Store\" type=\"button\" onClick=\"judalStore()\"></input> ");
+    }
 }
 function buyJavelin(){
     clear();
+    if (gold>=50){
     gold=gold-50;
     attack=attack+4;
     edit("You buy a javelin, attack+4 <input value=\"Store\" type=\"button\" onClick=\"judalStore()\"></input>");
+    }
+    else{
+         edit("You can't afford that. <input value=\"Store\" type=\"button\" onClick=\"judalStore()\"></input> ");
+    }
 }
 function buyPadding(){
     clear();
+    if gold(>=50){
     gold=gold-50;
     defense=defense+4;
     edit("You buy padding, defense+4 <input value=\"Store\" type=\"button\" onClick=\"judalStore()\"></input>");
+    }
+    else{
+         edit("You can't afford that. <input value=\"Store\" type=\"button\" onClick=\"judalStore()\"></input> ");
+    }
 }
 function buyShoes(){
     clear();
+    if (gold>=25){
     gold=gold-25;
     travelingSpeed=travelingSpeed+2;
     edit("You buy some shoes, move speed+2 <input value=\"Store\" type=\"button\" onClick=\"judalStore()\"></input>");
+    }
+    else{
+         edit("You can't afford that. <input value=\"Store\" type=\"button\" onClick=\"judalStore()\"></input> ");
+    }
 }
 function steroids(){
     clear();
@@ -71,15 +101,25 @@ function steroids(){
 }
 function steroidStrength(){
     clear();
+    if (gold>=100){
     gold=gold-100;
     attack=attack+10;
     edit("You feel pumped, +10 strength, <input value=\"store\" type=\"button\" onClick=\"judalStore()\"></input>");
+    }
+    else{
+         edit("You can't afford that. <input value=\"Store\" type=\"button\" onClick=\"judalStore()\"></input> ");
+    }
 }
 function steroidDefense(){
     clear();
+    if (gold>=100){
     gold=gold-100;
     defense=defense+10;
     edit("You feel pumped, +10 defense, <input value=\"store\" type=\"button\" onClick=\"judalStore()\"></input>");
+    }
+    else{
+         edit("You can't afford that. <input value=\"Store\" type=\"button\" onClick=\"judalStore()\"></input> ");
+    }
 }
 function steroidMystery(){
     clear();
