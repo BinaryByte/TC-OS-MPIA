@@ -22,8 +22,10 @@ function leaveArgo() {
 
 
 function exploreArgo() {
-    //If you decide to explore, you are given the choice to go to an alley.
-    if (ambushArgoT === true) {
+    var chances = Math.floor(Math.random() * 2)
+    switch(chances){
+        case 1:
+             if (ambushArgoT === true) {
         //If you've already been ambushed, it tells you there's nothing there.
         document.body.innerHTML = document.body.innerHTML + "<p>You\'ve already explored the alley.</p>";
     } else if (ambushArgoT === false) {
@@ -32,6 +34,15 @@ function exploreArgo() {
         document.body.innerHTML = "You find a small alley.";
         document.body.innerHTML = document.body.innerHTML + "<p><button onClick = \"ambushArgo()\">Explore Alley</button><button onClick = \"again()\">Leave the alley</button></p>";
     }
+            break;
+        case 2:
+            helpCat();
+            break;
+        case 3:
+            ratQuest();
+            break;
+    }
+    //If you decide to explore, you are given the choice to go to an alley.
 }
 
 function shopArgo() {
