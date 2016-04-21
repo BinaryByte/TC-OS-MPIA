@@ -409,7 +409,7 @@ function rockConcert(){
 
 function rockFactionJoin(){
     rockFactionP = faction;
-    window.alert("You join the " + faction + "! You can now attend their concerts in the future.");
+    window.alert("You join the " + faction + "! You can now attend their concerts in the future. The " + faction + " ask you to kill 5 enemy rock concerts.");
     travelNok();
 }
 
