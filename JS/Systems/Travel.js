@@ -28,7 +28,7 @@ function travelEventNok() {
         storylineStart();
         travelNok();
     } else {
-        var travelEventBad = Math.floor(Math.random() * 5)
+        var travelEventBad = Math.floor(Math.random() * 7)
         switch (travelEventBad) {
             case 0:
                 attackBandits();
@@ -52,6 +52,12 @@ function travelEventNok() {
                 } else {
                     storylineStart();
                 }
+                break;
+            case 5:
+                rockConcert();
+                break;
+            case 6:
+                banditWrestling();
                 break;
             default:
                 travelNok();
