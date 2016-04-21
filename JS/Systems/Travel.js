@@ -217,8 +217,7 @@ function caveRandom() {
             attackBanditsCave();
             break;
         case 3:
-            window.alert("Nothing...");
-            travelNok();
+            magicCaveEvent();
             break;
         default:
             window.alert("Nothing...");
@@ -300,17 +299,22 @@ function magicCaveEvent(){
             enemy = 'Slime';
             enemyAttack = 5;
             enemyDefense = 20;
+            enemyMaxHealth = 10;
             combatSystem();
-            enemyMaxHealth = 10;
-            enemyMaxHealth = 10;
             break;
         case 6:
+            window.alert("You find nothing in this magical cave.");
+            travelNok();
             break;
         case 7:
+            document.innerHTML = "You find a magical toadstool. Do you eat it? <p><button onClick = \"toadstoolChance()\">Yes</button><button onClick - \"travelNok()\">No</button></p>";
             break;
         case 8:
+            document.innerHTML = "A mighty wizard comes and challenges you to a duel! Do you fight him? <button onClick = \"wizardDuel()\">Yes</button><button onClick = \"travelNok()\">No</button>";
             break;
         case 9:
+            window.alert("You find nothing in this magical cave.");
+            travelNok();
             break;
     }
 }
@@ -320,4 +324,36 @@ function treasureChance(){
     window.alert("You\'ve found " + chance + " gold!");
     gold = gold + chance;
     travelNok();
+}
+
+function toadstoolChance(){
+    var chance = Math.floor(Math.random() * 100)
+    if(chance > 50){
+        window.alert("The toadstool gave you a magical bonus! +1 health!");
+        maxHealth = maxHealth + 1;
+        health = maxHealth;
+        window.alert("Your health is now:" + health);
+        travelNok();
+    } else {
+        window.alert("The toadstool hexes you! -1 health!");
+        maxHealth = maxHealth - 1;
+        health = maxHealth;
+        window.alert("Your health is " + health);
+        travelNok();
+    }
+}
+
+function wizardDuel(){
+    if(wizardMagic === true){
+        window.alert("As you are a fellow wizard, you know the rules of such a duel. You prepare your magic...");
+        combatEnd = 'WizardDuel';
+        enemy = 'Wizard';
+        enemyAttack = 13;
+        enemyDefense = 7;
+        enemyMaxHealth = 10;
+        combatSystem();
+    } else {
+        window.alert("The wizard rejects, seeing you as someone without magic. \"Come back when you are magical. Then we\'ll talk.\"");
+        travelNok();
+    }
 }
