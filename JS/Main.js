@@ -74,10 +74,14 @@ function wizard() {
 
 function clear() {
     //clears the page when called.
-    console.log("Working...");
+        document.body.innerHTML = "";
 };
 
-
+var document = {
+    innerHTML: function(text){
+        document.body.innerHTML = document.body.innerHTML + text;
+    }
+}
 
 function death() {
         //Reloads the page when you die.
