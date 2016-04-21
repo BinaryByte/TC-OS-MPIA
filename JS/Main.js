@@ -35,7 +35,7 @@ var document = {
                 document.innerHTML = document.innerHTML + text;
         }
 }
-var write = function(text){
+var edit = function(text){
         document.innerHTML = document.innerHTML + text;
 }
 //Declaring the variable for a critical chance for combat
