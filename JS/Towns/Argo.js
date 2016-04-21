@@ -176,3 +176,21 @@ function ambushArgo() {
         }
     }
 };
+function helpCat(){
+    clear();
+    edit("There is an old woman screaming for help nearby, when you look, you see that her cat is stuck in a tree. <p><input type=\"button\" value=\"Help\" onClick=\"helpLady()\"> </input> <input type=\"button\" value=\"Leave\" onClick=\"again()\"> </input></p>");
+}
+function helpLady(){
+    clear();
+   var luck=Math.floor((Math.random() * 10) + 1);
+  if (luck<=7){
+   clear(); 
+   gold=gold+5
+   edit("You reach up and grab the cat, carrying it to the old lady. In gratitude she gives you 5 gold! <p><input type=\"button\" value=\"Leave\" onClick=\"again()\"></input></p>");
+  }
+  else{
+    clear();
+    edit("You reach up to help the cat, but it is out of reach. A man with a ladder comes and helps the lady. She thanks everyone, after giving the man five gold, and everyone leaves. <p><input type=\"button\" value=\"leave\" onClick=\"again()\"></input></p>");
+  }
+    
+}
