@@ -9,7 +9,18 @@ function arriveJudal() {
 //everything below this needs to be added to an explore function
 
 function leaveJudal(){
-    destination = 'Nok';
+    document.body.innerHTML = " Where would you like to go? <p><button onClick = \"argoJudal()\">Argo</button><button onClick = \"argoNok()\">Nok</button><button onClick = \"arriveJudal()\">Stay</button></p>";
+}
+
+function argoJudal(){
+    destination = 'NokBurned';
+    distance = 20;
+    travelNok();
+}
+
+function argoNok(){
+    destination = 'Argo';
+    distance = 70;
     travelNok();
 }
 
