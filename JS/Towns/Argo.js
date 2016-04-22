@@ -191,8 +191,13 @@ function ambushArgo() {
     }
 };
 function helpCat(){
+     var luck=Math.floor((Math.random() * 10) + 1);
+    if(luck <=7){
     clear();
     edit("There is an old woman screaming for help nearby, when you look, you see that her cat is stuck in a tree. <p><input type=\"button\" value=\"Help\" onClick=\"helpLady()\"> </input> <input type=\"button\" value=\"Leave\" onClick=\"again()\"> </input></p>");
+    } else {
+    edit("<p>You find an abandoned alley.</p>");
+    }
 }
 function helpLady(){
     clear();
@@ -209,9 +214,14 @@ function helpLady(){
     
 }
 function religion(){
+     var luck=Math.floor((Math.random() * 10) + 1);
+     if(luck <= 7){
     clear();
     edit("You find a man standing at a statue to the all-powerful god ANT, he pulls out a massive runeblade 40 feet long, and says to either <input onClick=\"pray()\" type=\"button\" value=\"Pray\"></input> to the statue, or <input onClick=\"wrath()\" type=\"button\" value=\"break it\"></input>. Otherwise, he'll kill you.");
-}
+     } else {
+    edit("Nothing but the wind...");
+     }
+     }
 function pray(){
     clear();
     maxHealth=maxHealth+1;
@@ -242,9 +252,14 @@ function wrath(){
 
 
 function ratQuest(){
+    if(ratDefeated === true){
+        edit("<p>You stumble upon the same tavern in which you were asked to kill the great rat. Ahh. Memories.</p>");
+    } else {
     clear();
     edit("You wander around, and after awhile end up in the tavern. There, you strike up a conversation with an old man who tells you a tale of the 'Grand Rat' a legendary rat living in the sewers of Argo. He says he'll reward you if you can kill it and bring him it's head.<p><po style=\"color:green\"><input type=\"button\" value=\"Accept the quest\" onClick=\"sewer()\"></input></po><po style=\"color:red\"><input type=\"button\" value=\"Deny the quest\" onClick=\"again()\"></input></po></p>");
 }
+        
+    }
 function sewer(){
     clear();
     edit("The old man lets you into the sewer through a rusted grate he opens with an equally rusted key. He locks the door behind you, it's too late to turn back now. <p><input value=\"Keep Going\" type=\"button\" onClick=\"enterSewer()\"></input></p>");
@@ -340,6 +355,7 @@ function bossBattle(){
     combatSystem();
    }
 function bossBattleEnd(){
+    ratDefeated = true;
      gold=gold+35;
     defense=defense+2;
     edit("You find a rusted helm in the rat's nest, +2 defense! You leave the dungeon through a secret door you found behind the rat's nest, and head back up to the tavern with the rat's severed head. Inside, you find the old man, who pays you handsomely for the deed. +35 gold! <input value=\"leave\" onClick=\"again()\" type=\"button\"></input>");
