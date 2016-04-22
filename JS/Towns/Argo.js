@@ -69,7 +69,7 @@ function swordArgo() {
     //Sword purchasing.
     if (swordPurchase === false) {
         if (gold < 20) {
-            document.body.innerHTML = document.body.innerHTML + "You don't have enough.";
+            window.alert("You don't have enough.");
             again();
         } else {
             window.alert("You purchased a sword! + 3 attack!");
@@ -80,7 +80,7 @@ function swordArgo() {
         }
     } else if (!swordPurchase) {
         if (gold < 20) {
-            document.body.innerHTML = document.body.innerHTML + "<p>You don't have enough.</p>";
+            window.alert("You don't have enough.");
             again();
         } else {
             window.alert("You purchased a sword! + 3 attack!");
@@ -90,7 +90,7 @@ function swordArgo() {
             swordPurchase = true;
         }
     } else {
-        document.body.innerHTML = document.body.innerHTML + "You already purchased a sword.";
+        window.alert("You already purchased a sword.");
         again();
     }
 };
@@ -99,7 +99,7 @@ function armorArgo() {
     //armor purchasing
     if (armorPurchase === false) {
         if (gold < 20) {
-            document.body.innerHTML = document.body.innerHTML + "You can't afford that!";
+            window.alert("You can't afford that!");
             again();
         } else {
             gold = gold - 20;
@@ -110,7 +110,7 @@ function armorArgo() {
         }
     } else if (!armorPurchase) {
         if (gold < 20) {
-            document.body.innerHTML = document.body.innerHTML  + "You can't afford that!";
+            window.alert("You can't afford that!");
             again();
         } else {
             gold = gold - 20;
@@ -120,7 +120,7 @@ function armorArgo() {
             armorPurchase = true;
         }
     } else {
-        document.body.innerHTML = document.body.innerHTML + "<p>You've already purchased armor!</p>";
+        window.alert("You've already purchased armor!");
         again();
     }
 };
@@ -128,16 +128,16 @@ function armorArgo() {
 function healthArgo() {
     //restores health
     if (maxHealth === health) {
-        document.body.innerHTML = document.body.innerHTML + "<p>You're already at full health!</p>";
+        window.alert("You're already at full health!");
         again();
     } else {
         if (gold < 10) {
-            document.body.innerHTML = document.body.innerHTML + "<p>You can't afford that!</p>";
+            window.alert("You can't afford that!");
             again();
         } else {
             gold = gold - 10;
             health = maxHealth;
-            document.body.innerHTML = document.body.innerHTML + "<p>Health restored!</p>";
+            window.alert("Health restored!");
             again();
         }
     }
