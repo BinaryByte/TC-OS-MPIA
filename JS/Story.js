@@ -8,7 +8,7 @@ function storylineStart() {
         document.body.innerHTML = "You find an old man running towards Nok with a letter in his hand. He collapses. You feel compelled to open the note. <p><button onClick = \"pickNote()\">Pick Up Note</button> or <button onClick = \"butt()\")\">Don't Pick Up Note</button></p>";
     }
 };
-
+y
 function butt() {
     //Forces you to pick up the note.
     document.body.innerHTML = document.body.innerHTML + "<p>A butthurt developer wants you to go pick up the note.</p>";
@@ -248,13 +248,13 @@ function noDragonRide() {
 
 function dragonRide() {
     //You ride the dragon and fly to Judal. If you saved the woman, she hops on with you.
-    distance = 20;
     clear();
     document.body.innerHTML = "You hop onto the dragon.";
     if (saved === true) {
         document.body.innerHTML = document.body.innerHTML + "<p>The woman you saved hops onto the dragon as well.</p>";
-        document.body.innerHTML = document.body.innerHTML + "<p><button onClick = \"dragonFly()\"> Fly </button></p>";
     }
+    document.body.innerHTML = document.body.innerHTML + "<p><button onClick = \"dragonFly()\"> Fly </button></p>";
+    distance = 20;
 };
 
 function dragonFly() {
