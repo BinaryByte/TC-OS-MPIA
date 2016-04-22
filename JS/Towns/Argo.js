@@ -391,6 +391,7 @@ function bossBattle(){
     combatSystem();
    }
 function bossBattleEnd(){
+    clear();
     ratDefeated = true;
      gold=gold+35;
     defense=defense+2;
