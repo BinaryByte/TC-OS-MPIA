@@ -51,7 +51,7 @@ function travelEventNok() {
                 break;
             case 4:
                 if (storyLineBegan === true) {
-                    attackBandits();
+                    cheeseThrowing();
                 } else {
                     storylineStart();
                 }
@@ -61,6 +61,9 @@ function travelEventNok() {
                 break;
             case 6:
                 banditWrestling();
+                break;
+            case 7:
+                cheeseThrowing();
                 break;
             default:
                 travelNok();
