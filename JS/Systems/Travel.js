@@ -27,11 +27,11 @@ function travelEventNok() {
     //Creates random events for stuff to happen.
     var travelEvent = Math.floor(Math.random() * 100)
     if (travelEvent >= 50) {
-        distance = distance - travelingSpeed;
         storylineStart();
         travelNok();
     } else {
-        var travelEventBad = Math.floor(Math.random() * 7)
+        var travelEventBad = Math.floor(Math.random() * 7);
+        distance = distance - travelingSpeed;
         switch (travelEventBad) {
             case 0:
                 attackBandits();
@@ -82,7 +82,6 @@ function attackBandits() {
     //For a rundown of combat code, see line 25 of Story.js
     clear();
     //Bandit attack
-    distance = distance - 10;
     window.alert("You are attacked by bandits!");
     attacked = true;
     enemyHealth = 10;
@@ -137,7 +136,6 @@ function attackBandits() {
 function cave() {
     //Presents you a choice to go inside a cave or not. If so, it executes a function, goCave()
     clear();
-    distance = distance - travelingSpeed;
     document.body.innerHTML = "You have found a cave!";
     document.body.innerHTML = document.body.innerHTML + "<p>Do you wish to go inside?</p>";
     document.body.innerHTML = document.body.innerHTML + "<p><button onClick = \"goCave()\">Yes</button><button onClick = \"travelNok()\">No</button></p>";
