@@ -15,6 +15,7 @@ function leaveArgo() {
     } else {
         distance = distanceToNok;
         destination = 'Nok';
+        destinationName = 'Nok';
         clear();
         document.body.innerHTML = "<p>The only nearby town is the town of Nok. Do you wish to travel there?</p>";
         document.body.innerHTML = document.body.innerHTML + "<p><button onClick = \"travelNok()\">Yes</button><button onClick = \"again()\">No</button></p>";
