@@ -2,6 +2,7 @@
 var version = 0.1;
 var storyLineBegan = false;
 var enemyDefense;
+var destinationName;
 var enemyAttack;
 var enemy;
 var combatEnd;
