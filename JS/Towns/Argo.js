@@ -2,6 +2,7 @@ var goldGiven;
 var destroyed;
 var ratDefeated;
 function again() {
+    clear();
     //Presents you choices to do stuff in argo.
     document.body.innerHTML = document.body.innerHTML + "<p>You are in the town of Argo.</p>";
     document.body.innerHTML = document.body.innerHTML + "<button onClick = \"exploreArgo()\"> Explore </button><button onClick = \"shopArgo()\"> Shop </button><button onClick = \"leaveArgo()\"> Travel to Nok </button>";
