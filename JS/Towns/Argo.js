@@ -249,7 +249,7 @@ function praytGold(){
     health=maxHealth;
     edit("You feel divine providence shining upon you. <input type=\"button\" onClick=\"again()\" value=\"leave\"></input>");
     } else {
-    edit("You can't afford to give a gold offering. <input type = \"button\" onClick = \"again\" value = \"leave\"</input>);
+    edit("You can't afford to give a gold offering. <input type = \"button\" onClick = \"again\" value = \"leave\"</input>");
     }
 }
 function wrath(){
