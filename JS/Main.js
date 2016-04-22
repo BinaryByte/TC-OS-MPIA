@@ -41,7 +41,7 @@ var ambushArgoT = false;
 function begin() {
     clear();
     //The start. It presents you with a choice of person.
-    document.body.innerHTML = "You are a... <p><button onClick = \"merchant()\">Merchant</button><button onClick = \"guard()\">Guard</button><button onClick = \"wizard()\">Wizard</button></p>";
+    document.body.innerHTML = "You are a... <p><button onClick = \"merchant()\">Merchant, </button><button onClick = \"guard()\">Guard, </button>or a <button onClick = \"wizard()\">Wizard </button></p>";
 }
 
 function merchant() {
