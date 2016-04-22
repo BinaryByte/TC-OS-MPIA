@@ -79,6 +79,12 @@ function findEndCombat(){
         factionEnemy = factionEnemy + 1;
         travelNok();
         break;
+    case 'sewer':
+        enterSewer();
+        break;
+    case 'sewerBoss':
+        bossBattleEnd();
+        break;
     default:
     window.alert("ERROR! Couldn't find end of combat location. Please report. Teleporting you to your last known location...");
     travelNok();
