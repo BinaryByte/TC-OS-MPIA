@@ -84,7 +84,7 @@ function travelEventNok() {
 
 function travelArgo() {
     //This is run when traveling from Nok.
-    distance = distanceToArgo;
+    distance = 50;
     destination = 'Argo';
     travel.place = 'Argo';
     travelNok();
