@@ -1,4 +1,5 @@
-
+var goldGiven;
+var destroyed;
 function again() {
     //Presents you choices to do stuff in argo.
     document.body.innerHTML = document.body.innerHTML + "<p>You are in the town of Argo.</p>";
@@ -216,9 +217,15 @@ function helpLady(){
 function religion(){
      var luck=Math.floor((Math.random() * 10) + 1);
      if(luck <= 7){
+         if(goldGiven === true){
+    edit("You find the statue of ANT. It\'s radiance shines upon you. <input type = \"button\" value = \"leave\" onClick = \"again()\"></input");
+        } else if (destroyed === true) {
+    edit("You find the destroyed statue of ANT. You feel an ominous presence here.  <input type = \"button\" value = \"leave\" onClick = \"again()\"></input>");
+        } else {
     clear();
-    edit("You find a man standing at a statue to the all-powerful god ANT, he pulls out a massive runeblade 40 feet long, and says to either <input onClick=\"pray()\" type=\"button\" value=\"Pray\"></input> to the statue, or <input onClick=\"wrath()\" type=\"button\" value=\"break it\"></input>. Otherwise, he'll kill you.");
-     } else {
+    edit("You find a man standing at a statue to the all-powerful god ANT, and asks you to either <input onClick=\"pray()\" type=\"button\" value=\"Pray\"></input> to the statue, or <input onClick=\"wrath()\" type=\"button\" value=\"break it\"></input>. He says he\'s been asked to do both, and he can\'t make up his mind. <input type = \"button\" value = \"leave\");
+    }
+    } else {
     edit("Nothing but the wind...");
      }
      }
@@ -231,6 +238,7 @@ function pray(){
 }
 function praytGold(){
     if(gold >= 65){
+    goldGiven = true;
     console.log("Working.");
     gold=gold-65;
     maxHealth=maxHealth + 3;
@@ -245,6 +253,7 @@ function praytGold(){
 }
 function wrath(){
     clear();
+    destroyed = true;
     gold=gold+50;
     maxHealth=maxHealth-3;
     defense=defense-3;
