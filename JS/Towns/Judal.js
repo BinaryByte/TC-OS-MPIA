@@ -2,14 +2,14 @@ function arriveJudal() {
     //Presents you with the choice to leave.
     clear();
     document.body.innerHTML = "You are now in the city of Judal.";
-    document.body.innerHTML = document.body.innerHTML + "<p><button onClick = \"\">Explore \(In development\)</button><button onClick = \"judalStore()\">Shop</button><button onClick = \"leaveJudal()\">Leave</button></p>";
+    document.body.innerHTML = document.body.innerHTML + "<p><button onClick = \"\"> Explore \(In development\) </button><button onClick = \"judalStore()\"> Shop </button><button onClick = \"leaveJudal()\"> Leave </button></p>";
 };
 //<input value=\"\" type=\"button\" onClick=\"\"></input> button template
 
 //everything below this needs to be added to an explore function
 
 function leaveJudal(){
-    document.body.innerHTML = " Where would you like to go? <p><button onClick = \"argoJudal()\">Argo</button><button onClick = \"nokJudal()\">Nok</button><button onClick = \"arriveJudal()\">Stay</button></p>";
+    document.body.innerHTML = " Where would you like to go? <p><button onClick = \"argoJudal()\"> Argo </button><button onClick = \"nokJudal()\"> Nok </button><button onClick = \"arriveJudal()\"> Stay </button></p>";
 }
 
 function nokJudal(){
@@ -28,19 +28,19 @@ function argoJudal(){
 
 function judalStore() {
     clear();
-    edit("Welcome to [Judal Olympic Goods Store], here you can buy things that people in the olympics use! <input value=\"Training\" type=\"button\" onClick=\"judalStoreTraining()\"></input>, <input value=\"Equipment\" type=\"button\" onClick=\"judalStoreEquipment()\"></input> <input value=\"Shifty Alley\" type=\"button\" onClick=\"judalStoreSecret\"></input> <input value=\"leave\" type=\"button\" onClick=\"arriveJudal()\"></input>");
+    edit("Welcome to [Judal Olympic Goods Store], here you can buy things that people in the olympics use! <input value=\" Training \" type=\"button\" onClick=\"judalStoreTraining()\"></input>, <input value=\" Equipment \" type=\"button\" onClick=\"judalStoreEquipment()\"></input> <input value=\" Shifty Alley \" type=\"button\" onClick=\"judalStoreSecret()\"></input> <input value=\" leave \" type=\"button\" onClick=\"arriveJudal()\"></input>");
 }
 function judalStoreTraining(){
     clear();
-    edit("You can train in, <input value=\"defense-30 gold\" type=\"button\" onClick=\"trainDefense()\"></input>, <input value=\"attack-30 gold\" type=\"button\" onClick=\"trainAttack()\"></input>, or <input value=\"stamina/health-20 gold\" type=\"button\" onClick=\"trainStamina\"></input>. <input value=\"Store\" type=\"button\" onClick=\"judalStore()\"></input>");
+    edit("You can train in, <input value=\" defense-30 gold \" type=\"button\" onClick=\"trainDefense()\"></input>, <input value=\" attack-30 gold \" type=\"button\" onClick=\"trainAttack()\"></input>, or <input value=\" stamina/health-20 gold \" type=\"button\" onClick=\"trainStamina()\"></input>. <input value=\" Store \" type=\"button\" onClick=\"judalStore()\"></input>");
 }
 function judalStoreEquipment(){
     clear();
-    edit("you can buy a <input value=\"javelin-50 gold\" type=\"button\" onClick=\"buyJavelin()\"></input>, <input value=\"padding-50 gold\" type=\"button\" onClick=\"buyPadding()\"></input>, or <input value=\"shoes-25 gold\" type=\"button\" onClick=\"buyShoes()\"></input>. <input value=\"Store\" type=\"button\" onClick=\"judalStore()\"></input>");
+    edit("you can buy a <input value=\" javelin-50 gold \" type=\"button\" onClick=\"buyJavelin()\"></input>, <input value=\" padding-50 gold \" type=\"button\" onClick=\"buyPadding()\"></input>, or <input value=\" shoes-25 gold \" type=\"button\" onClick=\"buyShoes()\"></input>. <input value=\" Store \" type=\"button\" onClick=\"judalStore()\"></input>");
 }
 function judalStoreSecret(){
     clear();
-    edit("a shifty looking man comes around the corner, 'Hey kid, want to buy some steroids?' [yes] <input value=\"Store\" type=\"button\" onClick=\"judalStore()\"></input> ");
+    edit("a shifty looking man comes around the corner, 'Hey kid, want to buy some steroids?' <input onClick=\"steroids()\" type=\"button\"> yes </input> <input value=\" Store \" type=\"button\" onClick=\"judalStore()\"></input> ");
 }
 function trainDefense(){
     clear();
@@ -110,17 +110,17 @@ function buyShoes(){
 }
 function steroids(){
     clear();
-    edit("Do you want <input value=\"Strength Steroids-100 gold\" type=\"button\" onClick=\"steroidStrength()\"></input>, <input value=\"Defense Steroids-100 gold\" type=\"button\" onClick=\"steroidDefense()\"></input>, or <input value=\"Mystery-Free\" type=\"button\" onClick=\"steroidMystery()\"></input> <input value=\"store\" type=\"button\" onClick=\"judalStore()\"></input>");
+    edit("Do you want <input value=\" Strength Steroids-100 gold \" type=\"button\" onClick=\"steroidStrength()\"></input>, <input value=\" Defense Steroids-100 gold \" type=\"button\" onClick=\"steroidDefense()\"></input>, or <input value=\" Mystery-Free \" type=\"button\" onClick=\"steroidMystery()\"></input> <input value=\" store \" type=\"button\" onClick=\"judalStore()\"></input>");
 }
 function steroidStrength(){
     clear();
     if (gold>=100){
     gold=gold-100;
     attack=attack+10;
-    edit("You feel pumped, +10 strength, <input value=\"store\" type=\"button\" onClick=\"judalStore()\"></input>");
+    edit("You feel pumped, +10 strength, <input value=\" store \" type=\"button\" onClick=\"judalStore()\"></input>");
     }
     else{
-         edit("You can't afford that. <input value=\"Store\" type=\"button\" onClick=\"judalStore()\"></input> ");
+         edit("You can't afford that. <input value=\" Store \" type=\"button\" onClick=\"judalStore()\"></input> ");
     }
 }
 function steroidDefense(){
@@ -128,26 +128,26 @@ function steroidDefense(){
     if (gold>=100){
     gold=gold-100;
     defense=defense+10;
-    edit("You feel pumped, +10 defense, <input value=\"store\" type=\"button\" onClick=\"judalStore()\"></input>");
+    edit("You feel pumped, +10 defense, <input value=\" store \" type=\"button\" onClick=\"judalStore()\"></input>");
     }
     else{
-         edit("You can't afford that. <input value=\"Store\" type=\"button\" onClick=\"judalStore()\"></input> ");
+         edit("You can't afford that. <input value=\" Store \" type=\"button\" onClick=\"judalStore()\"></input> ");
     }
 }
 function steroidMystery(){
     clear();
     health=health-5;
     defense=defense+3;
-    edit("You feel strange, <input value=\"store\" type=\"button\" onClick=\"judalStore()\"></input>");
+    edit("You feel strange, <input value=\" store \" type=\"button\" onClick=\"judalStore()\"></input>");
 }
 
 function kingQuest(){
     clear();
-    edit("After wandering around for a while you happen upon a messenger for the king of Judal (the mayor promoted himself), who says he's been looking all over for you. <p>The formal declaration states: </p> <p>Any and all adventurers (guards, wizards, and merchants) must report to my situation room immediately for a mission!</p> <p><input value=\"Help the king\" type=\"button\" onClick=\"kingRoom()\"></input> <input value=\"Leave\" type=\"button\" onClick=\"arriveJudal()\"></input></p>");
+    edit("After wandering around for a while you happen upon a messenger for the king of Judal (the mayor promoted himself), who says he's been looking all over for you. <p>The formal declaration states: </p> <p>Any and all adventurers (guards, wizards, and merchants) must report to my situation room immediately for a mission!</p> <p><input value=\" Help the king \" type=\"button\" onClick=\"kingRoom()\"></input> <input value=\" Leave \" type=\"button\" onClick=\"arriveJudal()\"></input></p>");
 }
 function kingRoom(){
     clear();
-    edit("As you arrive at the mayor's castle, an attendant guides you to a lavish living room. You sit down on a plush couch, and shortly the mayor comes to talk to you. 'You must procure a turkey for my dinner tonight.' <input value=\"Go find a turkey\" type=\"button\" onClick=\"turkeyHunt()\"></input> ");
+    edit("As you arrive at the mayor's castle, an attendant guides you to a lavish living room. You sit down on a plush couch, and shortly the mayor comes to talk to you. 'You must procure a turkey for my dinner tonight.' <input value=\" Go find a turkey \" type=\"button\" onClick=\"turkeyHunt()\"></input> ");
 }
 function turkeyHunt(){
     /* I want you to click a button and have a 1/5 chance of encountering a turkey, which has one health, and no stats. If you kill it go to kingVictory()
@@ -175,29 +175,29 @@ function kingVictory(){
     maxHealth=maxHealth+2
     health=maxHealth;
     gold=gold+15
-    edit("The mayor takes the turkey, and using his chef's magic, instantly turns it into a lavish feast. He invites you to eat with him, and gives you 15 gold. Your health is now" + health + "health. Your gold is now" + gold + "gold.");
+    edit("The mayor takes the turkey, and using his chef's magic, instantly turns it into a lavish feast. He invites you to eat with him, and gives you 15 gold. Your health is now" + health + "health. Your gold is now" + gold + "gold. <input onClick=\"arriveJudal()\" type=\"button\"> leave </input>");
 }
 function exploreCabbage(){
     clear();
-    edit("As you explore, you are drawn to the outskirts of town by the delicious smell of boiled cabbage soup. As you approach you see a long line to a restaurant called Cabbage Deluxe. <input value=\"Wait in Line\" type=\"button\" onClick=\"judalRestaurant()\"></input><input value=\"leave\" type=\"button\" onClick=\"arriveJudal()\"></input>");
+    edit("As you explore, you are drawn to the outskirts of town by the delicious smell of boiled cabbage soup. As you approach you see a long line to a restaurant called Cabbage Deluxe. <input value=\" Wait in Line \" type=\"button\" onClick=\"judalRestaurant()\"></input><input value=\" leave \" type=\"button\" onClick=\"arriveJudal()\"></input>");
 }
 function judalRestaurant(){
     clear();
-    edit("It's your turn to order, and the man in the window gives you three options, <input value=\"Cabbage Soup\" type=\"button\" onClick=\"cabbageSoup()\"></input>, <input value=\"cabbage casserole\" type=\"button\" onClick=\"cabbageCasserole()\"></input>, <input value=\"cabbage sandwich\" type=\"button\" onClick=\"cabbageSandwich()\"></input>. All of which are free because it's free cabbage Tuesday, sponsored by the mayor.");
+    edit("It's your turn to order, and the man in the window gives you three options, <input value=\" Cabbage Soup \" type=\"button\" onClick=\"cabbageSoup()\"></input>, <input value=\" cabbage casserole \" type=\"button\" onClick=\"cabbageCasserole()\"></input>, <input value=\" cabbage sandwich \" type=\"button\" onClick=\"cabbageSandwich()\"></input>. All of which are free because it's free cabbage Tuesday, sponsored by the mayor.");
 }
 function cabbageSoup(){
     clear();
     goldChance=goldChance + 0.02;
-    edit("The cabbage soup makes you fundamentally happy inside. <input value=\"leave\" type=\"button\" onClick=\"arriveJudal()\"></input>");
+    edit("The cabbage soup makes you fundamentally happy inside. <input value=\" leave \" type=\"button\" onClick=\"arriveJudal()\"></input>");
 }
 function cabbageCasserole(){
     clear();
     maxHealth=maxHealth+2;
     health=maxHealth;
-    edit("The cabbage casserole fills you up! <input value=\"leave\" type=\"button\" onClick=\"arriveJudal()\"></input>");
+    edit("The cabbage casserole fills you up! <input value=\" leave \" type=\"button\" onClick=\"arriveJudal()\"></input>");
 }
 function cabbageSandwich(){
     clear();
     defense=defense + 2;
-    edit("The cabbage sandwich is delicious! <input value=\"leave\" type=\"button\" onClick=\"arriveJudal()\"></input>");
+    edit("The cabbage sandwich is delicious! <input value=\" leave \" type=\"button\" onClick=\"arriveJudal()\"></input>");
 }
