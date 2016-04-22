@@ -230,7 +230,7 @@ function religion(){
     edit("You find the destroyed statue of ANT. You feel an ominous presence here.  <input type = \"button\" value = \" leave \" onClick = \"again()\"></input>");
         } else {
     clear();
-    edit("You find a man standing at a statue to the all-powerful god ANT, and asks you to either <input onClick=\"pray()\" type=\"button\" value=\" Pray \"></input> to the statue, or <input onClick=\"wrath()\" type=\"button\" value=\" break it \"></input>.);
+    edit("You find a man standing at a statue to the all-powerful god ANT, and asks you to either <input onClick=\"pray()\" type=\"button\" value=\" Pray \"></input> to the statue, or <input onClick=\"wrath()\" type=\"button\" value=\" break it \"></input>.");
     }
     } else {
     edit("Nothing but the wind...");
