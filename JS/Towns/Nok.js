@@ -20,8 +20,13 @@ function arriveNokBurned() {
 };
 
 function nokEnter(){
-    document.body.innerHTML = "You enter the city. <button onClick = \"arriveNokBurned()\">Leave the city</button>";
+    document.body.innerHTML = "You are now in the city of Nok. <button onClick = \"arriveNokBurned()\">Leave the city</button><button onClick = \"construction()\">Walk to Construction Site</button>";
 }
+
+function construction(){
+    document.body.innerHTML = "You see a group of builders building a store. <button onClick = \"nokEnter()\">Leave</button>";
+}
+
 
 function nokLeave() {
     //Executes travel code in Travel.js
