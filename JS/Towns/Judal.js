@@ -160,3 +160,27 @@ function kingVictory(){
     gold=gold+15
     edit("The mayor takes the turkey, and using his chef's magic, instantly turns it into a lavish feast. He invites you to eat with him, and gives you 15 gold. Your health is now" + health + "health. Your gold is now" + gold + "gold.");
 }
+function exploreCabbage(){
+    clear();
+    edit("As you explore, you are drawn to the outskirts of town by the delicious smell of boiled cabbage soup. As you approach you see a long line to a restaurant called Cabbage Deluxe. <input value=\"Wait in Line\" type=\"button\" onClick=\"judalRestaurant()\"></input><input value=\"leave\" type=\"button\" onClick=\"arriveJudal()\"></input>");
+}
+function judalRestaurant(){
+    clear();
+    edit("It's your turn to order, and the man in the window gives you three options, <input value=\"Cabbage Soup\" type=\"button\" onClick=\"cabbageSoup()\"></input>, <input value=\"cabbage casserole\" type=\"button\" onClick=\"cabbageCasserole()\"></input>, <input value=\"cabbage sandwich\" type=\"button\" onClick=\"cabbageSandwich()\"></input>. All of which are free because it's free cabbage Tuesday, sponsored by the mayor.");
+}
+function cabbageSoup(){
+    clear();
+    goldChance=goldChance + 0.02;
+    edit("The cabbage soup makes you fundamentally happy inside. <input value=\"leave\" type=\"button\" onClick=\"arriveJudal()\"></input>");
+}
+function cabbageCasserole(){
+    clear();
+    maxHealth=maxHealth+2;
+    health=maxHealth;
+    edit("The cabbage casserole fills you up! <input value=\"leave\" type=\"button\" onClick=\"arriveJudal()\"></input>");
+}
+function cabbageSandwich(){
+    clear();
+    defense=defense + 2;
+    edit("The cabbage sandwich is delicious! <input value=\"leave\" type=\"button\" onClick=\"arriveJudal()\"></input>");
+}
