@@ -295,50 +295,62 @@ var playerLocation = 0;
 function goNorth(){
     if(playerLocation === 2){
         window.alert("You can't go north.");
+        enterSewer();
     } else if (playerLocation === 5){ 
         window.alert("You can't go north.");
+        enterSewer();
     } else if (playerLocation === 8){
         window.alert("You can\'t go north.");
+        enterSewer();
     } else {
         playerLocation = playerLocation + 1;
-    }
     findLocation();
+    }
 }
 function goSouth(){
     if(playerLocation === 0){
         window.alert("You can't go south.");
+        enterSewer();
     } else if (playerLocation === 3){
         window.alert("You can't go south.");
+        enterSewer();
     } else if (playerLocation === 6){
         window.alert("You can't go south.");
+        enterSewer();
     } else {
         playerLocation = playerLocation - 1;
-    }
     findLocation();
+    }
 }
 function goEast(){
     if(playerLocation === 6){
         window.alert("You can't go east.");
+        enterSewer();
     } else if (playerLocation === 7){
         window.alert("You can't go east.");
+        enterSewer();
     } else if (playerLocation === 8){
         window.alert("You can\'t go east.");
+        enterSewer();
     } else {
         playerLocation = playerLocation + 3;
-    }
     findLocation();
+    }
 }
 function goWest(){
      if(playerLocation === 0){
         window.alert("You can't go west.");
+        enterSewer();
     } else if (playerLocation === 1){
         window.alert("You can't go west.");
+        enterSewer();
     } else if (playerLocation === 2){
         window.alert("You can't go west.");
+        enterSewer();
     } else {
         playerLocation = playerLocation - 3;
-    }
     findLocation();
+    }
 }
 
 function findLocation(){
