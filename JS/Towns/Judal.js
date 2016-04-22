@@ -40,7 +40,7 @@ function judalStoreEquipment(){
 }
 function judalStoreSecret(){
     clear();
-    edit("a shifty looking man comes around the corner, 'Hey kid, want to buy some steroids?' <input onClick=\"steroids()\" type=\"button\"> yes </input> <input value=\" Store \" type=\"button\" onClick=\"judalStore()\"></input> ");
+    edit("a shifty looking man comes around the corner, 'Hey kid, want to buy some steroids?' <input onClick=\"steroids()\" type=\"button\" value = \"yes\"></input> <input value=\" Store \" type=\"button\" onClick=\"judalStore()\"></input> ");
 }
 function trainDefense(){
     clear();
