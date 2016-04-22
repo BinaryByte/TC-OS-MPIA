@@ -26,7 +26,7 @@ function combatSystem() {
         } else {
             //If neither your health or the enemy health is equal to or less then zero, it will execute this code.
             //Rolls a critical chance, which adds to your attack.
-            criticalChance = Math.floor(Math.random() * attack);
+            criticalChance = Math.floor(Math.random() * (attack * 0.7));
             //Add your attack plus critical chance minus the enemy defense.
             playerAttack = attack + criticalChance - enemyDefense;
             enemyHealth = enemyHealth - playerAttack;
@@ -44,7 +44,7 @@ function combatSystem() {
                 enemyHealth = enemyMaxHealth
             } else {
                 //Else, it does the same thing that the player did, except for the enemy.
-                criticalChance = Math.floor(Math.random() * attack);
+                criticalChance = Math.floor(Math.random() * (attack * 0.9));
                 enemyAttack2 = (enemyAttack + criticalChance) - defense;
                 if (enemyAttack2 < 0) {
                     //If the enemy attack is less than zero, it will not add to your health.
