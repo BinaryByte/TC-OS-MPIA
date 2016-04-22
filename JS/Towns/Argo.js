@@ -227,14 +227,15 @@ function pray(){
     maxHealth=maxHealth+1;
     defense=defense+1;
     health=maxHealth;
-    edit("You feel blessed, do you <input type=\"button\" onClick=\"prayGold()\" value=\"give gold\"></input>, or <input type=\"button\" onClick=\"again()\" value=\"leave\"></input>.")
+    edit("You feel blessed, do you <input type=\"button\" onClick=\"praytGold()\" value=\"give gold\"></input>, or <input type=\"button\" onClick=\"again()\" value=\"leave\"></input>.")
 }
-function prayGold(){
+function praytGold(){
+    console.log("Working.");
     gold=gold-10;
-    maxHealth=maxHealth+3;
-    moveSpeed=moveSpeed+2;
-    defense=defense+1;
-    attack=attack+2;
+    maxHealth=maxHealth + 3;
+    moveSpeed=moveSpeed + 2;
+    defense=defense + 1;
+    attack=attack + 2;
     health=maxHealth;
     edit("You feel divine providence shining upon you. <input type=\"button\" onClick=\"again()\" value=\"leave\"></input>");
 }
