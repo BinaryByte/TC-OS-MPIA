@@ -13,7 +13,7 @@ function travelNok() {
     //Traveling to Nok.
     clear();
     //Says the destination, and says the distance, and executes travelEventNok every time you press the button.
-    document.body.innerHTML = "You are now traveling to " + destination + ". There are " + distance + " miles left. Your traveling speed is " + travelingSpeed + " miles per day.";
+    document.body.innerHTML = "You are now traveling to " + destinationName + ". There are " + distance + " miles left. Your traveling speed is " + travelingSpeed + " miles per day.";
     document.body.innerHTML = document.body.innerHTML + "<p><button onClick = \"travelEventNok()\">Time Passes</button></p>";
     if (distance <= 0) {
         //If your distance is equal to 0, it runs a function arrivePlace()
