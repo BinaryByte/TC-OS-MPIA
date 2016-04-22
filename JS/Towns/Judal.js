@@ -152,7 +152,24 @@ function kingRoom(){
 function turkeyHunt(){
     /* I want you to click a button and have a 1/5 chance of encountering a turkey, which has one health, and no stats. If you kill it go to kingVictory()
     */
+    clear();
+    edit("<input value = \"Hunt Turkeys\" onClick = \"findTurkey()\" type = \"button\"></input>");
 }
+
+function findTurkey(){
+    var chances = Math.floor(Math.random() * 5);
+    if(chances === 0){
+        window.alert("A wild turkey appears!");
+        enemyHealth = 1;
+        enemyAttack = 0;
+        enemyDefense = 0;
+        enemyMaxHealth = 0;
+        enemy = "Wild Turkey";
+        combatEnd = "turkeyHunt";
+        combatSystem();
+    }
+}
+
 function kingVictory(){
     clear();
     maxHealth=maxHealth+2
