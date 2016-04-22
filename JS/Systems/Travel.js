@@ -414,7 +414,7 @@ function rockFactionJoin(){
 function attackRock(){
     combatEnd = 'RockCombat';
         enemy = 'A mob of ' + faction;
-        enemyAttack = 2;
+        enemyAttack = 7;
         enemyDefense = 10;
         enemyMaxHealth = 40;
         enemyHealth = 40;
