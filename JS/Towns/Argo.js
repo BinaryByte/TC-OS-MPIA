@@ -227,17 +227,21 @@ function pray(){
     maxHealth=maxHealth+1;
     defense=defense+1;
     health=maxHealth;
-    edit("You feel blessed, do you <input type=\"button\" onClick=\"praytGold()\" value=\"give gold\"></input>, or <input type=\"button\" onClick=\"again()\" value=\"leave\"></input>.")
+    edit("You feel blessed, do you <input type=\"button\" onClick=\"praytGold()\" value=\"give gold (65 gold)\"></input>, or <input type=\"button\" onClick=\"again()\" value=\"leave\"></input>.")
 }
 function praytGold(){
+    if(gold >= 65){
     console.log("Working.");
-    gold=gold-10;
+    gold=gold-65;
     maxHealth=maxHealth + 3;
-    moveSpeed=moveSpeed + 2;
-    defense=defense + 1;
-    attack=attack + 2;
+    travelingSpeed = travelingSpeed + 3;
+    defense=defense + 2;
+    attack=attack + 3;
     health=maxHealth;
     edit("You feel divine providence shining upon you. <input type=\"button\" onClick=\"again()\" value=\"leave\"></input>");
+    } else {
+    edit("You can't afford to give a gold offering. <input type = \"button\" onClick = \"again\" value = \"leave\"</input>);
+    }
 }
 function wrath(){
     clear();
