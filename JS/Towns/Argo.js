@@ -361,10 +361,10 @@ function randomSewerEncounter(){
 }
 function bossBattle(){
     //battle code here
-    enemyHealth = 0;
-    enemyAttack = 0;
-    enemyDefense = 0;
-    enemyMaxHealth = 0;
+    enemyHealth = 12;
+    enemyAttack = 7;
+    enemyDefense = 1;
+    enemyMaxHealth = 12;
     enemy = 'Great Rat';
     combatEnd = 'sewerBoss';
     combatSystem();
