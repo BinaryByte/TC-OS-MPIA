@@ -10,7 +10,7 @@ var travel = {
 
 
 function travelNok() {
-    //Traveling to Nok.
+    //Traveling to a place
     clear();
     //Says the destination, and says the distance, and executes travelEventNok every time you press the button.
     document.body.innerHTML = "You are now traveling to " + destinationName + ". There are " + distance + " miles left. Your traveling speed is " + travelingSpeed + " miles per day.";
@@ -18,7 +18,7 @@ function travelNok() {
     if (distance <= 0) {
         //If your distance is equal to 0, it runs a function arrivePlace()
         clear();
-        document.body.innerHTML = "You have arrived at " + destination + "!";
+        document.body.innerHTML = "You have arrived at " + destinationName + "!";
         document.body.innerHTML = document.body.innerHTML + "<p><button onClick = \"arrivePlace()\">Enter</button></p>";
     }
 };
@@ -269,10 +269,12 @@ function travelJudalSet() {
     //Sets your destination based on where you are from Argo, or Nok.
     if (destination === 'NokBurned') {
         destination = 'Judal';
+        destinationName = 'Judal';
         distance = 20;
         travelNok();
     } else if (destination === 'Argo') {
         destination = 'Judal';
+        destinationName = 'Judal';
         distance = 70;
         travelNok();
     }
