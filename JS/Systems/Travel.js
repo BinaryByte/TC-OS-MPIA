@@ -8,6 +8,16 @@ var travel = {
     place: 'Nok'
 };
 
+function travelNokSet(){
+    if(destination === 'Judal'){
+        distance = 20;
+    } else if (destination === 'Argo'){
+        distance = 50;
+    }
+    destination = 'NokBurned';
+    destinationName = 'Nok';
+    travelNok();
+}
 
 function travelNok() {
     //Traveling to a place
