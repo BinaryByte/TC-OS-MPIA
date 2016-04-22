@@ -12,6 +12,21 @@ function leaveJudal(){
     document.body.innerHTML = " Where would you like to go? <p><button onClick = \"argoJudal()\"> Argo </button><button onClick = \"nokJudal()\"> Nok </button><button onClick = \"arriveJudal()\"> Stay </button></p>";
 }
 
+function exploreJudal(){
+    var chances = Math.floor(Math.random() * 10);
+    switch(chances){
+        case 1:
+            kingQuest();
+            break;
+        case 2:
+            exploreCabbage();
+            break;
+        default:
+            edit("<p>Nothing...</p>");
+            break;
+    }
+}
+
 function nokJudal(){
     destination = 'NokBurned';
     destinationName = 'Nok';
