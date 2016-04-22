@@ -1,5 +1,6 @@
 var goldGiven;
 var destroyed;
+var ratDefeated;
 function again() {
     //Presents you choices to do stuff in argo.
     document.body.innerHTML = document.body.innerHTML + "<p>You are in the town of Argo.</p>";
@@ -241,13 +242,13 @@ function pray(){
     maxHealth=maxHealth+1;
     defense=defense+1;
     health=maxHealth;
-    edit("You feel blessed, do you <input type=\"button\" onClick=\"praytGold()\" value=\"give gold (15 gold)\"></input>, or <input type=\"button\" onClick=\"again()\" value=\"leave\"></input>.")
+    edit("You feel blessed. Do you: <input type=\"button\" onClick=\"prayGold()\" value=\"give gold (50 gold)\"></input>, or <input type=\"button\" onClick=\"again()\" value=\"leave\"></input>.")
 }
 function prayGold(){
     if(gold >= 15){
     goldGiven = true;
     console.log("Working.");
-    gold=gold-15;
+    gold=gold - 50;
     maxHealth=maxHealth + 3;
     travelingSpeed = travelingSpeed + 3;
     defense=defense + 2;
