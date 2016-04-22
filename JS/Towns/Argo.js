@@ -294,11 +294,11 @@ function enterSewer(){
 var playerLocation = 0;
 function goNorth(){
     if(playerLocation === 2){
-        edit("You can't go north.");
+        window.alert("You can't go north.");
     } else if (playerLocation === 5){ 
-        edit("You can't go north.");
+        window.alert("You can't go north.");
     } else if (playerLocation === 8){
-        edit("You can\'t go north.");
+        window.alert("You can\'t go north.");
     } else {
         playerLocation = playerLocation + 1;
     }
@@ -306,11 +306,11 @@ function goNorth(){
 }
 function goSouth(){
     if(playerLocation === 0){
-        edit("You can't go south.");
+        window.alert("You can't go south.");
     } else if (playerLocation === 3){
-        edit("You can't go south.");
+        window.alert("You can't go south.");
     } else if (playerLocation === 6){
-        edit("You can't go south.");
+        window.alert("You can't go south.");
     } else {
         playerLocation = playerLocation - 1;
     }
@@ -318,11 +318,11 @@ function goSouth(){
 }
 function goEast(){
     if(playerLocation === 6){
-        edit("You can't go east.");
+        window.alert("You can't go east.");
     } else if (playerLocation === 7){
-        edit("You can't go east.");
+        window.alert("You can't go east.");
     } else if (playerLocation === 8){
-        edit("You can\'t go east.");
+        window.alert("You can\'t go east.");
     } else {
         playerLocation = playerLocation + 3;
     }
@@ -330,11 +330,11 @@ function goEast(){
 }
 function goWest(){
      if(playerLocation === 0){
-        edit("You can't go west.");
+        window.alert("You can't go west.");
     } else if (playerLocation === 1){
-        edit("You can't go west.");
+        window.alert("You can't go west.");
     } else if (playerLocation === 2){
-        edit("You can't go west.");
+        window.alert("You can't go west.");
     } else {
         playerLocation = playerLocation - 3;
     }
@@ -351,7 +351,9 @@ function findLocation(){
 
 function randomSewerEncounter(){
     var chances = Math.floor(Math.random() * 2)
-    if(chances > 0){
+    if(playerLocation === 8) {
+       console.log("Boss found."); 
+    } else if(chances > 0){
         window.alert("You\'ve found treasure! +5 gold!");
         gold = gold + 5;
         enterSewer();
