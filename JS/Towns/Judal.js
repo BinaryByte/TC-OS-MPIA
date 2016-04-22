@@ -14,12 +14,14 @@ function leaveJudal(){
 
 function argoJudal(){
     destination = 'NokBurned';
+    destinationName = 'Nok';
     distance = 20;
     travelNok();
 }
 
 function argoNok(){
     destination = 'Argo';
+    destinationName = 'Argo';
     distance = 70;
     travelNok();
 }
