@@ -140,3 +140,23 @@ function steroidMystery(){
     defense=defense+3;
     edit("You feel strange, <input value=\"store\" type=\"button\" onClick=\"judalStore()\"></input>");
 }
+
+function kingQuest(){
+    clear();
+    edit("After wandering around for a while you happen upon a messenger for the king of Judal (the mayor promoted himself), who says he's been looking all over for you. <p>The formal declaration states: </p> <p>Any and all adventurers (guards, wizards, and merchants) must report to my situation room immediately for a mission!</p> <p><input value=\"Help the king\" type=\"button\" onClick=\"kingRoom()\"></input> <input value=\"Leave\" type=\"button\" onClick=\"arriveJudal()\"></input></p>");
+}
+function kingRoom(){
+    clear();
+    edit("As you arrive at the mayor's castle, an attendant guides you to a lavish living room. You sit down on a plush couch, and shortly the mayor comes to talk to you. 'You must procure a turkey for my dinner tonight.' <input value=\"Go find a turkey\" type=\"button\" onClick=\"turkeyHunt()\"></input> ");
+}
+function turkeyHunt(){
+    /* I want you to click a button and have a 1/5 chance of encountering a turkey, which has one health, and no stats. If you kill it go to kingVictory()
+    */
+}
+function kingVictory(){
+    clear();
+    maxHealth=maxHealth+2
+    health=maxHealth;
+    gold=gold+15
+    edit("The mayor takes the turkey, and using his chef's magic, instantly turns it into a lavish feast. He invites you to eat with him, and gives you 15 gold. Your health is now" + health + "health. Your gold is now" + gold + "gold.");
+}
