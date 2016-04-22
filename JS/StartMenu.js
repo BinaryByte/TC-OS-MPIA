@@ -42,7 +42,7 @@ function options() {
     //Opens the options menu, and detects if you've clicked more than ten times.
     clicks = clicks + 1;
     if (clicks >= 10) {
-        window.alert("Wow. You really want an options menu. Well TOO BAD! This is a text adventure, not some panzie FPS. This, is for hardcore gamers, who don't need \"Configurations\" or \"Gaming PCS\". This is FOR REAL MEN... or women. Gender Equality. YOU WILL BE DRILLED TO YOUR CORE, HEADING INTO THE DARK UNKOWN, WITH ONLY YOUR WITS AND AN INVENTORY TO GUIDE YOU. YOU WILL SURVIVE. YOU WILL... Well, you've been eaten by a grue. Goodbye.");
+        window.alert("Wow. You really want an options menu. Well TOO BAD! This is a text adventure, not some panzie FPS. This, is for hardcore gamers, who don't need \"Configurations\" or \"Gaming PCS\". This is FOR REAL MEN... or women. Gender Equality. YOU WILL BE DRILLED TO YOUR CORE, HEADING INTO THE DARK UNKOWN, WITH ONLY YOUR WITS AND AN INVENTORY TO GUIDE YOU. YOU WILL SURVIVE. YOU WILL... Well, you've been eaten by a grue. Goodbye. (achievement get: Failure)");
     } else {
         var fov = prompt("Set your FOV. Pick a number between -1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 and 10000000000000000000000000000000000000000000000000000000000000000000000000000000");
         window.alert("This is a text adventure game, so I will disable the FOV. I do admire your courage, for picking " + fov + ".");
