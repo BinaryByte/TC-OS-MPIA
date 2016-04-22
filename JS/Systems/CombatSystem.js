@@ -44,7 +44,7 @@ function combatSystem() {
                 enemyHealth = enemyMaxHealth
             } else {
                 //Else, it does the same thing that the player did, except for the enemy.
-                criticalChance = Math.floor(Math.random() * (attack * 0.9));
+                criticalChance = Math.floor(Math.random() * (attack * 0.7));
                 enemyAttack2 = (enemyAttack + criticalChance) - defense;
                 if (enemyAttack2 < 0) {
                     //If the enemy attack is less than zero, it will not add to your health.
