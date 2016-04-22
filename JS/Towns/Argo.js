@@ -24,12 +24,12 @@ function leaveArgo() {
 
 
 function exploreArgo() {
-    var chances = Math.floor(Math.random() * 4)
+    var chances = Math.floor(Math.random() * 6)
     switch(chances){
         case 0:
              if (ambushArgoT === true) {
         //If you've already been ambushed, it tells you there's nothing there.
-        document.body.innerHTML = document.body.innerHTML + "<p>You\'ve already explored the alley.</p>";
+        document.body.innerHTML = document.body.innerHTML + "<p>You find nothing...</p>";
     } else if (ambushArgoT === false) {
         clear();
         //If you haven't been ambushed or left the alley but decide to come back, then it loads the same choice as above.
@@ -45,6 +45,12 @@ function exploreArgo() {
             break;
         case 3:
             religion();
+            break;
+        case 4:
+            ratQuest();
+            break;
+        case 5:
+            ambushArgo();
             break;
     }
     //If you decide to explore, you are given the choice to go to an alley.
