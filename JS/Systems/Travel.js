@@ -25,9 +25,9 @@ function travelNok() {
 
 function travelEventNok() {
     //Creates random events for stuff to happen.
-    var travelEvent = Math.floor(Math.random() * 100)
+    var travelEvent = Math.floor(Math.random() * 100);
     if (travelEvent >= 50) {
-        storylineStart();
+        distance = distance - travelingSpeed;
         travelNok();
     } else {
         var travelEventBad = Math.floor(Math.random() * 7);
