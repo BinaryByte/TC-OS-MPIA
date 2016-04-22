@@ -1,8 +1,9 @@
 rockFactionP = null;
 factionEnemy = 0;
 var faction = null;
-var moneyWon = null;
-var moneyLost = null;
+var moneyWon = 0;
+var moneyLost = 0;
+var gnome;
 goal = 5;
 var travel = {
     place: 'Nok'
@@ -458,9 +459,6 @@ function cheeseThrowing(){
     document.body.innerHTML = "You happen upon a group of gnomes, who are throwing cheese at a target. One of the gnomes asks you if you want to bet. <button onClick = \"bettingCheese()\">Yes</button><button onClick = \"travelNok()\">No</button>";
 }
 function bettingCheese(){
-    var gnome;
-    var moneyWon;
-    var moneyLost
     document.body.innerHTML = "Money Won: " + moneyWon + " Money Lost: " + moneyLost + " <p>Who will you bet on: </p><p><button onClick = \"Gouda()\">Gouda the Strong</button><button onClick = \"Brie()\">Brie the fast</button><button onClick = \"Provolone()\">Provolone the swift</button><button onClick = \"Cheddar()\">Cheddar the Lucky</button><button onClick = \"getMoney()\">Leave</button></p>";
 }
 function Gouda(){
