@@ -8,7 +8,6 @@ function storylineStart() {
         document.body.innerHTML = "You find an old man running towards Nok with a letter in his hand. He collapses. You feel compelled to open the note. <p><button onClick = \"pickNote()\">Pick Up Note</button> or <button onClick = \"butt()\")\">Don't Pick Up Note</button></p>";
     }
 };
-y
 function butt() {
     //Forces you to pick up the note.
     document.body.innerHTML = document.body.innerHTML + "<p>A butthurt developer wants you to go pick up the note.</p>";
