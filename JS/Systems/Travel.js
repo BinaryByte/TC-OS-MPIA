@@ -455,7 +455,7 @@ function wrestle(){
 function cheeseThrowing(){
     moneyWon = 0;
     moneyLost = 0;
-    document.body.innerHTML = "You happen upon a group of gnomes, who are throwing cheese at a target. One of the gnomes asks you if you want to bet. <button onClick = \"bettingCheese()\"></button><button onClick = \"travelNok()\">No</button>";
+    document.body.innerHTML = "You happen upon a group of gnomes, who are throwing cheese at a target. One of the gnomes asks you if you want to bet. <button onClick = \"bettingCheese()\">Yes</button><button onClick = \"travelNok()\">No</button>";
 }
 function bettingCheese(){
     var gnome;
