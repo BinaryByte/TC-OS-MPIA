@@ -26,5 +26,5 @@ function nokEnter(){
 function nokLeave() {
     //Executes travel code in Travel.js
     clear();
-    document.body.innerHTML = document.body.innerHTML + "<button onClick = \"travelJudalSet()\">Judal</button><button onClick = \"travelArgoSet()\">Argo</button><button onClick = \"arriveNokBurned()\">Stay</button>";
+    document.body.innerHTML = document.body.innerHTML + "<button onClick = \"travelJudalSet()\">Judal</button><button onClick = \"travelArgo()\">Argo</button><button onClick = \"arriveNokBurned()\">Stay</button>";
 };
