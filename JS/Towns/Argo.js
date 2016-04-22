@@ -318,12 +318,29 @@ function randomSewerEncounter(){
         edit("You\'ve found treasure! +5 gold!");
         gold = gold + 5;
     } else {
+        enemyHealth = 5;
+        enemyAttack = 4;
+        enemyDefense = 4;
+        enemyMaxHealth = 5;
+        enemy = 'Rat';
+        combatEnd = 'sewer';
+        combatSystem()
         //Combat code here.
     }
 }
 function bossBattle(){
     //battle code here
-    gold=gold+35
-    defense=defenst+2
+    enemyHealth = 0;
+    enemyAttack = 0;
+    enemyDefense = 0;
+    enemyMaxHealth = 0;
+    enemy = 'Great Rat';
+    combatEnd = 'sewerBoss';
+    combatSystem();
+   }
+function bossBattleEnd(){
+     gold=gold+35;
+    defense=defense+2;
     edit("You find a rusted helm in the rat's nest, +2 defense! You leave the dungeon through a secret door you found behind the rat's nest, and head back up to the tavern with the rat's severed head. Inside, you find the old man, who pays you handsomely for the deed. +35 gold! <input value=\"leave\" onClick=\"again()\" type=\"button\"></input>");
+
 }
