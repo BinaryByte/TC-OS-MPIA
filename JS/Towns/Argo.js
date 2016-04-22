@@ -315,8 +315,9 @@ function findLocation(){
 function randomSewerEncounter(){
     var chances = Math.floor(Math.random() * 2)
     if(chances > 0){
-        edit("You\'ve found treasure! +5 gold!");
+        window.alert("You\'ve found treasure! +5 gold!");
         gold = gold + 5;
+        enterSewer();
     } else {
         enemyHealth = 5;
         enemyAttack = 4;
