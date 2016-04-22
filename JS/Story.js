@@ -356,9 +356,10 @@ function dragonDemonAttack() {
 function noDragon() {
     //Having you walk towards the city of Judal, and executes travelNok in Travel.js
     destination = 'JudalStory';
+    destinationName = 'Judal';
     distance = 20;
     clear();
-    document.body.innerHTML = "The dragon flies off. You walk towards the city of Judal.";
+    window.alert("The dragon flies off. You walk towards the city of Judal.");
     travelNok();
 };
 
