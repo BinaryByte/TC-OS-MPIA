@@ -190,7 +190,7 @@ function kingVictory(){
     maxHealth=maxHealth+2
     health=maxHealth;
     gold=gold+15
-    edit("The mayor takes the turkey, and using his chef's magic, instantly turns it into a lavish feast. He invites you to eat with him, and gives you 15 gold. Your health is now" + health + "health. Your gold is now" + gold + "gold. <input onClick=\"arriveJudal()\" type=\"button\"> leave </input>");
+    edit("The mayor takes the turkey, and using his chef's magic, instantly turns it into a lavish feast. He invites you to eat with him, and gives you 15 gold. Your health is now " + health + " health. Your gold is now " + gold + " gold. <input onClick=\"arriveJudal()\" type=\"button\"> leave </input>");
 }
 function exploreCabbage(){
     clear();
