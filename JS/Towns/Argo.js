@@ -356,7 +356,8 @@ function goWest(){
 
 function findLocation(){
     if(playerLocation === 8){
-        edit("You\'ve found the boss! <button onClick =\"bossBattle()\"> BossBattle </button>");
+        clear();
+        edit("You\'ve found the boss! <button onClick =\"bossBattle()\"> Boss Battle </button>");
     }
     console.log(playerLocation);
     randomSewerEncounter();
