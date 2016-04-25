@@ -224,6 +224,7 @@ function helpLady(){
     
 }
 function religion(){
+     clear();
      var luck=Math.floor((Math.random() * 10) + 1);
      if(luck <= 7){
          if(goldGiven === true){
