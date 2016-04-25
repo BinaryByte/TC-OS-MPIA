@@ -107,7 +107,7 @@ function continueStory() {
     document.body.innerHTML = "You defeat the demon. For being so large, it was surprisingly easy. <p>Over the horizon, however, a larger demon flies towards you. It\'s nearly four times the size of the large demon. However, something pops up and flies it into the ground.</p>";
     document.body.innerHTML = document.body.innerHTML + "<p>The thing that brought down the demon comes up, and you see it is a magnificent dragon.</p> <p>The dragon approaches you, and lands directly near you.</p> <p>\"Greetings adventurer. You look worn down. Quickly, you must help me fight off the demon-spawn.\"</p>";
     //Presented a choice to either help or avoid the dragon
-    document.body.innerHTML = document.body.innerHTML + "<button onClick = \"helpDragon()\">\" Let\'s go kick some generic bad guy batootie! \"</button><button onClick = \"noDragon()\">\" No! You\'re a dragon! \"</button>";
+    document.body.innerHTML = document.body.innerHTML + "<button onClick = \"helpDragon()\">\" Let\'s go kick some generic bad guy batootie! \"</button><button onClick = \"noDragonRide()\">\" No! You\'re a dragon! \"</button>";
 };
 
 function helpDragon() {
@@ -242,7 +242,7 @@ function noDragonRide() {
         document.body.innerHTML = document.body.innerHTML + "<p>You have saved the woman, so you get a deduction to your traveling speed. - 5 traveling speed. Your total traveling speed is now " + travelingSpeed + " miles per day.</p>";
     }
     judalNoDragon();
-
+   
 };
 
 function dragonRide() {
