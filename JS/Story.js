@@ -393,5 +393,7 @@ function judalStoryBanquet() {
         document.body.innerHTML = document.body.innerHTML + "<p>The mayor presents you with a magic coin. +10% chance to get more gold.</p>";
         goldChance = goldChance + 0.10
     }
+    level = level + 6;
+    //Increasing the amount of gold you can get.
     document.body.innerHTML = document.body.innerHTML + "<p>The mayor then tells you to head to the town of Ruillind to find the source of all this, when you're ready.</p> <p><button onClick = \"arriveJudal()\"> Town Square </button></p>";
 };
