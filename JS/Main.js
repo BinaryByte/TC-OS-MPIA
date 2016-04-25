@@ -1,5 +1,7 @@
 //Declares all of the variables to be used for later.
 var version = 0.1;
+var level = 5;
+//Level is used for getting gold. It's at five for a reason.
 var storyLineBegan = false;
 var enemyDefense;
 var destinationName;
