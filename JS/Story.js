@@ -231,17 +231,18 @@ function continueOnward() {
 }
 
 function noDragonRide() {
-    //Sets the destination and exeutes judalNoDragon() function, adding the woman and reducing your travel speed if you saved her.
+    //Sets the destination and exeutes travelNok() function, adding the woman and reducing your travel speed if you saved her.
     clear();
     destination = 'JudalStory'
+    destinationName = 'Judal';
+    distance = 20;
     document.body.innerHTML = "\"Whatever, adventurer. I was planning to eat you anyway.\" You begin walking to Judal.";
-    document.body.innerHTML = document.body.innerHTML + "<p><button onClick =\"judalNoDragon()\"> Walk </button></p>";
+    document.body.innerHTML = document.body.innerHTML + "<p><button onClick =\"travelNok()\"> Walk </button></p>";
     if (saved === true) {
         travelingSpeedOriginal = travelingSpeed;
         travelingSpeed = travelingSpeed - 5;
         document.body.innerHTML = document.body.innerHTML + "<p>You have saved the woman, so you get a deduction to your traveling speed. - 5 traveling speed. Your total traveling speed is now " + travelingSpeed + " miles per day.</p>";
     }
-    judalNoDragon();
    
 };
 
