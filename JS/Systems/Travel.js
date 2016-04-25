@@ -346,7 +346,7 @@ function magicCaveEvent(){
 }
 
 function treasureChance(){
-    var chance = Math.floor(Math.random() * 100) * goldChance;
+    var chance = Math.floor(Math.random() * (level * 10)) * goldChance;
     window.alert("You\'ve found " + chance + " gold!");
     gold = gold + chance;
     travelNok();
