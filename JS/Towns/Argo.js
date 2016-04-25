@@ -236,7 +236,8 @@ function religion(){
     edit("You find a man standing at a statue to the all-powerful god ANT, and asks you to either <input onClick=\"pray()\" type=\"button\" value=\" Pray \"></input> to the statue, or <input onClick=\"wrath()\" type=\"button\" value=\" break it \"></input>.");
     }
     } else {
-    edit("Nothing but the wind...");
+    window.alert("Nothing but the wind...");
+    again();
      }
      }
 function pray(){
@@ -247,7 +248,7 @@ function pray(){
     edit("You feel blessed. Do you: <input type=\"button\" onClick=\"prayGold()\" value=\"give gold (50 gold)\"></input>, or <input type=\"button\" onClick=\"again()\" value=\"leave\"></input>.")
 }
 function prayGold(){
-    if(gold >= 15){
+    if(gold >= 50){
     goldGiven = true;
     console.log("Working.");
     gold=gold - 50;
