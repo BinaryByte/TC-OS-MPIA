@@ -1,3 +1,4 @@
+saved = false;
 function storylineStart() {
     //Detects if during travel you picked up the note (The storyline began variable). If so, then it begins takes you to travelNok.
     if (storyLineBegan === true) {
