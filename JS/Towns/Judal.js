@@ -22,7 +22,7 @@ function exploreJudal(){
             exploreCabbage();
             break;
         default:
-            edit("<p>Nothing...</p>");
+            window.alert("Nothing...");
             break;
     }
 }
