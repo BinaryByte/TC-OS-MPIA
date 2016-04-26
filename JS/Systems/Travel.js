@@ -104,12 +104,10 @@ function attackBandits() {
     while (attacked === true) {
         if (enemyHealth <= 0) {
             attacked = false;
-            window.alert('You win! + 10 gold!');
-            gold = gold + 10;
             if (health > maxHealth) {
                 health = maxHealth;
             }
-            travelNok();
+            treasureChance();
         } else if (health <= 0) {
             attacked = false;
             window.alert("You are dead.");
@@ -122,12 +120,10 @@ function attackBandits() {
             window.alert("The enemy health is now " + enemyHealth + "!");
             if (enemyHealth <= 0) {
                 attacked = false;
-                window.alert('You win! + 10 gold!');
-                gold = gold + 10;
                 if (health > maxHealth) {
                     health = maxHealth;
                 }
-                travelNok();
+                treasureChance();
             } else {
                 criticalChance = Math.floor(Math.random() * 5);
                 enemyAttack2 = (enemyAttack + criticalChance) - defense;
