@@ -1,7 +1,7 @@
 //Contains stuff for the start menu
 function difficultySet() {
     //Prompts you for the difficulty
-    var difficulty = prompt("Easy, Medium, Hard, or Insane?");
+    var difficulty = prompt("Easy, Medium, or Hard?");
     switch (difficulty) {
         //Sets the difficulty based on your response
         case 'Easy':
@@ -22,14 +22,6 @@ function difficultySet() {
             defense = 7;
             health = 7;
             maxHealth = 7;
-            break;
-        case 'Insane':
-            window.alert("Difficulty set to Insane.");
-            gold = 5;
-            attack = 5;
-            defense = 5;
-            health = 5;
-            maxHealth = 5;
             break;
         default:
         //If not recognized, it tells you that it couldn't recognize your string.
