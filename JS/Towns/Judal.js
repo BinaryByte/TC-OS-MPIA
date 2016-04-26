@@ -194,10 +194,17 @@ function kingVictory(){
 }
 function exploreCabbage(){
     clear();
+    if (cabbageDone===false){
     edit("As you explore, you are drawn to the outskirts of town by the delicious smell of boiled cabbage soup. As you approach you see a long line to a restaurant called Cabbage Deluxe. <input value=\" Wait in Line \" type=\"button\" onClick=\"judalRestaurant()\"></input><input value=\" leave \" type=\"button\" onClick=\"arriveJudal()\"></input>");
+    } 
+    else{
+        clear();
+        edit("The cabbage store is closed <input type=\"button\" onClick=\"arriveJudal()\"> leave </input>");
+    }
 }
 function judalRestaurant(){
     clear();
+    cabbageDone=true;
     edit("It's your turn to order, and the man in the window gives you three options, <input value=\" Cabbage Soup \" type=\"button\" onClick=\"cabbageSoup()\"></input>, <input value=\" cabbage casserole \" type=\"button\" onClick=\"cabbageCasserole()\"></input>, <input value=\" cabbage sandwich \" type=\"button\" onClick=\"cabbageSandwich()\"></input>. All of which are free because it's free cabbage Tuesday, sponsored by the mayor.");
 }
 function cabbageSoup(){
