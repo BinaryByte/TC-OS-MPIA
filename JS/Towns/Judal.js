@@ -84,6 +84,7 @@ function trainStamina(){
     if (gold>=20){
     gold=gold-20;
     health=health+2;
+    maxHealth = health;
     edit("You train long and hard, health+2. <input value=\"Store\" type=\"button\" onClick=\"judalStore()\"></input>")
     }
     else{
