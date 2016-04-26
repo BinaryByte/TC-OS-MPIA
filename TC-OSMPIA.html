@@ -2,7 +2,20 @@
 
 <head>
     <title>TC-OS MATIBWTSSYWBMTBTPOJ</title>
-   <script src = "TC-OS MPIA.js"></script>
+   <script src = "JS/Main.js"></script>
+   <script src = "JS/StartMenu.js"></script>
+   <script src = "JS/Systems/Travel.js"></script>
+   <script src = "JS/Story.js"></script>
+   <script src = "JS/Towns/Judal.js"></script>
+   <script src = "JS/Towns/Nok.js"></script>
+   <script src = "JS/Towns/Argo.js"></script>
+   <script src = "JS/Systems/CombatSystem.js"></script>
+   <script>
+       function manualOpen(){
+           window.open("MANUAL.txt");
+       }
+   </script>
+   <link rel = "stylesheet" href = "CSS/main.css" type = "text/css">
     <style>
         h1{
             font-family: Comic Sans MS;
@@ -26,12 +39,12 @@
 <body>
     <h1 onClick = "evil()">TC-OS MPIA</h1> <p id = "version">Version 0.1</p>
         <div id = "buttonrow">
-    <button onClick="begin()">Begin Adventure</button>
-    <button onClick = "options()">Options</button>
+    <button onClick="begin()">Begin Adventure </button>
+    <button onClick = "options()">Options </button>
     <button onClick = "difficultySet()">Set Difficulty</button>
     </div>
     <div id = "buttons">
-    <p><button onClick = "credits()">Credits</button></p>
+    <p><button onClick = "manualOpen()">Manual</button></p>
     </div>
 
 </body>
