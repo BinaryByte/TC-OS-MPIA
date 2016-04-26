@@ -1,3 +1,4 @@
+var cabbageDone = false;
 function arriveJudal() {
     //Presents you with the choice to leave.
     clear();
