@@ -2,6 +2,9 @@
 seasick=true;
 captainTalk=false;
 var nIsAmazing=false;
+function bossFightRuillind(){
+  systems.combat("Giant Frog", 50, 13, 5, "frogAttackR");
+}
 function arriveRuillind(){
   clear();
   edit("You are now in the port city of Ruillind! <input value=\" Explore \" type=\"button\" onClick=\"exploreRuillind()\"></input> <input value=\" Leave \" type=\"button\" onClick=\"\"></input>");
