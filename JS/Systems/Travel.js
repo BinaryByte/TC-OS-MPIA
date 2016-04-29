@@ -3,6 +3,7 @@ factionEnemy = 0;
 var faction = null;
 var moneyWon = 0;
 var moneyLost = 0;
+var specialEncounter;
 var gnome;
 goal = 5;
 var travel = {
@@ -31,8 +32,22 @@ function travelNok() {
         clear();
         document.body.innerHTML = "You have arrived at " + destinationName + "!";
         document.body.innerHTML = document.body.innerHTML + "<p><button onClick = \"arrivePlace()\">Enter</button></p>";
+    } else if (distance = 2){
+        executeEncounter();
     }
 };
+
+function executeEncounter(){
+    switch(specialEncounter){
+        case 'none':
+            travelNok();
+            break;
+        default:
+            window.alert("Error! Something went wrong. Please notify the developer.");
+            travelNok();
+            break;
+    }
+}
 
 function travelEventNok() {
     //Creates random events for stuff to happen.
