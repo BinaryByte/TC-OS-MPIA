@@ -11,17 +11,17 @@ function arriveRuillind(){
 }
 function exploreRuillind(){
   var ruillindExploreChance=Math.floor(Math.random()*5)
-  if (ruillindExploreChance===5){
+  if (ruillindExploreChance===0){
     ruillindPort();
   }
-  else if (ruillindExploreChance===4){
+  else if (ruillindExploreChance===1){
     clear();
     edit("You find nothing.");
   }
-  else if (ruillindExploreChance===3) {
+  else if (ruillindExploreChance===2) {
     ambushArgo();
   }
-  else if (ruillindExploreChance===2) {
+  else if (ruillindExploreChance===3) {
     //Add more things to do here!
   }
   else {
