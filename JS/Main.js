@@ -39,7 +39,7 @@ var edit = function(text){
 
 var page = {
         buttonCreate: function(value, onClick){
-                this.buttonName = "<button onClick = \"" + onClick + "\">"+ value +"</button>";
+                document.body.innerHTML = document.body.innerHTML + "<button onClick = \"" + onClick + "\">"+ value +"</button>";
         }
 }
 //Declaring the variable for a critical chance for combat
