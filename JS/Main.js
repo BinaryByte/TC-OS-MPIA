@@ -39,6 +39,21 @@ var edit = function(text){
 //Declaring the variable for a critical chance for combat
 var criticalChance = Math.floor(Math.random() * 5);
 //This variable is used in Argo.js to detect if you were ambushed.
+var systems = {
+        travel: function(place, placename, distance1){
+                destinationName = placename;
+                destination = place;
+                distance = distance1;
+        },
+        combat: function(name, health, attack1, defense1, combatEnd1){
+                enemy = name;
+                enemyHealth = health1;
+                enemyMaxHealth = enemyHealth;
+                enemyAttack = attack1;
+                enemyDefense = defense1;
+                combatEnd = combatEnd1;
+        }
+}
 var ambushArgoT = false;
 function begin() {
     clear();
