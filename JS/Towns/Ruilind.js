@@ -41,7 +41,7 @@ function ruillindCaptain(){
     edit("You find a captain, when you talk to him he says, \"I haven't seen you around here before! You must be new. I am The Captain, and I am your one and only option for anything boat related.\" <input value=\" Leave \" type=\"button\" onClick=\"arriveRuillind()\"></input>");
   }
   else{
-    edit("The captain says, \"Hello there, traveler, what can I do for you?\" <input vallue=\" Go for a Joy Ride \" type=\"button\" onClick=\"joyRide()\"></input> <input value=\" Arrange Passage \" type=\"button\" onClick=\"arrangePassage()\"></input> <input value=\" Leave \" type=\"button\" onClick=\"arriveRuillind()\"></input>"
+    edit("The captain says, \"Hello there, traveler, what can I do for you?\" <input vallue=\" Go for a Joy Ride \" type=\"button\" onClick=\"joyRide()\"></input> <input value=\" Arrange Passage \" type=\"button\" onClick=\"arrangePassage()\"></input> <input value=\" Leave \" type=\"button\" onClick=\"arriveRuillind()\"></input>");
   }
 }
 function joyRide(){
