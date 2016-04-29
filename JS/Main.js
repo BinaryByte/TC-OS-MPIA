@@ -37,11 +37,8 @@ var edit = function(text){
         document.body.innerHTML = document.body.innerHTML + text;
 }
 
-var page = {
-        buttonCreate: function(value, onClick){
-                var button = "<button onClick = \"" + onClick + "\">" + value + "</button>"
-                document.body.innerHTML = document.body.innerHTML + button;
-        }
+var buttonCreate = function(value, onClicked){
+        button = "<button onClick = \"" + onClicked +"\">" + value + "</button>";
 }
 //Declaring the variable for a critical chance for combat
 var criticalChance = Math.floor(Math.random() * 5);
