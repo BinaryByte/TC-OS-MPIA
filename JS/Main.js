@@ -44,6 +44,7 @@ var systems = {
                 destinationName = placename;
                 destination = place;
                 distance = distance1;
+                travelNok();
         },
         combat: function(name, health1, attack1, defense1, combatEnd1){
                 enemy = name;
@@ -52,6 +53,7 @@ var systems = {
                 enemyAttack = attack1;
                 enemyDefense = defense1;
                 combatEnd = combatEnd1;
+                combatSystem();
         }
 }
 var ambushArgoT = false;
