@@ -42,6 +42,9 @@ function executeEncounter(){
         case 'none':
             travelNok();
             break;
+        case 'frogAttackR':
+            bossFightRuillind();
+            break;
         default:
             window.alert("Error! Something went wrong. Please notify the developer.");
             travelNok();
