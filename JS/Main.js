@@ -36,6 +36,13 @@ clicks = 0;
 var edit = function(text){
         document.body.innerHTML = document.body.innerHTML + text;
 }
+
+var page = {
+        buttonCreate: function(value, onClick){
+                var button = "<button onClick = \"" + onClick + "\">" + value + "</button>"
+                document.body.innerHTML = document.body.innerHTML + button;
+        }
+}
 //Declaring the variable for a critical chance for combat
 var criticalChance = Math.floor(Math.random() * 5);
 //This variable is used in Argo.js to detect if you were ambushed.
