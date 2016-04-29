@@ -3,7 +3,7 @@ factionEnemy = 0;
 var faction = null;
 var moneyWon = 0;
 var moneyLost = 0;
-var specialEncounter;
+var specialEncounter = 'none';
 var gnome;
 goal = 5;
 var travel = {
