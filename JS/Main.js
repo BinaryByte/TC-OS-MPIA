@@ -45,7 +45,7 @@ var systems = {
                 destination = place;
                 distance = distance1;
         },
-        combat: function(name, health, attack1, defense1, combatEnd1){
+        combat: function(name, health1, attack1, defense1, combatEnd1){
                 enemy = name;
                 enemyHealth = health1;
                 enemyMaxHealth = enemyHealth;
