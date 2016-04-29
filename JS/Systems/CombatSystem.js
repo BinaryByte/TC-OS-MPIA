@@ -88,6 +88,10 @@ function findEndCombat(){
     case 'turkeyHunt':
         kingVictory();
         break;
+    case 'frogAttackR':
+        window.alert("You have defeated the giant frog! You gain some gold!");
+        treasureChance();
+        break;
     default:
     window.alert("ERROR! Couldn't find end of combat location. Please report. Teleporting you to your last known location...");
     travelNok();
