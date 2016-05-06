@@ -10,7 +10,11 @@ function arriveJudal() {
 //everything below this needs to be added to an explore function
 
 function leaveJudal(){
-    document.body.innerHTML = " Where would you like to go? <p><button onClick = \"argoJudal()\"> Argo </button><button onClick = \"nokJudal()\"> Nok </button><button onClick = \"arriveJudal()\"> Stay </button></p>";
+    document.body.innerHTML = " Where would you like to go? <p><button onClick = \"argoJudal()\"> Argo </button><button onClick = \"nokJudal()\"> Nok </button><button onClick = \"ruillindJudal()\">Ruillind</button><button onClick = \"arriveJudal()\"> Stay </button></p>";
+}
+function ruillindJudal(){
+    specialEncounter = "frogAttackR";
+    systems.travel("ruillind","Ruillind",63);
 }
 
 function exploreJudal(){
