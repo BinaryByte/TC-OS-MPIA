@@ -11,6 +11,16 @@ function arriveRuillind(){
   clear();
   edit("You are now in the port city of Ruillind! <input value=\" Explore \" type=\"button\" onClick=\"exploreRuillind()\"></input> <input value=\" Leave \" type=\"button\" onClick=\"\"></input>");
 }
+
+function leaveRuillind(){
+  clear();
+  edit("Where would you like to go to? <button onClick = \"judalRuillind()\">Judal</button>");
+}
+
+function judalRuillind(){
+  specialEncounter = 'none';
+  systems.travel("Judal","Judal",63);
+}
 function exploreRuillind(){
   var ruillindExploreChance=Math.floor(Math.random()*5)
   if (ruillindExploreChance===0){
