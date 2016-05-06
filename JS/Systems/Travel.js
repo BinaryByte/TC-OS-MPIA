@@ -287,6 +287,9 @@ function arrivePlace() {
         case 'NokBurned':
             arriveNokBurned();
             break;
+        case 'ruillind':
+            arriveRuillind();
+            break;
         default:
             window.alert("You... um... well... there was a problem during transport. Let's teleport you to Judal, shall we? Sorry for the bug. Have some gold. +25 gold.");
             arriveJudal();
