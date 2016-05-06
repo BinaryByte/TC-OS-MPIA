@@ -96,7 +96,7 @@ function boatBoss(){
   clear();
   edit("You were enjoying a nice boat ride on the water when SUDDENLY you are attacked by a sea monster! <input value=\"Battle\" type=\"button\" onClick=\"seaMonster()\"></input>");
 }
-function boatTreasure();{
+function boatTreasure(){
   clear();
   edit("You have found a map to buried treasure! <input value=\"Follow the map!\" type=\"button\" onClick=\"treasureMap()\"></input> <input value=\"Leave\" type=\"button\" onClick=\"arriveRUillind()\"></input>");
 }
