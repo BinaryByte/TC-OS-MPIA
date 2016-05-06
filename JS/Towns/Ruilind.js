@@ -8,7 +8,7 @@ function bossFightRuillind(){
   systems.combat("Giant Frog", 50, 13, 5, "frogAttackR");
 }
 function arriveRuillind(){
-  clear();
+  clear();e
   edit("You are now in the port city of Ruillind! <input value=\" Explore \" type=\"button\" onClick=\"exploreRuillind()\"></input> <input value=\" Leave \" type=\"button\" onClick=\"leaveRuillind()\"></input>");
 }
 
@@ -121,7 +121,7 @@ function treasureMap(){
     edit("You got in a shipwreck! You have to pay back the captain! Your gold is now " + gold + "gold. <input value=\" leave \" type=\"button\" onClick=\"arriveRuillind()\"></input>");
   }
   else {
-    edit(You find nothing. Keep searching!);
+    edit("You find nothing. Keep searching!");
   }
 }
 function seaMonster(){
