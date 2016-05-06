@@ -3,7 +3,7 @@ function arriveJudal() {
     //Presents you with the choice to leave.
     clear();
     document.body.innerHTML = "You are now in the city of Judal.";
-    document.body.innerHTML = document.body.innerHTML + "<p><button onClick = \"exploreJudal()\"> Explore </button><button onClick = \"judalStore()\"> Shop </button><button onClick = \"leaveJudal()\"> Leave </button></p> <input value=\"Ruillind Test\" onClick=\"arriveRuillind()\" type=\"button\"></input>";
+    document.body.innerHTML = document.body.innerHTML + "<p><button onClick = \"exploreJudal()\"> Explore </button><button onClick = \"judalStore()\"> Shop </button><button onClick = \"leaveJudal()\"> Leave </button></p>";
 };
 //<input value=\"\" type=\"button\" onClick=\"\"></input> button template
 
