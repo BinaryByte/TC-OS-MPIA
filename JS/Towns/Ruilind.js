@@ -9,7 +9,7 @@ function bossFightRuillind(){
 }
 function arriveRuillind(){
   clear();
-  edit("You are now in the port city of Ruillind! <input value=\" Explore \" type=\"button\" onClick=\"exploreRuillind()\"></input> <input value=\" Leave \" type=\"button\" onClick=\"\"></input>");
+  edit("You are now in the port city of Ruillind! <input value=\" Explore \" type=\"button\" onClick=\"exploreRuillind()\"></input> <input value=\" Leave \" type=\"button\" onClick=\"leaveRuillind()\"></input>");
 }
 
 function leaveRuillind(){
