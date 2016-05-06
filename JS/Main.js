@@ -95,6 +95,7 @@ function wizard() {
 
 function clear() {
     //clears the page when called.
+    console.warn("You should not be using clear! PLEASE DON'T USE CLEAR! The maximum call stack size has been exceeded!");
         document.body.innerHTML = "";
 };
 
