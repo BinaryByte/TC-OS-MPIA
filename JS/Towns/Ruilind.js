@@ -14,7 +14,7 @@ function arriveRuillind(){
 
 function leaveRuillind(){
   clear();
-  edit("Where would you like to go to? <button onClick = \"judalRuillind()\">Judal</button>");
+  edit("Where would you like to go to? <button onClick = \"judalRuillind()\">Judal</button><button onClick = \"arriveRuillind()\">Stay</button>");
 }
 
 function judalRuillind(){
