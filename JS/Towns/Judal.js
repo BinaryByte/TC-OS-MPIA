@@ -13,7 +13,9 @@ function leaveJudal(){
     document.body.innerHTML = " Where would you like to go? <p><button onClick = \"argoJudal()\"> Argo </button><button onClick = \"nokJudal()\"> Nok </button><button onClick = \"ruillindJudal()\">Ruillind</button><button onClick = \"arriveJudal()\"> Stay </button></p>";
 }
 function ruillindJudal(){
+    if(frogAttacked = false){
     specialEncounter = "frogAttackR";
+    }
     systems.travel("ruillind","Ruillind",63);
 }
 
