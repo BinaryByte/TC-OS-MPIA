@@ -31,9 +31,6 @@ function exploreRuillind(){
     edit("You find nothing.");
   }
   else if (ruillindExploreChance===2) {
-    ambushArgo();
-  }
-  else if (ruillindExploreChance===3) {
     //Add more things to do here!
   }
   else {
