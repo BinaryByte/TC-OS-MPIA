@@ -77,6 +77,7 @@ function wizard() {
 
 function clear() {
     //clears the page when called.
+    console.warn("Do not use clear. clear has exceeded the maximum call stack. Use instead: document.body.innerHTML please!");
         document.body.innerHTML = "";
 };
 
