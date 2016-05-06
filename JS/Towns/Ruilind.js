@@ -2,7 +2,9 @@
 seasick=true;
 captainTalk=false;
 var nIsAmazing=false;
+var frogAttacked = false;
 function bossFightRuillind(){
+  frogAttacked = true;
   systems.combat("Giant Frog", 50, 13, 5, "frogAttackR");
 }
 function arriveRuillind(){
