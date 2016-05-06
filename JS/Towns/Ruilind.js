@@ -80,7 +80,7 @@ function boatDrive(){
     boatBoss();
   }
 }
-function boatBoss();{
+function boatBoss(){
   clear();
   edit("You were enjoying a nice boat ride on the water when SUDDENLY you are attacked by a sea monster! <input value=\"Battle\" type=\"button\" onClick=\"seaMonster()\"></input>");
 }
