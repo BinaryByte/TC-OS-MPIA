@@ -12,6 +12,12 @@
    <script src = "JS/Towns/Ruilind.js"
    <script src = "JS/Systems/CombatSystem.js"></script>
    <script>
+   
+var pages = {
+        buttonCreate: function(value, onClick){
+                document.body.innerHTML = document.body.innerHTML + "<button onClick = \"" + onClick + "\">"+ value +"</button>";
+        }
+}
        function manualOpen(){
            window.open("MANUAL.txt");
        }
