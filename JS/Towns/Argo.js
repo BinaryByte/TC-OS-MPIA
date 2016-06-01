@@ -15,7 +15,7 @@ function leaveArgo() {
     if (nokBurned === true) {
         document.body.innerHTML = document.body.innerHTML + "<p><button onClick = \"travelJudalSet()\"> Judal </button><button onClick = \"travelNokSet()\"> Nok </button><button onClick = \"again()\"> Stay </button></p>";
     } else {
-        distance = distanceToNok;
+        distance = 50;
         destination = 'Nok';
         destinationName = 'Nok';
         clear();
